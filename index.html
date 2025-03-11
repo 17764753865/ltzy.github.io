@@ -1,416 +1,357 @@
-<!doctype html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="蓝天资源网，提供各类优质资源下载，让找资源不再麻烦！">
-    <link rel="icon" href="/PNG/1.png">
-    <title>蓝天资源网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统资源网</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            font-family: 'Microsoft YaHei', sans-serif;
         }
         
         body {
-            background-color: #f8f9fa;
+            background-color: #f5f5f5;
             color: #333;
-            line-height: 1.6;
         }
         
-        .navbar {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            padding: 10px 20px;
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-        }
-        
-        .navbar-brand img {
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
-        
-        .navbar-brand span {
+        .logo {
+            font-size: 28px;
             font-weight: bold;
-            font-size: 18px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
-        .nav-links {
+        nav ul {
             display: flex;
-            gap: 20px;
+            list-style: none;
+            justify-content: flex-end;
         }
         
-        .nav-link {
-            color: #333;
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            padding: 5px 10px;
-            border-radius: 4px;
         }
         
-        .nav-link:hover {
-            color: #1890ff;
+        nav ul li a:hover {
+            color: #3498db;
         }
         
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        
-        .section-title {
-            font-size: 24px;
-            margin: 20px 0;
-            color: #333;
-            text-align: center;
-        }
-        
-        .stats-section {
-            display: flex;
-            justify-content: space-around;
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
             margin: 40px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
         
-        .stat-card {
+        .category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
             text-align: center;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            flex: 1;
-            margin: 0 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
         
-        .stat-number {
-            font-size: 28px;
-            font-weight: bold;
-            color: #1890ff;
-            margin-bottom: 5px;
+        .category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .stat-label {
-            color: #666;
+        .category img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        
+        .category h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 20px;
+        }
+        
+        .category p {
+            color: #7f8c8d;
             font-size: 14px;
         }
         
-        .category-section {
+        .resource-list {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
             margin: 30px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
+        .resource-list h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 24px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
         }
         
-        .category-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+        .resource-item {
+            display: flex;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
         }
         
-        .category-card:hover {
-            transform: translateY(-5px);
+        .resource-item:last-child {
+            border-bottom: none;
         }
         
-        .category-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 15px;
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
             background-color: #f0f0f0;
-            border-radius: 50%;
-        }
-        
-        .category-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .category-desc {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .featured-resources {
-            margin: 50px 0;
-        }
-        
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .resource-card {
-            background-color: #fff;
             border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
         }
         
-        .resource-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .resource-image {
-            width: 100%;
-            height: 160px;
-            background-color: #f0f0f0;
+        .resource-icon img {
+            max-width: 100%;
+            max-height: 100%;
         }
         
         .resource-info {
-            padding: 15px;
+            flex: 1;
         }
         
-        .resource-title {
-            font-weight: bold;
+        .resource-info h3 {
             margin-bottom: 8px;
-            font-size: 16px;
+            color: #2c3e50;
+            font-size: 18px;
         }
         
-        .resource-desc {
-            color: #666;
+        .resource-info p {
+            color: #7f8c8d;
             font-size: 14px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
         
-        .download-button {
-            display: inline-block;
-            background-color: #1890ff;
+        .resource-info .version {
+            font-size: 12px;
+            color: #95a5a6;
+        }
+        
+        .view-btn {
+            background-color: #5dade2;
             color: white;
+            border: 1px solid #5dade2;
             padding: 5px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-            transition: background-color 0.3s;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+            margin-left: 15px;
+            display: inline-block;
+            text-align: center;
+            line-height: 1.5;
         }
         
-        .download-button:hover {
-            background-color: #0c7cd5;
+        .view-btn:hover {
+            background-color: #3498db;
+            border-color: #3498db;
+            transform: translateY(-1px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
-        .footer {
-            background-color: #f8f9fa;
-            color: #666;
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
             padding: 30px 0;
             margin-top: 50px;
         }
         
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            padding: 0 20px;
-        }
-        
-        .footer-column h3 {
+        footer p {
             margin-bottom: 15px;
-            font-size: 18px;
-            color: #333;
         }
         
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #666;
+        footer a {
+            color: #3498db;
             text-decoration: none;
-            transition: color 0.3s;
         }
         
-        .footer-column ul li a:hover {
-            color: #1890ff;
+        footer a:hover {
+            text-decoration: underline;
         }
         
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid #eee;
-            font-size: 14px;
-            color: #999;
+        .tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar">
-            <div class="navbar-container">
-                <div class="navbar-brand">
-                    <img src="/PNG/1.png" alt="蓝天资源网Logo">
-                    <span>蓝天资源网</span>
-                </div>
-                <div class="nav-links">
-                    <a href="/" class="nav-link">首页</a>
-                    <a href="/resources" class="nav-link">全部资源</a>
-                    <a href="/categories" class="nav-link">资源分类</a>
-                    <a href="/about" class="nav-link">关于我们</a>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="content-wrapper">
-            <h1 class="section-title">优质资源，一键获取</h1>
-            
-            <div class="stats-section">
-                <div class="stat-card">
-                    <div class="stat-number">24,573</div>
-                    <div class="stat-label">总资源数</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">12,842</div>
-                    <div class="stat-label">软件资源</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8,651</div>
-                    <div class="stat-label">文档资源</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">3,482</div>
-                    <div class="stat-label">其他资源</div>
-                </div>
-            </div>
-            
-            <div class="category-section">
-                <h2 class="section-title">资源分类</h2>
-                <div class="category-grid">
-                    <div class="category-card">
-                        <div class="category-icon"></div>
-                        <div class="category-name">办公软件</div>
-                        <div class="category-desc">提高工作效率的必备工具</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon"></div>
-                        <div class="category-name">图像视频</div>
-                        <div class="category-desc">专业的设计与多媒体工具</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon"></div>
-                        <div class="category-name">系统工具</div>
-                        <div class="category-desc">优化您的系统性能</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon"></div>
-                        <div class="category-name">开发工具</div>
-                        <div class="category-desc">程序员的得力助手</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon"></div>
-                        <div class="category-name">教育学习</div>
-                        <div class="category-desc">知识的宝库，学习的助手</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon"></div>
-                        <div class="category-name">娱乐资源</div>
-                        <div class="category-desc">丰富您的休闲时光</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="featured-resources">
-                <h2 class="section-title">热门推荐</h2>
-                <div class="featured-grid">
-                    <div class="resource-card">
-                        <div class="resource-image"></div>
-                        <div class="resource-info">
-                            <div class="resource-title">高效办公软件套件</div>
-                            <div class="resource-desc">集成多种办公工具，提升工作效率</div>
-                            <a href="#" class="download-button">下载</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="resource-image"></div>
-                        <div class="resource-info">
-                            <div class="resource-title">专业图像编辑工具</div>
-                            <div class="resource-desc">满足设计师的各种需求</div>
-                            <a href="#" class="download-button">下载</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="resource-image"></div>
-                        <div class="resource-info">
-                            <div class="resource-title">系统优化大师</div>
-                            <div class="resource-desc">一键清理系统垃圾，提升系统性能</div>
-                            <a href="#" class="download-button">下载</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="resource-image"></div>
-                        <div class="resource-info">
-                            <div class="resource-title">编程开发环境</div>
-                            <div class="resource-desc">支持多种编程语言和框架</div>
-                            <a href="#" class="download-button">下载</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <header>
+        <div class="container">
+            <div class="logo">系统资源网</div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">系统软件</a></li>
+                    <li><a href="#">系统工具</a></li>
+                    <li><a href="#">驱动程序</a></li>
+                    <li><a href="#">系统安全</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>关于我们</h3>
-                    <ul>
-                        <li><a href="/about">网站介绍</a></li>
-                        <li><a href="/team">团队成员</a></li>
-                        <li><a href="/contact">联系我们</a></li>
-                        <li><a href="/recruit">人才招聘</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="/resources">全部资源</a></li>
-                        <li><a href="/new">最新更新</a></li>
-                        <li><a href="/popular">热门推荐</a></li>
-                        <li><a href="/contribution">资源投稿</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>联系我们</h3>
-                    <ul>
-                        <li><a href="mailto:contact@蓝天资源网.com">电子邮箱: contact@蓝天资源网.com</a></li>
-                        <li><a href="https://qq.com/蓝天资源网">QQ: 123456789</a></li>
-                    </ul>
-                </div>
+    </header>
+
+    <main class="container">
+        <section class="categories">
+            <div class="category">
+                <img src="https://via.placeholder.com/100" alt="Windows">
+                <h3>Windows</h3>
+                <p>Windows系统资源</p>
             </div>
-            <div class="copyright">
-                <p>Copyright © 2022-2025 蓝天工作室 - All rights reserved</p>
-                <p>本站所有资源仅供学习交流使用，请在下载后24小时内删除</p>
+            <div class="category">
+                <img src="https://via.placeholder.com/100" alt="Mac">
+                <h3>Mac</h3>
+                <p>Mac系统资源</p>
             </div>
-        </footer>
-    </div>
+            <div class="category">
+                <img src="https://via.placeholder.com/100" alt="Linux">
+                <h3>Linux</h3>
+                <p>Linux系统资源</p>
+            </div>
+            <div class="category">
+                <img src="https://via.placeholder.com/100" alt="工具软件">
+                <h3>工具软件</h3>
+                <p>系统工具资源</p>
+            </div>
+        </section>
+
+        <section class="resource-list">
+            <h2>热门资源</h2>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Windows 10"></div>
+                <div class="resource-info">
+                    <h3>Windows 10 专业版</h3>
+                    <p><span class="tag">最新</span>最新Windows 10系统镜像，稳定高效，支持多种安装方式。</p>
+                    <p class="version">版本: 21H2 | 更新时间: 2023-05-15</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="MacOS"></div>
+                <div class="resource-info">
+                    <h3>MacOS Monterey</h3>
+                    <p><span class="tag">热门</span>苹果MacOS最新版本，支持Intel和M1芯片，全新功能体验。</p>
+                    <p class="version">版本: 12.3 | 更新时间: 2023-04-20</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Ubuntu"></div>
+                <div class="resource-info">
+                    <h3>Ubuntu 22.04 LTS</h3>
+                    <p><span class="tag">推荐</span>流行的Linux发行版，长期支持版本，适合服务器和桌面使用。</p>
+                    <p class="version">版本: 22.04 | 更新时间: 2023-03-10</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+        </section>
+
+        <section class="resource-list">
+            <h2>最新资源</h2>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="NVIDIA"></div>
+                <div class="resource-info">
+                    <h3>NVIDIA显卡驱动</h3>
+                    <p>最新NVIDIA显卡驱动程序，支持多款显卡型号，提升性能和稳定性。</p>
+                    <p class="version">版本: 512.15 | 更新时间: 2023-05-20</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="优化工具"></div>
+                <div class="resource-info">
+                    <h3>系统优化工具</h3>
+                    <p>高效系统优化软件，一键清理垃圾文件，提升系统运行速度。</p>
+                    <p class="version">版本: 3.2.1 | 更新时间: 2023-05-10</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="杀毒软件"></div>
+                <div class="resource-info">
+                    <h3>杀毒软件</h3>
+                    <p>强大的杀毒安全软件，实时监控系统，有效防止病毒和恶意软件。</p>
+                    <p class="version">版本: 5.0.0 | 更新时间: 2023-04-30</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 系统资源网. 保留所有权利.</p>
+            <p>联系我们: <a href="mailto:contact@systemres.cn">contact@systemres.cn</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // 查看按钮点击事件
+        document.querySelectorAll('.view-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('查看按钮被点击');
+                // 这里可以添加实际的查看逻辑
+            });
+        });
+
+        // 导航栏固定在顶部
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
