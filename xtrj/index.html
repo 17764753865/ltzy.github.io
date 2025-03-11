@@ -145,7 +145,7 @@
             color: #95a5a6;
         }
         
-        .view-btn {
+        .download-btn {
             background-color: #5dade2;
             color: white;
             border: 1px solid #5dade2;
@@ -154,17 +154,23 @@
             cursor: pointer;
             font-size: 13px;
             transition: all 0.3s;
-            margin-left: 15px;
+            margin-left: 10px;
             display: inline-block;
             text-align: center;
             line-height: 1.5;
         }
         
-        .view-btn:hover {
+        .download-btn:hover {
             background-color: #3498db;
             border-color: #3498db;
             transform: translateY(-1px);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .btn-group {
+            display: flex;
+            margin-left: 20px;
+            flex-wrap: wrap;
         }
         
         footer {
@@ -248,7 +254,11 @@
                     <p><span class="tag">最新</span>最新Windows 10系统镜像，稳定高效，支持多种安装方式。</p>
                     <p class="version">版本: 21H2 | 更新时间: 2023-05-15</p>
                 </div>
-                <a href="#" class="view-btn">查看</a>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">官方下载</a>
+                    <a href="#" class="download-btn">百度网盘</a>
+                    <a href="#" class="download-btn">阿里云盘</a>
+                </div>
             </div>
             <div class="resource-item">
                 <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Windows 11"></div>
@@ -257,7 +267,11 @@
                     <p><span class="tag">热门</span>最新Windows 11系统镜像，全新界面和功能，提升用户体验。</p>
                     <p class="version">版本: 22H2 | 更新时间: 2023-06-20</p>
                 </div>
-                <a href="#" class="view-btn">查看</a>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">官方下载</a>
+                    <a href="#" class="download-btn">百度网盘</a>
+                    <a href="#" class="download-btn">阿里云盘</a>
+                </div>
             </div>
         </section>
 
@@ -270,7 +284,11 @@
                     <p><span class="tag">推荐</span>苹果MacOS最新版本，支持Intel和M1芯片，全新功能体验。</p>
                     <p class="version">版本: 12.3 | 更新时间: 2023-04-20</p>
                 </div>
-                <a href="#" class="view-btn">查看</a>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">官方下载</a>
+                    <a href="#" class="download-btn">百度网盘</a>
+                    <a href="#" class="download-btn">阿里云盘</a>
+                </div>
             </div>
             <div class="resource-item">
                 <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="MacOS Ventura"></div>
@@ -279,7 +297,11 @@
                     <p>最新MacOS系统，带来更多新功能和优化，提升系统性能。</p>
                     <p class="version">版本: 13.0 | 更新时间: 2023-05-10</p>
                 </div>
-                <a href="#" class="view-btn">查看</a>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">官方下载</a>
+                    <a href="#" class="download-btn">百度网盘</a>
+                    <a href="#" class="download-btn">阿里云盘</a>
+                </div>
             </div>
         </section>
 
@@ -292,7 +314,11 @@
                     <p><span class="tag">热门</span>流行的Linux发行版，长期支持版本，适合服务器和桌面使用。</p>
                     <p class="version">版本: 22.04 | 更新时间: 2023-03-10</p>
                 </div>
-                <a href="#" class="view-btn">查看</a>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">官方下载</a>
+                    <a href="#" class="download-btn">百度网盘</a>
+                    <a href="#" class="download-btn">阿里云盘</a>
+                </div>
             </div>
             <div class="resource-item">
                 <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="CentOS"></div>
@@ -301,7 +327,11 @@
                     <p>稳定的企业级Linux发行版，适合服务器环境。</p>
                     <p class="version">版本: 7.9 | 更新时间: 2023-02-15</p>
                 </div>
-                <a href="#" class="view-btn">查看</a>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">官方下载</a>
+                    <a href="#" class="download-btn">百度网盘</a>
+                    <a href="#" class="download-btn">阿里云盘</a>
+                </div>
             </div>
             <div class="resource-item">
                 <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Fedora"></div>
@@ -310,7 +340,11 @@
                     <p>最新的Fedora发行版，带来最新的软件和技术。</p>
                     <p class="version">版本: 36 | 更新时间: 2023-04-05</p>
                 </div>
-                <a href="#" class="view-btn">查看</a>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">官方下载</a>
+                    <a href="#" class="download-btn">百度网盘</a>
+                    <a href="#" class="download-btn">阿里云盘</a>
+                </div>
             </div>
         </section>
     </main>
@@ -323,12 +357,12 @@
     </footer>
 
     <script>
-        // 查看按钮点击事件
-        document.querySelectorAll('.view-btn').forEach(button => {
+        // 下载按钮点击事件
+        document.querySelectorAll('.download-btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                alert('查看按钮被点击');
-                // 这里可以添加实际的查看逻辑
+                alert('下载按钮被点击');
+                // 这里可以添加实际的下载逻辑
             });
         });
 
