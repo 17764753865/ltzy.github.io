@@ -2,10 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/PNG/1.png" rel="icon">
-    <title>蓝天资源网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统资源网 - 系统软件</title>
     <style>
         * {
             margin: 0;
@@ -62,48 +60,24 @@
             color: #3498db;
         }
         
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-            padding: 20px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .category {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
+        .section-header {
+            background-color: #34495e;
+            color: white;
+            padding: 40px 0;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
         }
         
-        .category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .category img {
-            width: 100px;
-            height: 100px;
+        .section-header h1 {
+            font-size: 32px;
             margin-bottom: 15px;
-            border-radius: 10px;
-            object-fit: cover;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
         
-        .category h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-size: 20px;
-        }
-        
-        .category p {
-            color: #7f8c8d;
-            font-size: 14px;
+        .section-header p {
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
         
         .resource-list {
@@ -223,16 +197,28 @@
             font-size: 12px;
             margin-right: 5px;
         }
+        
+        .page-description {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .page-description p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">蓝天资源网</div>
+            <div class="logo">系统资源网</div>
             <nav>
                 <ul>
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/xtrj">系统软件</a></li>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">系统软件</a></li>
                     <li><a href="#">系统工具</a></li>
                     <li><a href="#">驱动程序</a></li>
                     <li><a href="#">系统安全</a></li>
@@ -241,32 +227,20 @@
         </div>
     </header>
 
+    <section class="section-header">
+        <div class="container">
+            <h1>系统软件</h1>
+            <p>提供各种操作系统的官方安装镜像和系统软件，满足您的系统安装和升级需求。</p>
+        </div>
+    </section>
+
     <main class="container">
-        <section class="categories">
-            <div class="category">
-                <img src="https://via.placeholder.com/100" alt="Windows">
-                <h3>Windows</h3>
-                <p>Windows系统资源</p>
-            </div>
-            <div class="category">
-                <img src="https://via.placeholder.com/100" alt="Mac">
-                <h3>Mac</h3>
-                <p>Mac系统资源</p>
-            </div>
-            <div class="category">
-                <img src="https://via.placeholder.com/100" alt="Linux">
-                <h3>Linux</h3>
-                <p>Linux系统资源</p>
-            </div>
-            <div class="category">
-                <img src="https://via.placeholder.com/100" alt="工具软件">
-                <h3>工具软件</h3>
-                <p>系统工具资源</p>
-            </div>
+        <section class="page-description">
+            <p>在这里您可以找到Windows、MacOS、Linux等主流操作系统的最新版本，以及各种系统相关的工具软件。所有资源均经过严格筛选和安全检测，确保无病毒、无恶意软件，让您放心下载。</p>
         </section>
 
         <section class="resource-list">
-            <h2>热门资源</h2>
+            <h2>Windows系统</h2>
             <div class="resource-item">
                 <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Windows 10"></div>
                 <div class="resource-info">
@@ -277,51 +251,64 @@
                 <a href="#" class="view-btn">查看</a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="MacOS"></div>
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Windows 11"></div>
                 <div class="resource-info">
-                    <h3>MacOS Monterey</h3>
-                    <p><span class="tag">热门</span>苹果MacOS最新版本，支持Intel和M1芯片，全新功能体验。</p>
-                    <p class="version">版本: 12.3 | 更新时间: 2023-04-20</p>
-                </div>
-                <a href="#" class="view-btn">查看</a>
-            </div>
-            <div class="resource-item">
-                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Ubuntu"></div>
-                <div class="resource-info">
-                    <h3>Ubuntu 22.04 LTS</h3>
-                    <p><span class="tag">推荐</span>流行的Linux发行版，长期支持版本，适合服务器和桌面使用。</p>
-                    <p class="version">版本: 22.04 | 更新时间: 2023-03-10</p>
+                    <h3>Windows 11 家庭版</h3>
+                    <p><span class="tag">热门</span>最新Windows 11系统镜像，全新界面和功能，提升用户体验。</p>
+                    <p class="version">版本: 22H2 | 更新时间: 2023-06-20</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
         </section>
 
         <section class="resource-list">
-            <h2>最新资源</h2>
+            <h2>MacOS系统</h2>
             <div class="resource-item">
-                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="NVIDIA"></div>
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="MacOS Monterey"></div>
                 <div class="resource-info">
-                    <h3>NVIDIA显卡驱动</h3>
-                    <p>最新NVIDIA显卡驱动程序，支持多款显卡型号，提升性能和稳定性。</p>
-                    <p class="version">版本: 512.15 | 更新时间: 2023-05-20</p>
+                    <h3>MacOS Monterey</h3>
+                    <p><span class="tag">推荐</span>苹果MacOS最新版本，支持Intel和M1芯片，全新功能体验。</p>
+                    <p class="version">版本: 12.3 | 更新时间: 2023-04-20</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="优化工具"></div>
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="MacOS Ventura"></div>
                 <div class="resource-info">
-                    <h3>系统优化工具</h3>
-                    <p>高效系统优化软件，一键清理垃圾文件，提升系统运行速度。</p>
-                    <p class="version">版本: 3.2.1 | 更新时间: 2023-05-10</p>
+                    <h3>MacOS Ventura</h3>
+                    <p>最新MacOS系统，带来更多新功能和优化，提升系统性能。</p>
+                    <p class="version">版本: 13.0 | 更新时间: 2023-05-10</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+        </section>
+
+        <section class="resource-list">
+            <h2>Linux系统</h2>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Ubuntu"></div>
+                <div class="resource-info">
+                    <h3>Ubuntu 22.04 LTS</h3>
+                    <p><span class="tag">热门</span>流行的Linux发行版，长期支持版本，适合服务器和桌面使用。</p>
+                    <p class="version">版本: 22.04 | 更新时间: 2023-03-10</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="杀毒软件"></div>
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="CentOS"></div>
                 <div class="resource-info">
-                    <h3>杀毒软件</h3>
-                    <p>强大的杀毒安全软件，实时监控系统，有效防止病毒和恶意软件。</p>
-                    <p class="version">版本: 5.0.0 | 更新时间: 2023-04-30</p>
+                    <h3>CentOS 7</h3>
+                    <p>稳定的企业级Linux发行版，适合服务器环境。</p>
+                    <p class="version">版本: 7.9 | 更新时间: 2023-02-15</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="https://via.placeholder.com/80" alt="Fedora"></div>
+                <div class="resource-info">
+                    <h3>Fedora 36</h3>
+                    <p>最新的Fedora发行版，带来最新的软件和技术。</p>
+                    <p class="version">版本: 36 | 更新时间: 2023-04-05</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
@@ -330,8 +317,8 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 蓝天资源网. 保留所有权利.</p>
-            <p>联系我们: <a href="mailto:zh-gf.129@ltzy.top">zh-gf.129@ltzy.top</a></p>
+            <p>&copy; 2023 系统资源网. 保留所有权利.</p>
+            <p>联系我们: <a href="mailto:contact@systemres.cn">contact@systemres.cn</a></p>
         </div>
     </footer>
 
