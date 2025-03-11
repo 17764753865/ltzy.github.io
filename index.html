@@ -1,3 +1,4 @@
+```html
 <!doctype html><!-- 定义文档类型为HTML5 -->
 <html lang="zh"><!-- 设置HTML语言为中文 -->
 <head><!-- 开始头部信息 -->
@@ -16,19 +17,19 @@
         }/* 全局样式重置，确保所有元素没有默认间距，并使用微软雅黑字体 */
         
         body {
-            background-color: #f5f7fa;
+            background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
         }/* 设置body背景颜色、文字颜色和行高 */
         
         .navbar {
-            background: linear-gradient(90deg, #1a237e, #4a148c);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             padding: 10px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-        }/* 导航栏样式，使用渐变背景色和阴影，固定在顶部 */
+        }/* 导航栏样式，使用白色背景和轻微阴影，固定在顶部 */
         
         .navbar-container {
             display: flex;
@@ -52,9 +53,9 @@
         
         .navbar-brand span {
             font-weight: bold;
-            color: #fff;
+            color: #333;
             font-size: 18px;
-        }/* 品牌文字样式，使用白色字体 */
+        }/* 品牌文字样式，使用深色字体 */
         
         .nav-links {
             display: flex;
@@ -62,17 +63,17 @@
         }/* 导航链接容器样式，使用flexbox布局，链接间有间隔 */
         
         .nav-link {
-            color: #fff;
+            color: #333;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             transition: color 0.3s;
             padding: 5px 10px;
             border-radius: 4px;
-        }/* 导航链接样式，使用白色字体，无下划线，有悬停效果 */
+        }/* 导航链接样式，使用深色字体，无下划线，有悬停效果 */
         
         .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }/* 导航链接悬停效果，背景变半透明白色 */
+            color: #1890ff;
+        }/* 导航链接悬停效果，字体变蓝色 */
         
         .content-wrapper {
             max-width: 1200px;
@@ -87,137 +88,62 @@
             text-align: center;
         }/* 主标题样式，居中显示，设置字体大小和颜色 */
         
-        .carousel {
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-            height: 200px;
-        }/* 轮播区样式，设置高度和相对定位 */
-        
-        .carousel-inner {
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto;
             display: flex;
-            transition: transform 0.5s ease;
-            height: 100%;
-        }/* 轮播内容容器，使用flexbox布局，支持平滑过渡 */
+        }/* 搜索框容器样式，居中显示 */
         
-        .carousel-item {
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-align: center;
-            background-size: cover;
-            background-position: center;
-        }/* 单个轮播项样式，全屏宽度，垂直居中内容 */
+        .search-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }/* 搜索输入框样式 */
         
-        .carousel-item:nth-child(1) {
-            background-color: #3f51b5;
-        }/* 第一个轮播项背景色 */
-        
-        .carousel-item:nth-child(2) {
-            background-color: #673ab7;
-        }/* 第二个轮播项背景色 */
-        
-        .carousel-item:nth-child(3) {
-            background-color: #4a148c;
-        }/* 第三个轮播项背景色 */
-        
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 10px;
-        }/* 轮播文字说明样式，半透明黑色背景 */
-        
-        .carousel-control-prev, .carousel-control-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
+        .search-button {
+            background-color: #1890ff;
+            color: white;
             border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            padding: 10px 20px;
+            border-radius: 0 4px 4px 0;
             cursor: pointer;
-        }/* 轮播控制按钮样式，圆形按钮，半透明黑色背景 */
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }/* 搜索按钮样式 */
         
-        .carousel-control-prev {
-            left: 10px;
-        }/* 上一张按钮位置 */
+        .search-button:hover {
+            background-color: #0c7cd5;
+        }/* 搜索按钮悬停效果 */
         
-        .carousel-control-next {
-            right: 10px;
-        }/* 下一张按钮位置 */
+        .stats-section {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }/* 资源统计区域样式，使用flexbox布局，内容均匀分布 */
         
-        .resources-section {
-            margin: 30px 0;
-        }/* 资源分区样式，设置上下外边距 */
-        
-        .resource-card {
+        .stat-card {
+            text-align: center;
+            padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            margin-bottom: 20px;
-            overflow: hidden;
-        }/* 资源卡片样式，白色背景，圆角，轻微阴影 */
-        
-        .card-header {
-            background-color: #e8f0fe;
-            padding: 15px 20px;
-            font-weight: bold;
-            color: #1a237e;
-            display: flex;
-            align-items: center;
-        }/* 卡片头部样式，浅蓝色背景，加粗字体 */
-        
-        .card-header i {
-            margin-right: 10px;
-        }/* 卡片头部图标样式，设置右边距 */
-        
-        .card-body {
-            padding: 20px;
-        }/* 卡片内容区域样式，设置内边距 */
-        
-        .resource-item {
-            display: flex;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }/* 单个资源项样式，使用flexbox布局，底部有分隔线 */
-        
-        .resource-icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 15px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-        }/* 资源图标样式，灰色占位符 */
-        
-        .resource-info {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             flex: 1;
-        }/* 资源信息部分样式，占据剩余空间 */
+            margin: 0 10px;
+        }/* 单个统计卡片样式 */
         
-        .resource-title {
+        .stat-number {
+            font-size: 28px;
             font-weight: bold;
+            color: #1890ff;
             margin-bottom: 5px;
-        }/* 资源标题样式，加粗字体 */
+        }/* 统计数字样式 */
         
-        .resource-desc {
+        .stat-label {
             color: #666;
             font-size: 14px;
-        }/* 资源描述样式，灰色小字体 */
-        
-        .resource-stats {
-            display: flex;
-            gap: 15px;
-            color: #888;
-            font-size: 13px;
-        }/* 资源统计信息样式，使用flexbox布局 */
+        }/* 统计标签样式 */
         
         .category-section {
             margin: 30px 0;
@@ -234,7 +160,7 @@
             border-radius: 8px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
         }/* 单个分类卡片样式，白色背景，圆角，轻微阴影 */
         
@@ -261,11 +187,11 @@
         }/* 分类描述样式，灰色小字体 */
         
         .footer {
-            background-color: #1a237e;
-            color: #fff;
+            background-color: #f8f9fa;
+            color: #666;
             padding: 30px 0;
             margin-top: 50px;
-        }/* 页脚样式，深蓝色背景，白色字体 */
+        }/* 页脚样式，浅灰色背景，灰色字体 */
         
         .footer-container {
             max-width: 1200px;
@@ -279,6 +205,7 @@
         .footer-column h3 {
             margin-bottom: 15px;
             font-size: 18px;
+            color: #333;
         }/* 页脚列标题样式 */
         
         .footer-column ul {
@@ -290,22 +217,22 @@
         }/* 页脚列表项样式，设置下外边距 */
         
         .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.8);
+            color: #666;
             text-decoration: none;
             transition: color 0.3s;
-        }/* 页脚链接样式，半透明白色，无下划线 */
+        }/* 页脚链接样式，灰色字体，无下划线 */
         
         .footer-column ul li a:hover {
-            color: #fff;
-        }/* 页脚链接悬停效果，变为纯白色 */
+            color: #1890ff;
+        }/* 页脚链接悬停效果，字体变蓝色 */
         
         .copyright {
             text-align: center;
             padding-top: 30px;
             margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid #eee;
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
+            color: #999;
         }/* 版权信息样式，居中显示，浅灰色字体 */
     </style><!-- 内嵌CSS样式结束 -->
 </head><!-- 头部信息结束 -->
@@ -320,9 +247,8 @@
                 </div>
                 <div class="nav-links">
                     <a href="/" class="nav-link">首页</a>
-                    <a href="/software" class="nav-link">软件资源</a>
-                    <a href="/documents" class="nav-link">文档资源</a>
-                    <a href="/tools" class="nav-link">实用工具</a>
+                    <a href="/resources" class="nav-link">全部资源</a>
+                    <a href="/categories" class="nav-link">资源分类</a>
                     <a href="/about" class="nav-link">关于我们</a>
                 </div>
             </div>
@@ -332,92 +258,29 @@
             <!-- 主标题 -->
             <h1 class="section-title">优质资源，一键获取</h1>
             
-            <!-- 轮播区 -->
-            <div class="carousel">
-                <div class="carousel-inner" id="carouselInner">
-                    <div class="carousel-item active">
-                        <div class="carousel-caption">
-                            <h3>欢迎访问蓝天资源网</h3>
-                            <p>海量优质资源等你来发现</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="carousel-caption">
-                            <h3>最新软件资源上线</h3>
-                            <p>定期更新，保持新鲜</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="carousel-caption">
-                            <h3>安全可靠的下载体验</h3>
-                            <p>所有资源经过严格筛选</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
-                <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
+            <!-- 搜索框 -->
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索资源...">
+                <button class="search-button">搜索</button>
             </div>
             
-            <!-- 热门资源区 -->
-            <div class="resources-section">
-                <h2 class="section-title">热门资源</h2>
-                <div class="resource-card">
-                    <div class="card-header">
-                        <i class="fa fa-fire" aria-hidden="true"></i> 热门软件
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-item">
-                            <div class="resource-icon"></div>
-                            <div class="resource-info">
-                                <div class="resource-title">办公软件套装</div>
-                                <div class="resource-desc">专业高效的办公解决方案</div>
-                                <div class="resource-stats">
-                                    <span>下载量: 10,243</span>
-                                    <span>评分: ★★★★★</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon"></div>
-                            <div class="resource-info">
-                                <div class="resource-title">图像编辑工具</div>
-                                <div class="resource-desc">功能强大的图片处理软件</div>
-                                <div class="resource-stats">
-                                    <span>下载量: 8,621</span>
-                                    <span>评分: ★★★★☆</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- 资源统计区域 -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">24,573</div>
+                    <div class="stat-label">总资源数</div>
                 </div>
-                <div class="resource-card">
-                    <div class="card-header">
-                        <i class="fa fa-file-text" aria-hidden="true"></i> 热门文档
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-item">
-                            <div class="resource-icon"></div>
-                            <div class="resource-info">
-                                <div class="resource-title">Web前端开发指南</div>
-                                <div class="resource-desc">从入门到精通的完整教程</div>
-                                <div class="resource-stats">
-                                    <span>浏览量: 7,582</span>
-                                    <span>评分: ★★★★☆</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon"></div>
-                            <div class="resource-info">
-                                <div class="resource-title">Python数据分析</div>
-                                <div class="resource-desc">实战案例与技巧分享</div>
-                                <div class="resource-stats">
-                                    <span>浏览量: 6,328</span>
-                                    <span>评分: ★★★★★</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">12,842</div>
+                    <div class="stat-label">软件资源</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8,651</div>
+                    <div class="stat-label">文档资源</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3,482</div>
+                    <div class="stat-label">其他资源</div>
                 </div>
             </div>
             
@@ -494,29 +357,6 @@
             </div>
         </footer>
     </div>
-
-    <script>
-        // 轮播图功能
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-item');
-        
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        // 自动轮播
-        setInterval(nextSlide, 5000);
-    </script>
 </body><!-- 页面主体结束 -->
 </html><!-- HTML文档结束 -->
+```
