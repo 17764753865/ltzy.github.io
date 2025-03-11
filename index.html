@@ -1,25 +1,26 @@
-<!doctype html><!-- 定义文档类型为HTML5 -->
-<html lang="zh"><!-- 设置HTML语言为中文 -->
-<head><!-- 开始头部信息 -->
-    <meta charset="UTF-8"><!-- 设置字符编码为UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><!-- 设置视口，适应移动设备 -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"><!-- 设置IE兼容模式 -->
-    <meta name="description" content="蓝天资源网，提供各类优质资源下载，让找资源不再麻烦！"><!-- 网站描述 -->
-    <link rel="icon" href="/PNG/1.png"><!-- 设置网站图标 -->
-    <title>蓝天资源网</title><!-- 网页标题 -->
-    <style><!-- 内嵌CSS样式开始 -->
+```html
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="蓝天资源网，提供各类优质资源下载，让找资源不再麻烦！">
+    <link rel="icon" href="/PNG/1.png">
+    <title>蓝天资源网</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Microsoft YaHei', Arial, sans-serif;
-        }/* 全局样式重置，确保所有元素没有默认间距，并使用微软雅黑字体 */
+        }
         
         body {
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
-        }/* 设置body背景颜色、文字颜色和行高 */
+        }
         
         .navbar {
             background-color: #fff;
@@ -28,7 +29,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-        }/* 导航栏样式，使用白色背景和轻微阴影，固定在顶部 */
+        }
         
         .navbar-container {
             display: flex;
@@ -36,30 +37,29 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-        }/* 导航栏容器布局，使用flexbox布局，内容两端对齐 */
+        }
         
         .navbar-brand {
             display: flex;
             align-items: center;
-        }/* 导航栏品牌部分样式，使用flexbox垂直居中 */
+        }
         
         .navbar-brand img {
             border-radius: 50%;
             width: 30px;
             height: 30px;
             margin-right: 10px;
-        }/* 品牌图片样式，设置为圆形头像 */
+        }
         
         .navbar-brand span {
             font-weight: bold;
-            color: #333;
             font-size: 18px;
-        }/* 品牌文字样式，使用深色字体 */
+        }
         
         .nav-links {
             display: flex;
             gap: 20px;
-        }/* 导航链接容器样式，使用flexbox布局，链接间有间隔 */
+        }
         
         .nav-link {
             color: #333;
@@ -68,59 +68,30 @@
             transition: color 0.3s;
             padding: 5px 10px;
             border-radius: 4px;
-        }/* 导航链接样式，使用深色字体，无下划线，有悬停效果 */
+        }
         
         .nav-link:hover {
             color: #1890ff;
-        }/* 导航链接悬停效果，字体变蓝色 */
+        }
         
         .content-wrapper {
             max-width: 1200px;
             margin: 20px auto;
             padding: 0 20px;
-        }/* 内容容器样式，设置最大宽度和内边距 */
+        }
         
         .section-title {
             font-size: 24px;
             margin: 20px 0;
             color: #333;
             text-align: center;
-        }/* 主标题样式，居中显示，设置字体大小和颜色 */
-        
-        .search-box {
-            max-width: 600px;
-            margin: 30px auto;
-            display: flex;
-        }/* 搜索框容器样式，居中显示 */
-        
-        .search-input {
-            flex: 1;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px 0 0 4px;
-            font-size: 16px;
-        }/* 搜索输入框样式 */
-        
-        .search-button {
-            background-color: #1890ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }/* 搜索按钮样式 */
-        
-        .search-button:hover {
-            background-color: #0c7cd5;
-        }/* 搜索按钮悬停效果 */
+        }
         
         .stats-section {
             display: flex;
             justify-content: space-around;
             margin: 40px 0;
-        }/* 资源统计区域样式，使用flexbox布局，内容均匀分布 */
+        }
         
         .stat-card {
             text-align: center;
@@ -130,29 +101,29 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             flex: 1;
             margin: 0 10px;
-        }/* 单个统计卡片样式 */
+        }
         
         .stat-number {
             font-size: 28px;
             font-weight: bold;
             color: #1890ff;
             margin-bottom: 5px;
-        }/* 统计数字样式 */
+        }
         
         .stat-label {
             color: #666;
             font-size: 14px;
-        }/* 统计标签样式 */
+        }
         
         .category-section {
             margin: 30px 0;
-        }/* 分类分区样式，设置上下外边距 */
+        }
         
         .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 20px;
-        }/* 分类网格样式，使用CSS Grid布局，自动填充 */
+        }
         
         .category-card {
             background-color: #fff;
@@ -161,11 +132,11 @@
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
-        }/* 单个分类卡片样式，白色背景，圆角，轻微阴影 */
+        }
         
         .category-card:hover {
             transform: translateY(-5px);
-        }/* 分类卡片悬停效果，轻微上浮 */
+        }
         
         .category-icon {
             width: 60px;
@@ -173,24 +144,83 @@
             margin: 0 auto 15px;
             background-color: #f0f0f0;
             border-radius: 50%;
-        }/* 分类图标样式，圆形灰色占位符 */
+        }
         
         .category-name {
             font-weight: bold;
             margin-bottom: 5px;
-        }/* 分类名称样式，加粗字体 */
+        }
         
         .category-desc {
             color: #666;
             font-size: 14px;
-        }/* 分类描述样式，灰色小字体 */
+        }
+        
+        .featured-resources {
+            margin: 50px 0;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resource-image {
+            width: 100%;
+            height: 160px;
+            background-color: #f0f0f0;
+        }
+        
+        .resource-info {
+            padding: 15px;
+        }
+        
+        .resource-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .resource-desc {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background-color: #1890ff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .download-button:hover {
+            background-color: #0c7cd5;
+        }
         
         .footer {
             background-color: #f8f9fa;
             color: #666;
             padding: 30px 0;
             margin-top: 50px;
-        }/* 页脚样式，浅灰色背景，灰色字体 */
+        }
         
         .footer-container {
             max-width: 1200px;
@@ -199,31 +229,31 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             padding: 0 20px;
-        }/* 页脚容器样式，使用CSS Grid布局 */
+        }
         
         .footer-column h3 {
             margin-bottom: 15px;
             font-size: 18px;
             color: #333;
-        }/* 页脚列标题样式 */
+        }
         
         .footer-column ul {
             list-style: none;
-        }/* 页脚列表样式，移除默认样式 */
+        }
         
         .footer-column ul li {
             margin-bottom: 10px;
-        }/* 页脚列表项样式，设置下外边距 */
+        }
         
         .footer-column ul li a {
             color: #666;
             text-decoration: none;
             transition: color 0.3s;
-        }/* 页脚链接样式，灰色字体，无下划线 */
+        }
         
         .footer-column ul li a:hover {
             color: #1890ff;
-        }/* 页脚链接悬停效果，字体变蓝色 */
+        }
         
         .copyright {
             text-align: center;
@@ -232,12 +262,11 @@
             border-top: 1px solid #eee;
             font-size: 14px;
             color: #999;
-        }/* 版权信息样式，居中显示，浅灰色字体 */
-    </style><!-- 内嵌CSS样式结束 -->
-</head><!-- 头部信息结束 -->
-<body><!-- 页面主体开始 -->
-    <div id="app"><!-- 应用程序容器开始 -->
-        <!-- 导航栏 -->
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
         <nav class="navbar">
             <div class="navbar-container">
                 <div class="navbar-brand">
@@ -254,16 +283,8 @@
         </nav>
         
         <div class="content-wrapper">
-            <!-- 主标题 -->
             <h1 class="section-title">优质资源，一键获取</h1>
             
-            <!-- 搜索框 -->
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="搜索资源...">
-                <button class="search-button">搜索</button>
-            </div>
-            
-            <!-- 资源统计区域 -->
             <div class="stats-section">
                 <div class="stat-card">
                     <div class="stat-number">24,573</div>
@@ -283,7 +304,6 @@
                 </div>
             </div>
             
-            <!-- 资源分类区 -->
             <div class="category-section">
                 <h2 class="section-title">资源分类</h2>
                 <div class="category-grid">
@@ -319,9 +339,46 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="featured-resources">
+                <h2 class="section-title">热门推荐</h2>
+                <div class="featured-grid">
+                    <div class="resource-card">
+                        <div class="resource-image"></div>
+                        <div class="resource-info">
+                            <div class="resource-title">高效办公软件套件</div>
+                            <div class="resource-desc">集成多种办公工具，提升工作效率</div>
+                            <a href="#" class="download-button">下载</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-image"></div>
+                        <div class="resource-info">
+                            <div class="resource-title">专业图像编辑工具</div>
+                            <div class="resource-desc">满足设计师的各种需求</div>
+                            <a href="#" class="download-button">下载</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-image"></div>
+                        <div class="resource-info">
+                            <div class="resource-title">系统优化大师</div>
+                            <div class="resource-desc">一键清理系统垃圾，提升系统性能</div>
+                            <a href="#" class="download-button">下载</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-image"></div>
+                        <div class="resource-info">
+                            <div class="resource-title">编程开发环境</div>
+                            <div class="resource-desc">支持多种编程语言和框架</div>
+                            <a href="#" class="download-button">下载</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <!-- 页脚 -->
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-column">
@@ -356,5 +413,6 @@
             </div>
         </footer>
     </div>
-</body><!-- 页面主体结束 -->
-</html><!-- HTML文档结束 -->
+</body>
+</html>
+```
