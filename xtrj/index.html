@@ -2,12 +2,10 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/PNG/1.png" rel="icon">
     <title>系统软件 - 蓝天资源网</title>
     <style>
-        /* 全局样式重置和字体设置 */
         * {
             margin: 0;
             padding: 0;
@@ -15,13 +13,11 @@
             font-family: 'Microsoft YaHei', sans-serif;
         }
         
-        /* 设置body的背景色和文字颜色 */
         body {
-            background-color: #f5f5f5;
+            background-color: #f8f9fa;
             color: #333;
         }
         
-        /* 头部样式：背景色、文字颜色、内边距等 */
         header {
             background-color: #2c3e50;
             color: white;
@@ -29,36 +25,31 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        /* 容器样式：最大宽度、居中、内边距 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
         
-        /* 网站logo样式：字体大小、粗细、阴影 */
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
-        /* 导航栏样式：flex布局、列表样式、对齐方式 */
         nav ul {
             display: flex;
             list-style: none;
             justify-content: flex-end;
         }
         
-        /* 导航栏列表项样式：间距 */
         nav ul li {
-            margin-left: 25px;
+            margin-left: 20px;
         }
         
-        /* 导航栏链接样式：颜色、无下划线、字体粗细、过渡效果 */
         nav ul li a {
             color: white;
             text-decoration: none;
@@ -66,194 +57,236 @@
             transition: color 0.3s;
         }
         
-        /* 导航栏链接悬停效果：颜色变化 */
         nav ul li a:hover {
             color: #3498db;
         }
         
-        /* 分类区域样式：网格布局、列数、间距、边距、内边距、边框 */
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-            padding: 20px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-        
-        /* 单个分类样式：背景色、圆角、内边距、文本居中、阴影、过渡效果、光标样式 */
-        .category {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 80px 0;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .search-bar {
+            max-width: 600px;
+            margin: 30px auto;
+            display: flex;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        
+        .search-bar button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
         
-        /* 分类悬停效果：位移和阴影变化 */
-        .category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .search-bar button:hover {
+            background-color: #2980b9;
         }
         
-        /* 分类图片样式：宽度、高度、间距、圆角、封面填充 */
-        .category img {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            object-fit: cover;
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
         }
         
-        /* 分类标题样式：间距、颜色、字体大小 */
-        .category h3 {
+        .tag {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-right: 10px;
             margin-bottom: 10px;
-            color: #2c3e50;
-            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
         
-        /* 分类描述样式：颜色、字体大小 */
-        .category p {
-            color: #7f8c8d;
-            font-size: 14px;
+        .tag:hover, .tag.active {
+            background-color: #3498db;
+            color: white;
         }
         
-        /* 资源列表样式：背景色、圆角、内边距、边距、阴影 */
-        .resource-list {
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .software-card {
             background-color: white;
             border-radius: 10px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        /* 资源列表标题样式：间距、颜色、字体大小、底部边框、内边距 */
-        .resource-list h2 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-            font-size: 24px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 15px;
+        .software-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
-        /* 资源项样式：flex布局、内边距、底部边框 */
-        .resource-item {
-            display: flex;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        /* 最后一个资源项无底部边框 */
-        .resource-item:last-child {
-            border-bottom: none;
-        }
-        
-        /* 资源图标样式：宽度、高度、间距、背景色、圆角、flex布局、内容居中、溢出隐藏 */
-        .resource-icon {
-            width: 80px;
-            height: 80px;
-            margin-right: 20px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .software-image {
+            height: 180px;
             overflow: hidden;
         }
         
-        /* 资源图标图片样式：最大宽度和高度 */
-        .resource-icon img {
-            max-width: 100%;
-            max-height: 100%;
+        .software-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
         }
         
-        /* 资源信息样式：flex布局、占据剩余空间 */
-        .resource-info {
-            flex: 1;
+        .software-card:hover .software-image img {
+            transform: scale(1.05);
         }
         
-        /* 资源信息标题样式：间距、颜色、字体大小 */
-        .resource-info h3 {
-            margin-bottom: 8px;
+        .software-info {
+            padding: 20px;
+        }
+        
+        .software-info h3 {
+            margin-bottom: 10px;
             color: #2c3e50;
-            font-size: 18px;
         }
         
-        /* 资源信息描述样式：颜色、字体大小、间距、行高 */
-        .resource-info p {
+        .software-info p {
             color: #7f8c8d;
+            margin-bottom: 15px;
             font-size: 14px;
-            margin-bottom: 8px;
-            line-height: 1.4;
         }
         
-        /* 资源信息版本样式：字体大小、颜色 */
-        .resource-info .version {
-            font-size: 12px;
+        .software-meta {
+            display: flex;
+            justify-content: space-between;
             color: #95a5a6;
-        }
-        
-        /* 查看按钮样式：背景色、颜色、边框、内边距、圆角、光标、字体大小、过渡效果、间距、显示方式、文本居中、行高 */
-        .view-btn {
-            background-color: #5dade2;
-            color: white;
-            border: 1px solid #5dade2;
-            padding: 5px 15px;
-            border-radius: 15px;
-            cursor: pointer;
             font-size: 13px;
-            transition: all 0.3s;
-            margin-left: 15px;
-            display: inline-block;
-            text-align: center;
-            line-height: 1.5;
-        }
-        
-        /* 查看按钮悬停效果：背景色、边框色、位移、阴影 */
-        .view-btn:hover {
-            background-color: #3498db;
-            border-color: #3498db;
-            transform: translateY(-1px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        /* 页脚样式：背景色、文字颜色、文本居中、内边距、边距 */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
-        }
-        
-        /* 页脚段落样式：间距 */
-        footer p {
             margin-bottom: 15px;
         }
         
-        /* 页脚链接样式：颜色、无下划线 */
-        footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        /* 页脚链接悬停效果：下划线 */
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        /* 标签样式：内联块、背景色、颜色、内边距、圆角、字体大小、间距 */
-        .tag {
+        .download-btn {
             display: inline-block;
-            background-color: #e74c3c;
+            background-color: #3498db;
             color: white;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 12px;
-            margin-right: 5px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .download-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #3498db;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+            color: #495057;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .pagination a:hover, .pagination a.active {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* 添加平滑滚动 */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -264,7 +297,7 @@
             <nav>
                 <ul>
                     <li><a href="/">首页</a></li>
-                    <li><a href="/xtrj">系统软件</a></li>
+                    <li><a href="/xtrj" class="active">系统软件</a></li>
                     <li><a href="#">系统工具</a></li>
                     <li><a href="#">驱动程序</a></li>
                     <li><a href="#">系统安全</a></li>
@@ -273,127 +306,224 @@
         </div>
     </header>
 
+    <section class="hero">
+        <div class="container">
+            <h1>系统软件资源</h1>
+            <p>提供各类操作系统、驱动程序和系统工具的下载资源，帮助您维护和优化计算机系统。</p>
+        </div>
+    </section>
+
     <main class="container">
-        <section class="categories">
-            <div class="category">
-                <img src="/PNG/2.png" alt="系统安装">
-                <h3>系统安装</h3>
-                <p>各种操作系统安装工具</p>
-            </div>
-            <div class="category">
-                <img src="/PNG/3.png" alt="系统更新">
-                <h3>系统更新</h3>
-                <p>系统补丁和更新工具</p>
-            </div>
-            <div class="category">
-                <img src="/PNG/4.png" alt="系统维护">
-                <h3>系统维护</h3>
-                <p>系统优化和维护工具</p>
-            </div>
-            <div class="category">
-                <img src="/PNG/5.png" alt="系统备份">
-                <h3>系统备份</h3>
-                <p>系统备份和恢复工具</p>
-            </div>
-        </section>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索软件...">
+            <button>搜索</button>
+        </div>
 
-        <section class="resource-list">
-            <h2>热门系统软件</h2>
-            <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/2.png" alt="Windows"></div>
-                <div class="resource-info">
-                    <h3>Windows 系统安装工具</h3>
-                    <p><span class="tag">最新</span>支持Windows 10/11系统的一键安装工具，简单快捷，支持多种分区方案。</p>
-                    <p class="version">版本: v2.5 | 更新时间: 2023-05-15</p>
-                </div>
-                <a href="#" class="view-btn">查看</a>
-            </div>
-            <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/3.png" alt="MacOS"></div>
-                <div class="resource-info">
-                    <h3>MacOS 系统更新工具</h3>
-                    <p><span class="tag">热门</span>适用于苹果MacOS系统的官方更新工具，支持在线和离线更新。</p>
-                    <p class="version">版本: v12.4 | 更新时间: 2023-06-20</p>
-                </div>
-                <a href="#" class="view-btn">查看</a>
-            </div>
-            <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/4.png" alt="Linux"></div>
-                <div class="resource-info">
-                    <h3>Linux 系统维护工具</h3>
-                    <p><span class="tag">推荐</span>适用于Ubuntu、CentOS等主流Linux发行版的系统维护工具，包含清理、更新、修复等功能。</p>
-                    <p class="version">版本: v3.2 | 更新时间: 2023-07-05</p>
-                </div>
-                <a href="#" class="view-btn">查看</a>
-            </div>
-        </section>
+        <div class="filter-tags">
+            <a href="#" class="tag active">全部</a>
+            <a href="#windows" class="tag">Windows</a>
+            <a href="#macos" class="tag">MacOS</a>
+            <a href="#linux" class="tag">Linux</a>
+            <a href="#drivers" class="tag">驱动程序</a>
+            <a href="#tools" class="tag">系统工具</a>
+            <a href="#security" class="tag">安全软件</a>
+        </div>
 
-        <section class="resource-list">
-            <h2>最新系统软件</h2>
-            <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/6.png" alt="系统备份"></div>
-                <div class="resource-info">
-                    <h3>专业系统备份软件</h3>
-                    <p>支持Windows、MacOS、Linux的全平台系统备份工具，支持定时备份和增量备份。</p>
-                    <p class="version">版本: v5.1 | 更新时间: 2023-08-10</p>
+        <!-- Windows 软件区域 -->
+        <div id="windows" class="software-grid">
+            <div class="software-card">
+                <div class="software-image">
+                    <img src="/PNG/2.png" alt="Windows 10/11">
                 </div>
-                <a href="#" class="view-btn">查看</a>
-            </div>
-            <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/7.png" alt="系统优化"></div>
-                <div class="resource-info">
-                    <h3>系统性能优化工具</h3>
-                    <p>全面的系统性能优化软件，包含清理垃圾文件、优化启动项、修复系统错误等功能。</p>
-                    <p class="version">版本: v4.8 | 更新时间: 2023-07-25</p>
+                <div class="software-info">
+                    <h3>Windows 10/11 系统镜像</h3>
+                    <p>官方原版 Windows 系统镜像，支持UEFI/GPT安装，包含家庭版、专业版、企业版。</p>
+                    <div class="software-meta">
+                        <span>版本: Windows 10 21H2 / Windows 11 21H2</span>
+                        <span>更新时间: 2023-05-15</span>
+                    </div>
+                    <a href="#" class="download-btn">下载</a>
                 </div>
-                <a href="#" class="view-btn">查看</a>
             </div>
-            <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/8.png" alt="系统监控"></div>
-                <div class="resource-info">
-                    <h3>系统实时监控软件</h3>
-                    <p>强大的系统资源监控工具，实时显示CPU、内存、磁盘等使用情况，支持警报功能。</p>
-                    <p class="version">版本: v2.3 | 更新时间: 2023-06-10</p>
+            <!-- 更多Windows软件卡片 -->
+        </div>
+
+        <!-- MacOS 软件区域 -->
+        <div id="macos" class="software-grid">
+            <div class="software-card">
+                <div class="software-image">
+                    <img src="/PNG/3.png" alt="macOS">
                 </div>
-                <a href="#" class="view-btn">查看</a>
-            </div>
-            <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/9.png" alt="系统修复"></div>
-                <div class="resource-info">
-                    <h3>系统修复工具</h3>
-                    <p>专业的系统修复软件，能够快速诊断并修复系统问题，支持多种操作系统。</p>
-                    <p class="version">版本: v1.7 | 更新时间: 2023-05-20</p>
+                <div class="software-info">
+                    <h3>macOS 系统镜像</h3>
+                    <p>苹果 macOS 最新版本，支持Intel和M1/M2芯片，包含Big Sur、Monterey、Ventura等版本。</p>
+                    <div class="software-meta">
+                        <span>版本: macOS Ventura 13.3</span>
+                        <span>更新时间: 2023-05-10</span>
+                    </div>
+                    <a href="#" class="download-btn">下载</a>
                 </div>
-                <a href="#" class="view-btn">查看</a>
             </div>
-        </section>
+            <!-- 更多MacOS软件卡片 -->
+        </div>
+
+        <!-- Linux 软件区域 -->
+        <div id="linux" class="software-grid">
+            <div class="software-card">
+                <div class="software-image">
+                    <img src="/PNG/4.png" alt="Linux">
+                </div>
+                <div class="software-info">
+                    <h3>Linux 系统镜像</h3>
+                    <p>流行 Linux 发行版，包含Ubuntu、Debian、CentOS、Fedora等，适合服务器和桌面使用。</p>
+                    <div class="software-meta">
+                        <span>版本: Ubuntu 22.04 LTS / CentOS 7.9</span>
+                        <span>更新时间: 2023-04-20</span>
+                    </div>
+                    <a href="#" class="download-btn">下载</a>
+                </div>
+            </div>
+            <!-- 更多Linux软件卡片 -->
+        </div>
+
+        <!-- 驱动程序区域 -->
+        <div id="drivers" class="software-grid">
+            <div class="software-card">
+                <div class="software-image">
+                    <img src="/PNG/6.png" alt="显卡驱动">
+                </div>
+                <div class="software-info">
+                    <h3>显卡驱动程序</h3>
+                    <p>NVIDIA、AMD、Intel 最新显卡驱动，支持多款显卡型号，提升性能和稳定性。</p>
+                    <div class="software-meta">
+                        <span>版本: NVIDIA 526.86 / AMD 23.5.2</span>
+                        <span>更新时间: 2023-05-20</span>
+                    </div>
+                    <a href="#" class="download-btn">下载</a>
+                </div>
+            </div>
+            <!-- 更多驱动程序卡片 -->
+        </div>
+
+        <!-- 系统工具区域 -->
+        <div id="tools" class="software-grid">
+            <div class="software-card">
+                <div class="software-image">
+                    <img src="/PNG/5.png" alt="系统工具">
+                </div>
+                <div class="software-info">
+                    <h3>系统安装工具</h3>
+                    <p>Rufus、Ventoy等系统安装工具，支持多系统镜像制作启动盘，简单易用。</p>
+                    <div class="software-meta">
+                        <span>版本: Rufus 3.18 / Ventoy 1.0.76</span>
+                        <span>更新时间: 2023-03-12</span>
+                    </div>
+                    <a href="#" class="download-btn">下载</a>
+                </div>
+            </div>
+            <!-- 更多系统工具卡片 -->
+        </div>
+
+        <!-- 安全软件区域 -->
+        <div id="security" class="software-grid">
+            <div class="software-card">
+                <div class="software-image">
+                    <img src="/PNG/8.png" alt="杀毒软件">
+                </div>
+                <div class="software-info">
+                    <h3>杀毒安全软件</h3>
+                    <p>360安全卫士、腾讯电脑管家、迈克菲、卡巴斯基等杀毒软件，实时保护系统安全。</p>
+                    <div class="software-meta">
+                        <span>版本: 360安全卫士 13.6 / 腾讯电脑管家 12.4</span>
+                        <span>更新时间: 2023-05-05</span>
+                    </div>
+                    <a href="#" class="download-btn">下载</a>
+                </div>
+            </div>
+            <!-- 更多安全软件卡片 -->
+        </div>
+
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">下一页</a>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2018-2025 蓝天资源网. 保留所有权利.</p>
-            <p>QQ咨询: 1302784641 | <a href="https://qm.qq.com/q/PMQ88JvhGQ">点击链接加我为QQ好友</a></p>
-            <p>联系我们: <a href="mailto:zh-gf.129@ltzy.top">zh-gf.129@ltzy.top</a></p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">网站介绍</a></li>
+                        <li><a href="#">团队成员</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">下载指南</a></li>
+                        <li><a href="#">安装教程</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">用户反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>友情链接</h3>
+                    <ul>
+                        <li><a href="#">技术支持</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2018-2025 蓝天资源网. 保留所有权利.</p>
+                <p>QQ咨询: 1302784641 | <a href="https://qm.qq.com/q/PMQ88JvhGQ">点击链接加我为QQ好友</a></p>
+                <p>联系我们: <a href="mailto:zh-gf.129@ltzy.top">zh-gf.129@ltzy.top</a></p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // 查看按钮点击事件监听
-        document.querySelectorAll('.view-btn').forEach(button => {
+        // 搜索框功能
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-bar input').value;
+            if (searchTerm) {
+                alert(`您搜索了: ${searchTerm}`);
+            } else {
+                alert('请输入搜索内容');
+            }
+        });
+
+        // 标签筛选功能
+        const tags = document.querySelectorAll('.tag');
+        tags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                tags.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 下载按钮点击事件
+        document.querySelectorAll('.download-btn').forEach(button => {
             button.addEventListener('click', function(e) {
-                e.preventDefault(); // 阻止默认行为
-                alert('正在跳转'); // 弹出提示框
-                // 这里可以添加实际的查看逻辑
+                e.preventDefault();
+                alert('正在跳转到下载页面');
             });
         });
 
         // 导航栏固定在顶部的滚动事件监听
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header'); // 获取header元素
-            if (window.scrollY > 50) { // 如果滚动距离超过50像素
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)'; // 设置较大的阴影
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
             } else {
-                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)'; // 设置较小的阴影
+                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
             }
         });
     </script>
