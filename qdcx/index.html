@@ -1,19 +1,11 @@
 <!DOCTYPE html>
-<!-- 声明文档类型为HTML5 -->
 <html lang="zh-CN">
-<!-- 设置页面语言为中文 -->
 <head>
-    <!-- 页面头部开始，包含元信息和资源链接 -->
     <meta charset="UTF-8">
-    <!-- 设置字符编码为UTF-8 -->
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <!-- 设置视口，适配移动设备 -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link href="/PNG/1.png" rel="icon">
-    <!-- 设置页面图标 -->
-    <title>蓝天资源网</title>
-    <!-- 设置页面标题 -->
+    <title>驱动程序 - 蓝天资源网</title>
     <style>
         /* 全局样式重置和字体设置 */
         * {
@@ -22,14 +14,12 @@
             box-sizing: border-box;
             font-family: 'Microsoft YaHei', sans-serif;
         }
-        /* 重置所有元素的外边距和内边距，设置盒模型为border-box，统一字体 */
         
         /* 设置body的背景色和文字颜色 */
         body {
             background-color: #f5f5f5;
             color: #333;
         }
-        /* 设置body背景色为浅灰色，文字颜色为深灰色 */
         
         /* 头部样式：背景色、文字颜色、内边距等 */
         header {
@@ -41,7 +31,6 @@
             z-index: 100;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        /* 设置头部背景色、文字颜色、内边距，固定在顶部，添加阴影效果 */
         
         /* 容器样式：最大宽度、居中、内边距 */
         .container {
@@ -49,7 +38,6 @@
             margin: 0 auto;
             padding: 0 15px;
         }
-        /* 设置容器最大宽度为1200px，居中显示，左右内边距为15px */
         
         /* 网站logo样式：字体大小、粗细、阴影 */
         .logo {
@@ -57,7 +45,6 @@
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-        /* 设置logo字体大小、加粗、添加文字阴影 */
         
         /* 导航栏样式：flex布局、列表样式、对齐方式 */
         nav ul {
@@ -65,13 +52,11 @@
             list-style: none;
             justify-content: flex-end;
         }
-        /* 使用flex布局，设置列表无样式，导航项右对齐 */
         
         /* 导航栏列表项样式：间距 */
         nav ul li {
             margin-left: 25px;
         }
-        /* 设置导航项左边距为25px */
         
         /* 导航栏链接样式：颜色、无下划线、字体粗细、过渡效果 */
         nav ul li a {
@@ -80,13 +65,70 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-        /* 设置导航链接颜色为白色，无下划线，字体加粗，添加颜色过渡效果 */
         
         /* 导航栏链接悬停效果：颜色变化 */
         nav ul li a:hover {
             color: #3498db;
         }
-        /* 鼠标悬停时导航链接颜色变为蓝色 */
+        
+        /* 搜索框样式 */
+        .search-box {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        
+        .search-box button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* 筛选栏样式 */
+        .filter-bar {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-group label {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+        
+        .filter-group select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
         
         /* 分类区域样式：网格布局、列数、间距、边距、内边距、边框 */
         .categories {
@@ -98,7 +140,6 @@
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
         }
-        /* 使用网格布局，自动填充列，最小宽度220px，设置间距、边距、内边距和边框 */
         
         /* 单个分类样式：背景色、圆角、内边距、文本居中、阴影、过渡效果、光标样式 */
         .category {
@@ -110,14 +151,12 @@
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
-        /* 设置分类背景色、圆角、内边距、文本居中、阴影效果，添加过渡效果和鼠标样式 */
         
         /* 分类悬停效果：位移和阴影变化 */
         .category:hover {
             transform: translateY(-8px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        /* 鼠标悬停时分类块上移并增大阴影 */
         
         /* 分类图片样式：宽度、高度、间距、圆角、封面填充 */
         .category img {
@@ -127,7 +166,6 @@
             border-radius: 10px;
             object-fit: cover;
         }
-        /* 设置分类图片宽度、高度、下边距、圆角和封面填充 */
         
         /* 分类标题样式：间距、颜色、字体大小 */
         .category h3 {
@@ -135,14 +173,12 @@
             color: #2c3e50;
             font-size: 20px;
         }
-        /* 设置分类标题下边距、颜色和字体大小 */
         
         /* 分类描述样式：颜色、字体大小 */
         .category p {
             color: #7f8c8d;
             font-size: 14px;
         }
-        /* 设置分类描述颜色和字体大小 */
         
         /* 资源列表样式：背景色、圆角、内边距、边距、阴影 */
         .resource-list {
@@ -152,7 +188,6 @@
             margin: 30px 0;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
-        /* 设置资源列表背景色、圆角、内边距、边距和阴影效果 */
         
         /* 资源列表标题样式：间距、颜色、字体大小、底部边框、内边距 */
         .resource-list h2 {
@@ -162,7 +197,6 @@
             border-bottom: 2px solid #f0f0f0;
             padding-bottom: 15px;
         }
-        /* 设置资源列表标题下边距、颜色、字体大小、底部边框和内边距 */
         
         /* 资源项样式：flex布局、内边距、底部边框 */
         .resource-item {
@@ -170,13 +204,11 @@
             padding: 20px 0;
             border-bottom: 1px solid #eee;
         }
-        /* 使用flex布局，设置资源项内边距和底部边框 */
         
         /* 最后一个资源项无底部边框 */
         .resource-item:last-child {
             border-bottom: none;
         }
-        /* 移除最后一个资源项的底部边框 */
         
         /* 资源图标样式：宽度、高度、间距、背景色、圆角、flex布局、内容居中、溢出隐藏 */
         .resource-icon {
@@ -190,20 +222,17 @@
             justify-content: center;
             overflow: hidden;
         }
-        /* 设置资源图标宽度、高度、右边距、背景色、圆角、flex布局和溢出隐藏 */
         
         /* 资源图标图片样式：最大宽度和高度 */
         .resource-icon img {
             max-width: 100%;
             max-height: 100%;
         }
-        /* 设置资源图标图片最大宽度和高度为容器的100% */
         
         /* 资源信息样式：flex布局、占据剩余空间 */
         .resource-info {
             flex: 1;
         }
-        /* 设置资源信息占据剩余空间 */
         
         /* 资源信息标题样式：间距、颜色、字体大小 */
         .resource-info h3 {
@@ -211,7 +240,6 @@
             color: #2c3e50;
             font-size: 18px;
         }
-        /* 设置资源信息标题下边距、颜色和字体大小 */
         
         /* 资源信息描述样式：颜色、字体大小、间距、行高 */
         .resource-info p {
@@ -220,14 +248,12 @@
             margin-bottom: 8px;
             line-height: 1.4;
         }
-        /* 设置资源信息描述颜色、字体大小、下边距和行高 */
         
         /* 资源信息版本样式：字体大小、颜色 */
         .resource-info .version {
             font-size: 12px;
             color: #95a5a6;
         }
-        /* 设置资源信息版本字体大小和颜色 */
         
         /* 查看按钮样式：背景色、颜色、边框、内边距、圆角、光标、字体大小、过渡效果、间距、显示方式、文本居中、行高 */
         .view-btn {
@@ -244,7 +270,6 @@
             text-align: center;
             line-height: 1.5;
         }
-        /* 设置查看按钮背景色、文字颜色、边框、内边距、圆角、光标样式、字体大小、过渡效果、左边距、显示方式、文本居中和行高 */
         
         /* 查看按钮悬停效果：背景色、边框色、位移、阴影 */
         .view-btn:hover {
@@ -253,7 +278,6 @@
             transform: translateY(-1px);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        /* 鼠标悬停时查看按钮背景色、边框色变化，上移并添加阴影 */
         
         /* 页脚样式：背景色、文字颜色、文本居中、内边距、边距 */
         footer {
@@ -263,26 +287,22 @@
             padding: 30px 0;
             margin-top: 50px;
         }
-        /* 设置页脚背景色、文字颜色、文本居中、内边距和上边距 */
         
         /* 页脚段落样式：间距 */
         footer p {
             margin-bottom: 15px;
         }
-        /* 设置页脚段落下边距 */
         
         /* 页脚链接样式：颜色、无下划线 */
         footer a {
             color: #3498db;
             text-decoration: none;
         }
-        /* 设置页脚链接颜色和无下划线 */
         
         /* 页脚链接悬停效果：下划线 */
         footer a:hover {
             text-decoration: underline;
         }
-        /* 鼠标悬停时页脚链接显示下划线 */
         
         /* 标签样式：内联块、背景色、颜色、内边距、圆角、字体大小、间距 */
         .tag {
@@ -294,212 +314,213 @@
             font-size: 12px;
             margin-right: 5px;
         }
-        /* 设置标签为内联块元素，背景色、文字颜色、内边距、圆角、字体大小和右边距 */
+        
+        /* 分页导航样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .pagination a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .pagination a.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .pagination a:hover:not(.active) {
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body>
     <header>
-        <!-- 页面头部开始 -->
         <div class="container">
-            <!-- 容器开始 -->
             <div class="logo">蓝天资源网</div>
-            <!-- 网站logo -->
             <nav>
-                <!-- 导航栏开始 -->
                 <ul>
-                    <!-- 无序列表开始 -->
                     <li><a href="/">首页</a></li>
-                    <!-- 首页导航项 -->
                     <li><a href="/xtrj">系统软件</a></li>
-                    <!-- 系统软件导航项 -->
-                    <li><a href="/xtgj">系统工具</a></li>
-                    <!-- 系统工具导航项 -->
-                    <li><a href="/qdcx/">驱动程序</a></li>
-                    <!-- 驱动程序导航项 -->
-                    <li><a href="/xtaq/">系统安全</a></li>
-                    <!-- 系统安全导航项 -->
+                    <li><a href="#">系统工具</a></li>
+                    <li><a href="#">驱动程序</a></li>
+                    <li><a href="#">系统安全</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container">
-        <!-- 主要内容区域开始 -->
+        <div class="search-box">
+            <input type="text" placeholder="搜索驱动程序...">
+            <button>搜索</button>
+        </div>
+        
+        <div class="filter-bar">
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label for="device-filter">设备类型:</label>
+                    <select id="device-filter">
+                        <option value="">全部</option>
+                        <option value="gpu">显卡</option>
+                        <option value="audio">声卡</option>
+                        <option value="chipset">芯片组</option>
+                        <option value="network">网卡</option>
+                        <option value="printer">打印机</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="brand-filter">品牌:</label>
+                    <select id="brand-filter">
+                        <option value="">全部</option>
+                        <option value="nvidia">NVIDIA</option>
+                        <option value="amd">AMD</option>
+                        <option value="intel">Intel</option>
+                        <option value="realtek">Realtek</option>
+                        <option value="brother">Brother</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="os-filter">操作系统:</label>
+                    <select id="os-filter">
+                        <option value="">全部</option>
+                        <option value="windows">Windows</option>
+                        <option value="mac">Mac</option>
+                        <option value="linux">Linux</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
         <section class="categories">
-            <!-- 分类区域开始 -->
             <div class="category">
-                <!-- 单个分类开始 -->
-                <img src="/PNG/2.png" alt="Windows">
-                <!-- 分类图片 -->
-                <h3>Windows</h3>
-                <!-- 分类标题 -->
-                <p>Windows系统资源</p>
-                <!-- 分类描述 -->
+                <img src="/PNG/6.png" alt="显卡驱动">
+                <h3>显卡驱动</h3>
+                <p>提升显卡性能的驱动程序</p>
             </div>
             <div class="category">
-                <!-- 单个分类开始 -->
-                <img src="/PNG/3.png" alt="Mac">
-                <!-- 分类图片 -->
-                <h3>Mac</h3>
-                <!-- 分类标题 -->
-                <p>Mac系统资源</p>
-                <!-- 分类描述 -->
+                <img src="/PNG/8.png" alt="声卡驱动">
+                <h3>声卡驱动</h3>
+                <p>优化音频输出的驱动程序</p>
             </div>
             <div class="category">
-                <!-- 单个分类开始 -->
-                <img src="/PNG/4.png" alt="Linux">
-                <!-- 分类图片 -->
-                <h3>Linux</h3>
-                <!-- 分类标题 -->
-                <p>Linux系统资源</p>
-                <!-- 分类描述 -->
+                <img src="/PNG/24.png" alt="芯片组驱动">
+                <h3>芯片组驱动</h3>
+                <p>主板芯片组驱动程序</p>
             </div>
             <div class="category">
-                <!-- 单个分类开始 -->
-                <img src="/PNG/5.png" alt="工具软件">
-                <!-- 分类图片 -->
-                <h3>工具软件</h3>
-                <!-- 分类标题 -->
-                <p>系统工具资源</p>
-                <!-- 分类描述 -->
+                <img src="/PNG/25.png" alt="网卡驱动">
+                <h3>网卡驱动</h3>
+                <p>网络连接相关驱动程序</p>
             </div>
         </section>
 
         <section class="resource-list">
-            <!-- 资源列表区域开始 -->
-            <h2>热门资源</h2>
-            <!-- 资源列表标题 -->
+            <h2>热门驱动程序</h2>
             <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/2.png" alt="Windows"></div>
-                <!-- 资源图标 -->
+                <div class="resource-icon"><img src="/PNG/6.png" alt="NVIDIA显卡驱动"></div>
                 <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>Windows </h3>
-                    <!-- 资源标题 -->
-                    <p><span class="tag">最新</span>最新Windows系统镜像，稳定高效，支持多种安装方式。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:  | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                    <h3>NVIDIA GeForce驱动</h3>
+                    <p><span class="tag">最新</span>最新NVIDIA显卡驱动程序，支持多款显卡型号，提升性能和稳定性。</p>
+                    <p class="version">版本: 526.86 | 更新时间: 2023-05-25</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
             </div>
             <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/3.png" alt="MacOS"></div>
-                <!-- 资源图标 -->
+                <div class="resource-icon"><img src="/PNG/7.png" alt="AMD显卡驱动"></div>
                 <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>MacOS </h3>
-                    <!-- 资源标题 -->
-                    <p><span class="tag">热门</span>苹果MacOS最新版本，支持Intel和M芯片，全新功能体验。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                    <h3>AMD Radeon驱动</h3>
+                    <p><span class="tag">热门</span>最新AMD显卡驱动程序，支持多款显卡型号，提升性能和稳定性。</p>
+                    <p class="version">版本: 23.5.2 | 更新时间: 2023-05-22</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
             </div>
             <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/4.png" alt="Linux"></div>
-                <!-- 资源图标 -->
+                <div class="resource-icon"><img src="/PNG/11.png" alt="Intel芯片组驱动"></div>
                 <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>Linux </h3>
-                    <!-- 资源标题 -->
-                    <p><span class="tag">推荐</span>流行的Linux发行版，长期支持版本，适合服务器和桌面使用。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                    <h3>Intel芯片组驱动</h3>
+                    <p><span class="tag">推荐</span>Intel最新芯片组驱动程序，支持多款主板型号，确保系统稳定运行。</p>
+                    <p class="version">版本: 10.1.18.8268 | 更新时间: 2023-05-20</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
+            </div>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="/PNG/26.png" alt="Realtek声卡驱动"></div>
+                <div class="resource-info">
+                    <h3>Realtek声卡驱动</h3>
+                    <p><span class="tag">热门</span>广泛兼容的声卡驱动程序，支持多种音频设备，提供高品质音频输出。</p>
+                    <p class="version">版本: 6.0.1.8852 | 更新时间: 2023-05-15</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
             </div>
         </section>
 
         <section class="resource-list">
-            <!-- 资源列表区域开始 -->
-            <h2>最新资源</h2>
-            <!-- 资源列表标题 -->
+            <h2>最新驱动程序</h2>
             <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/6.png" alt="NVIDIA"></div>
-                <!-- 资源图标 -->
+                <div class="resource-icon"><img src="/PNG/27.png" alt="Brother打印机驱动"></div>
                 <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>NVIDIA显卡驱动</h3>
-                    <!-- 资源标题 -->
-                    <p>最新NVIDIA显卡驱动程序，支持多款显卡型号，提升性能和稳定性。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                    <h3>Brother打印机驱动</h3>
+                    <p>适用于Brother系列打印机的最新驱动程序，提升打印质量和速度。</p>
+                    <p class="version">版本: 4.10.0 | 更新时间: 2023-05-28</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
             </div>
             <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/7.png" alt="AMD"></div>
-                <!-- 资源图标 -->
+                <div class="resource-icon"><img src="/PNG/28.png" alt="Realtek网卡驱动"></div>
                 <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>AMD显卡驱动</h3>
-                    <!-- 资源标题 -->
-                    <p>最新AMD显卡驱动程序，支持多款显卡型号，提升性能和稳定性。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                    <h3>Realtek网卡驱动</h3>
+                    <p>支持多种Realtek网卡芯片的驱动程序，优化网络连接性能和稳定性。</p>
+                    <p class="version">版本: 10.052.0.20230508 | 更新时间: 2023-05-25</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
             </div>
             <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/5.png" alt="优化工具"></div>
-                <!-- 资源图标 -->
+                <div class="resource-icon"><img src="/PNG/29.png" alt="AMD芯片组驱动"></div>
                 <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>系统优化工具</h3>
-                    <!-- 资源标题 -->
-                    <p>高效系统优化软件，一键清理垃圾文件，提升系统运行速度。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                    <h3>AMD芯片组驱动</h3>
+                    <p>适用于AMD平台的芯片组驱动程序，确保系统稳定运行和性能发挥。</p>
+                    <p class="version">版本: 3.13.16.67 | 更新时间: 2023-05-20</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
             </div>
             <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/8.png" alt="杀毒软件"></div>
-                <!-- 资源图标 -->
+                <div class="resource-icon"><img src="/PNG/30.png" alt="英特尔傲腾驱动"></div>
                 <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>杀毒软件</h3>
-                    <!-- 资源标题 -->
-                    <p>强大的杀毒安全软件，实时监控系统，有效防止病毒和恶意软件。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                    <h3>英特尔傲腾内存驱动</h3>
+                    <p>优化英特尔傲腾内存性能的驱动程序，加速系统启动和应用加载。</p>
+                    <p class="version">版本: 20.5.0.1002 | 更新时间: 2023-05-12</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
             </div>
         </section>
+
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">下一页 &raquo;</a>
+        </div>
     </main>
 
     <footer>
-        <!-- 页脚开始 -->
         <div class="container">
-            <!-- 容器开始 -->
             <p>&copy; 2018-2025 蓝天资源网. 保留所有权利.</p>
-            <!-- 版权信息 -->
             <p>QQ咨询: 1302784641 | <a href="https://qm.qq.com/q/PMQ88JvhGQ">点击链接加我为QQ好友</a></p>
-            <!-- QQ咨询链接 -->
             <p>联系我们: <a href="mailto:zh-gf.129@ltzy.top">zh-gf.129@ltzy.top</a></p>
-            <!-- 邮箱联系链接 -->
         </div>
     </footer>
 
@@ -507,20 +528,39 @@
         // 查看按钮点击事件监听
         document.querySelectorAll('.view-btn').forEach(button => {
             button.addEventListener('click', function(e) {
-                e.preventDefault(); // 阻止默认行为
-                alert('正在跳转'); // 弹出提示框
-                // 这里可以添加实际的查看逻辑
+                e.preventDefault();
+                alert('正在跳转');
             });
         });
 
         // 导航栏固定在顶部的滚动事件监听
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header'); // 获取header元素
-            if (window.scrollY > 50) { // 如果滚动距离超过50像素
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)'; // 设置较大的阴影
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
             } else {
-                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)'; // 设置较小的阴影
+                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
             }
+        });
+
+        // 搜索框功能
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-box input').value;
+            if (searchTerm) {
+                alert(`您搜索了: ${searchTerm}`);
+            } else {
+                alert('请输入搜索内容');
+            }
+        });
+
+        // 筛选功能
+        document.querySelectorAll('.filter-bar select').forEach(select => {
+            select.addEventListener('change', function() {
+                const deviceFilter = document.getElementById('device-filter').value;
+                const brandFilter = document.getElementById('brand-filter').value;
+                const osFilter = document.getElementById('os-filter').value;
+                alert(`筛选条件: 设备类型=${deviceFilter}, 品牌=${brandFilter}, 操作系统=${osFilter}`);
+            });
         });
     </script>
 </body>
