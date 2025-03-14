@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link href="/PNG/1.png" rel="icon">
     <title>系统软件 - 蓝天资源网</title>
     <style>
@@ -69,6 +69,65 @@
         /* 导航栏链接悬停效果：颜色变化 */
         nav ul li a:hover {
             color: #3498db;
+        }
+        
+        /* 搜索框样式 */
+        .search-box {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        
+        .search-box button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* 筛选栏样式 */
+        .filter-bar {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-group label {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+        
+        .filter-group select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
         }
         
         /* 分类区域样式：网格布局、列数、间距、边距、内边距、边框 */
@@ -255,6 +314,33 @@
             font-size: 12px;
             margin-right: 5px;
         }
+        
+        /* 分页导航样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .pagination a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .pagination a.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .pagination a:hover:not(.active) {
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body>
@@ -274,26 +360,55 @@
     </header>
 
     <main class="container">
+        <div class="search-box">
+            <input type="text" placeholder="搜索系统软件...">
+            <button>搜索</button>
+        </div>
+        
+        <div class="filter-bar">
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label for="os-filter">操作系统:</label>
+                    <select id="os-filter">
+                        <option value="">全部</option>
+                        <option value="windows">Windows</option>
+                        <option value="mac">Mac</option>
+                        <option value="linux">Linux</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="type-filter">软件类型:</label>
+                    <select id="type-filter">
+                        <option value="">全部</option>
+                        <option value="os">操作系统</option>
+                        <option value="utility">实用工具</option>
+                        <option value="office">办公软件</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
         <section class="categories">
             <div class="category">
-                <img src="/PNG/2.png" alt="系统安装">
-                <h3>系统安装</h3>
-                <p>各种操作系统安装工具</p>
+                <img src="/PNG/2.png" alt="Windows">
+                <h3>Windows</h3>
+                <p>Windows系统资源</p>
             </div>
             <div class="category">
-                <img src="/PNG/3.png" alt="系统更新">
-                <h3>系统更新</h3>
-                <p>系统补丁和更新工具</p>
+                <img src="/PNG/3.png" alt="Mac">
+                <h3>Mac</h3>
+                <p>Mac系统资源</p>
             </div>
             <div class="category">
-                <img src="/PNG/4.png" alt="系统维护">
-                <h3>系统维护</h3>
-                <p>系统优化和维护工具</p>
+                <img src="/PNG/4.png" alt="Linux">
+                <h3>Linux</h3>
+                <p>Linux系统资源</p>
             </div>
             <div class="category">
-                <img src="/PNG/5.png" alt="系统备份">
-                <h3>系统备份</h3>
-                <p>系统备份和恢复工具</p>
+                <img src="/PNG/5.png" alt="工具软件">
+                <h3>工具软件</h3>
+                <p>系统工具资源</p>
             </div>
         </section>
 
@@ -302,27 +417,36 @@
             <div class="resource-item">
                 <div class="resource-icon"><img src="/PNG/2.png" alt="Windows"></div>
                 <div class="resource-info">
-                    <h3>Windows 系统安装工具</h3>
-                    <p><span class="tag">最新</span>支持Windows 10/11系统的一键安装工具，简单快捷，支持多种分区方案。</p>
-                    <p class="version">版本: v2.5 | 更新时间: 2023-05-15</p>
+                    <h3>Windows 11 Pro</h3>
+                    <p><span class="tag">最新</span>微软最新Windows 11专业版，支持多种安装方式，界面美观，功能强大。</p>
+                    <p class="version">版本: 22H2 | 更新时间: 2023-05-15</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
             <div class="resource-item">
                 <div class="resource-icon"><img src="/PNG/3.png" alt="MacOS"></div>
                 <div class="resource-info">
-                    <h3>MacOS 系统更新工具</h3>
-                    <p><span class="tag">热门</span>适用于苹果MacOS系统的官方更新工具，支持在线和离线更新。</p>
-                    <p class="version">版本: v12.4 | 更新时间: 2023-06-20</p>
+                    <h3>MacOS Ventura</h3>
+                    <p><span class="tag">热门</span>苹果最新MacOS Ventura系统，支持Intel和M系列芯片，全新功能体验。</p>
+                    <p class="version">版本: 13.3 | 更新时间: 2023-04-20</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
             <div class="resource-item">
                 <div class="resource-icon"><img src="/PNG/4.png" alt="Linux"></div>
                 <div class="resource-info">
-                    <h3>Linux 系统维护工具</h3>
-                    <p><span class="tag">推荐</span>适用于Ubuntu、CentOS等主流Linux发行版的系统维护工具，包含清理、更新、修复等功能。</p>
-                    <p class="version">版本: v3.2 | 更新时间: 2023-07-05</p>
+                    <h3>Ubuntu 22.04 LTS</h3>
+                    <p><span class="tag">推荐</span>流行的Linux发行版，长期支持版本，适合服务器和桌面使用。</p>
+                    <p class="version">版本: 22.04.2 LTS | 更新时间: 2023-03-10</p>
+                </div>
+                <a href="#" class="view-btn">查看</a>
+            </div>
+            <div class="resource-item">
+                <div class="resource-icon"><img src="/PNG/14.png" alt="Office"></div>
+                <div class="resource-info">
+                    <h3>Microsoft Office 2021</h3>
+                    <p><span class="tag">热门</span>微软最新办公软件套件，包含Word、Excel、PowerPoint等。</p>
+                    <p class="version">版本: 2109 | 更新时间: 2022-10-15</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
@@ -331,42 +455,51 @@
         <section class="resource-list">
             <h2>最新系统软件</h2>
             <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/6.png" alt="系统备份"></div>
+                <div class="resource-icon"><img src="/PNG/15.png" alt="Windows Server"></div>
                 <div class="resource-info">
-                    <h3>专业系统备份软件</h3>
-                    <p>支持Windows、MacOS、Linux的全平台系统备份工具，支持定时备份和增量备份。</p>
-                    <p class="version">版本: v5.1 | 更新时间: 2023-08-10</p>
+                    <h3>Windows Server 2022</h3>
+                    <p>微软最新服务器操作系统，提供强大的服务器功能和安全性。</p>
+                    <p class="version">版本: 21H2 | 更新时间: 2023-05-05</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/7.png" alt="系统优化"></div>
+                <div class="resource-icon"><img src="/PNG/16.png" alt="VMware"></div>
                 <div class="resource-info">
-                    <h3>系统性能优化工具</h3>
-                    <p>全面的系统性能优化软件，包含清理垃圾文件、优化启动项、修复系统错误等功能。</p>
-                    <p class="version">版本: v4.8 | 更新时间: 2023-07-25</p>
+                    <h3>VMware Workstation Pro</h3>
+                    <p>功能强大的虚拟机软件，支持在一台电脑上运行多个操作系统。</p>
+                    <p class="version">版本: 17.0.0 | 更新时间: 2023-04-30</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/8.png" alt="系统监控"></div>
+                <div class="resource-icon"><img src="/PNG/17.png" alt="VirtualBox"></div>
                 <div class="resource-info">
-                    <h3>系统实时监控软件</h3>
-                    <p>强大的系统资源监控工具，实时显示CPU、内存、磁盘等使用情况，支持警报功能。</p>
-                    <p class="version">版本: v2.3 | 更新时间: 2023-06-10</p>
+                    <h3>Oracle VM VirtualBox</h3>
+                    <p>免费开源的虚拟机软件，适合开发和测试使用。</p>
+                    <p class="version">版本: 7.0.8 | 更新时间: 2023-05-01</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon"><img src="/PNG/9.png" alt="系统修复"></div>
+                <div class="resource-icon"><img src="/PNG/18.png" alt="Docker"></div>
                 <div class="resource-info">
-                    <h3>系统修复工具</h3>
-                    <p>专业的系统修复软件，能够快速诊断并修复系统问题，支持多种操作系统。</p>
-                    <p class="version">版本: v1.7 | 更新时间: 2023-05-20</p>
+                    <h3>Docker Desktop</h3>
+                    <p>流行的容器化平台，简化应用程序的开发、部署和运行。</p>
+                    <p class="version">版本: 4.17.1 | 更新时间: 2023-04-25</p>
                 </div>
                 <a href="#" class="view-btn">查看</a>
             </div>
         </section>
+
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">下一页 &raquo;</a>
+        </div>
     </main>
 
     <footer>
@@ -381,20 +514,38 @@
         // 查看按钮点击事件监听
         document.querySelectorAll('.view-btn').forEach(button => {
             button.addEventListener('click', function(e) {
-                e.preventDefault(); // 阻止默认行为
-                alert('正在跳转'); // 弹出提示框
-                // 这里可以添加实际的查看逻辑
+                e.preventDefault();
+                alert('正在跳转');
             });
         });
 
         // 导航栏固定在顶部的滚动事件监听
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header'); // 获取header元素
-            if (window.scrollY > 50) { // 如果滚动距离超过50像素
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)'; // 设置较大的阴影
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
             } else {
-                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)'; // 设置较小的阴影
+                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
             }
+        });
+
+        // 搜索框功能
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-box input').value;
+            if (searchTerm) {
+                alert(`您搜索了: ${searchTerm}`);
+            } else {
+                alert('请输入搜索内容');
+            }
+        });
+
+        // 筛选功能
+        document.querySelectorAll('.filter-bar select').forEach(select => {
+            select.addEventListener('change', function() {
+                const osFilter = document.getElementById('os-filter').value;
+                const typeFilter = document.getElementById('type-filter').value;
+                alert(`筛选条件: 操作系统=${osFilter}, 软件类型=${typeFilter}`);
+            });
         });
     </script>
 </body>
