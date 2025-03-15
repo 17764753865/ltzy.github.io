@@ -504,15 +504,6 @@
     </footer>
 
     <script>
-        // 查看按钮点击事件监听
-        document.querySelectorAll('.view-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault(); // 阻止默认行为
-                alert('正在跳转'); // 弹出提示框
-                // 这里可以添加实际的查看逻辑
-            });
-        });
-
         // 导航栏固定在顶部的滚动事件监听
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header'); // 获取header元素
