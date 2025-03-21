@@ -1,518 +1,637 @@
 <!DOCTYPE html>
-<!-- 声明文档类型为HTML5 -->
 <html lang="zh-CN">
-<!-- 设置页面语言为中文 -->
 <head>
-    <!-- 页面头部开始，包含元信息和资源链接 -->
-    <meta charset="UTF-8">
-    <!-- 设置字符编码为UTF-8 -->
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <!-- 设置视口，适配移动设备 -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- 兼容IE浏览器 -->
-    <link href="/PNG/1.png" rel="icon">
-    <!-- 设置页面图标 -->
-    <title>蓝天资源网</title>
-    <!-- 设置页面标题 -->
+    <meta charset="UTF-8"> <!-- 设置字符编码为UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，确保响应式设计 -->
+    <title>蓝天资源网</title> <!-- 网页标题 -->
     <style>
-        /* 全局样式重置和字体设置 */
+        /* 基础样式重置 */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Microsoft YaHei', sans-serif;
+            margin: 0; /* 清除所有元素的外边距 */
+            padding: 0; /* 清除所有元素的内边距 */
+            box-sizing: border-box; /* 包含内边距和边框在元素的总宽度和高度内 */
         }
-        /* 重置所有元素的外边距和内边距，设置盒模型为border-box，统一字体 */
         
-        /* 设置body的背景色和文字颜色 */
         body {
-            background-color: #f5f5f5;
-            color: #333;
+            font-family: 'Microsoft YaHei', sans-serif; /* 设置字体系列，使用微软雅黑提高中文显示效果 */
+            line-height: 1.6; /* 设置行高，提高可读性 */
+            color: #333; /* 设置文字颜色 */
+            background-color: #f5f5f5; /* 设置背景颜色，浅灰色提高视觉层次 */
         }
-        /* 设置body背景色为浅灰色，文字颜色为深灰色 */
         
-        /* 头部样式：背景色、文字颜色、内边距等 */
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        /* 设置头部背景色、文字颜色、内边距，固定在顶部，添加阴影效果 */
-        
-        /* 容器样式：最大宽度、居中、内边距 */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+            max-width: 1200px; /* 设置最大宽度 */
+            margin: 0 auto; /* 水平居中 */
+            padding: 0 15px; /* 内边距 */
         }
-        /* 设置容器最大宽度为1200px，居中显示，左右内边距为15px */
         
-        /* 网站logo样式：字体大小、粗细、阴影 */
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        /* 头部导航样式 */
+        header {
+            background-color: #fff; /* 设置背景颜色 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 添加阴影，增强层次感 */
+            position: sticky; /* 设置定位方式 */
+            top: 0; /* 固定在顶部 */
+            z-index: 100; /* 确保导航栏在其他内容之上 */
         }
-        /* 设置logo字体大小、加粗、添加文字阴影 */
         
-        /* 导航栏样式：flex布局、列表样式、对齐方式 */
-        nav ul {
-            display: flex;
-            list-style: none;
-            justify-content: flex-end;
+        header .container {
+            display: flex; /* 使用弹性布局 */
+            justify-content: space-between; /* 子元素两端对齐 */
+            align-items: center; /* 垂直居中对齐 */
+            padding: 15px; /* 内边距 */
         }
-        /* 使用flex布局，设置列表无样式，导航项右对齐 */
         
-        /* 导航栏列表项样式：间距 */
-        nav ul li {
-            margin-left: 25px;
+        .logo h1 {
+            color: #1890ff; /* 设置标题颜色，使用蓝色主题 */
+            font-size: 24px; /* 设置字体大小 */
+            margin-bottom: 5px; /* 底部外边距 */
         }
-        /* 设置导航项左边距为25px */
         
-        /* 导航栏链接样式：颜色、无下划线、字体粗细、过渡效果 */
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+        .logo p {
+            font-size: 14px; /* 设置字体大小 */
+            color: #888; /* 设置文字颜色，浅灰色副标题 */
         }
-        /* 设置导航链接颜色为白色，无下划线，字体加粗，添加颜色过渡效果 */
         
-        /* 导航栏链接悬停效果：颜色变化 */
-        nav ul li a:hover {
-            color: #3498db;
+        .search-box {
+            display: flex; /* 使用弹性布局 */
         }
-        /* 鼠标悬停时导航链接颜色变为蓝色 */
         
-        /* 分类区域样式：网格布局、列数、间距、边距、内边距、边框 */
+        .search-box input {
+            padding: 10px 15px; /* 内边距 */
+            border: 1px solid #ddd; /* 设置边框 */
+            border-radius: 4px 0 0 4px; /* 设置圆角 */
+            outline: none; /* 移除轮廓线 */
+            flex: 1; /* 设置弹性布局比例 */
+            font-size: 14px; /* 设置字体大小 */
+        }
+        
+        .search-box button {
+            background-color: #1890ff; /* 设置背景颜色 */
+            color: white; /* 设置文字颜色 */
+            border: none; /* 移除边框 */
+            padding: 10px 15px; /* 内边距 */
+            border-radius: 0 4px 4px 0; /* 设置圆角 */
+            cursor: pointer; /* 设置鼠标指针样式 */
+            font-size: 16px; /* 设置字体大小 */
+        }
+        
+        /* 主要内容区样式 */
+        .main-content {
+            padding: 30px 0; /* 上下内边距 */
+        }
+        
+        .section-title {
+            text-align: center; /* 文本居中 */
+            margin-bottom: 40px; /* 底部外边距 */
+            font-size: 28px; /* 设置字体大小 */
+            color: #333; /* 设置文字颜色 */
+            position: relative; /* 设置相对定位 */
+        }
+        
+        .section-title::after {
+            content: ""; /* 空内容 */
+            position: absolute; /* 绝对定位 */
+            bottom: -10px; /* 距离标题底部的距离 */
+            left: 50%; /* 水平居中 */
+            transform: translateX(-50%); /* 水平居中调整 */
+            width: 60px; /* 线条宽度 */
+            height: 3px; /* 线条高度 */
+            background-color: #1890ff; /* 线条颜色 */
+        }
+        
+        /* 资源分类样式 */
         .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-            padding: 20px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
+            display: flex; /* 使用弹性布局 */
+            justify-content: center; /* 水平居中 */
+            flex-wrap: wrap; /* 允许换行 */
+            margin-bottom: 40px; /* 底部外边距 */
         }
-        /* 使用网格布局，自动填充列，最小宽度220px，设置间距、边距、内边距和边框 */
         
-        /* 单个分类样式：背景色、圆角、内边距、文本居中、阴影、过渡效果、光标样式 */
         .category {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
+            background-color: #fff; /* 设置背景颜色 */
+            border-radius: 12px; /* 设置圆角 */
+            padding: 20px 30px; /* 内边距 */
+            margin: 0 20px 25px; /* 外边距 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            transition: transform 0.3s, box-shadow 0.3s; /* 添加过渡动画 */
+            text-align: center; /* 文本居中 */
+            width: 180px; /* 设置宽度 */
+            cursor: pointer; /* 设置鼠标指针样式 */
+            position: relative; /* 设置相对定位 */
         }
-        /* 设置分类背景色、圆角、内边距、文本居中、阴影效果，添加过渡效果和鼠标样式 */
         
-        /* 分类悬停效果：位移和阴影变化 */
         .category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-8px); /* 鼠标悬停时向上移动 */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* 改变阴影效果 */
         }
-        /* 鼠标悬停时分类块上移并增大阴影 */
         
-        /* 分类图片样式：宽度、高度、间距、圆角、封面填充 */
-        .category img {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            object-fit: cover;
+        .category-image {
+            height: 80px; /* 设置图片高度 */
+            background-color: #f0f0f0; /* 设置背景颜色 */
+            display: flex; /* 使用弹性布局 */
+            align-items: center; /* 垂直居中对齐 */
+            justify-content: center; /* 水平居中对齐 */
+            border-radius: 8px; /* 设置圆角 */
+            margin-bottom: 15px; /* 底部外边距 */
         }
-        /* 设置分类图片宽度、高度、下边距、圆角和封面填充 */
         
-        /* 分类标题样式：间距、颜色、字体大小 */
+        .category-image i {
+            font-size: 36px; /* 设置图标大小 */
+            color: #1890ff; /* 设置图标颜色 */
+        }
+        
         .category h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-size: 20px;
+            font-size: 18px; /* 设置字体大小 */
+            margin-bottom: 8px; /* 底部外边距 */
+            color: #333; /* 设置文字颜色 */
         }
-        /* 设置分类标题下边距、颜色和字体大小 */
         
-        /* 分类描述样式：颜色、字体大小 */
         .category p {
-            color: #7f8c8d;
-            font-size: 14px;
+            font-size: 14px; /* 设置字体大小 */
+            color: #666; /* 设置文字颜色 */
         }
-        /* 设置分类描述颜色和字体大小 */
         
-        /* 资源列表样式：背景色、圆角、内边距、边距、阴影 */
-        .resource-list {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        .category-details {
+            display: none; /* 默认隐藏详情 */
+            position: absolute; /* 绝对定位 */
+            top: 100%; /* 从分类板块底部开始 */
+            left: 0; /* 靠左对齐 */
+            background-color: #fff; /* 设置背景颜色 */
+            border-radius: 8px; /* 设置圆角 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            width: 300px; /* 设置宽度 */
+            padding: 15px; /* 内边距 */
+            z-index: 10; /* 确保在上层 */
         }
-        /* 设置资源列表背景色、圆角、内边距、边距和阴影效果 */
         
-        /* 资源列表标题样式：间距、颜色、字体大小、底部边框、内边距 */
-        .resource-list h2 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-            font-size: 24px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 15px;
+        .category-details.active {
+            display: block; /* 显示详情 */
         }
-        /* 设置资源列表标题下边距、颜色、字体大小、底部边框和内边距 */
         
-        /* 资源项样式：flex布局、内边距、底部边框 */
-        .resource-item {
-            display: flex;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
+        .category-details h4 {
+            font-size: 16px; /* 设置字体大小 */
+            margin-bottom: 10px; /* 底部外边距 */
+            color: #1890ff; /* 设置文字颜色 */
         }
-        /* 使用flex布局，设置资源项内边距和底部边框 */
         
-        /* 最后一个资源项无底部边框 */
-        .resource-item:last-child {
-            border-bottom: none;
+        .category-details p {
+            font-size: 13px; /* 设置字体大小 */
+            color: #666; /* 设置文字颜色 */
+            margin-bottom: 15px; /* 底部外边距 */
         }
-        /* 移除最后一个资源项的底部边框 */
         
-        /* 资源图标样式：宽度、高度、间距、背景色、圆角、flex布局、内容居中、溢出隐藏 */
-        .resource-icon {
-            width: 80px;
-            height: 80px;
-            margin-right: 20px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+        .category-details .btn {
+            display: inline-block; /* 设置为行内块级元素 */
+            padding: 6px 14px; /* 内边距 */
+            background-color: #1890ff; /* 设置背景颜色 */
+            color: white; /* 设置文字颜色 */
+            text-decoration: none; /* 移除下划线 */
+            border-radius: 4px; /* 设置圆角 */
+            transition: background-color 0.3s; /* 添加背景色过渡动画 */
+            font-size: 13px; /* 设置字体大小 */
+            border: none; /* 移除边框 */
+            cursor: pointer; /* 设置鼠标指针样式 */
+            width: 100%; /* 设置宽度 */
+            text-align: center; /* 文本居中 */
         }
-        /* 设置资源图标宽度、高度、右边距、背景色、圆角、flex布局和溢出隐藏 */
         
-        /* 资源图标图片样式：最大宽度和高度 */
-        .resource-icon img {
-            max-width: 100%;
-            max-height: 100%;
+        .category-details .btn:hover {
+            background-color: #0c7cd5; /* 鼠标悬停时的背景颜色 */
         }
-        /* 设置资源图标图片最大宽度和高度为容器的100% */
         
-        /* 资源信息样式：flex布局、占据剩余空间 */
+        /* 热门资源样式 */
+        .popular-resources {
+            padding: 20px 0; /* 上下内边距 */
+        }
+        
+        .popular-title {
+            text-align: center; /* 文本居中 */
+            margin-bottom: 30px; /* 底部外边距 */
+            font-size: 24px; /* 设置字体大小 */
+            color: #333; /* 设置文字颜色 */
+        }
+        
+        .resources-grid {
+            display: grid; /* 使用网格布局 */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 设置列布局 */
+            gap: 25px; /* 设置网格间隙 */
+        }
+        
+        .resource-card {
+            background-color: #fff; /* 设置背景颜色 */
+            border-radius: 8px; /* 设置圆角 */
+            overflow: hidden; /* 隐藏溢出内容 */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            transition: transform 0.3s, box-shadow 0.3s; /* 添加过渡动画 */
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px); /* 鼠标悬停时向上移动 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 改变阴影效果 */
+        }
+        
         .resource-info {
-            flex: 1;
+            padding: 15px; /* 内边距 */
         }
-        /* 设置资源信息占据剩余空间 */
         
-        /* 资源信息标题样式：间距、颜色、字体大小 */
         .resource-info h3 {
-            margin-bottom: 8px;
-            color: #2c3e50;
-            font-size: 18px;
+            font-size: 16px; /* 设置字体大小 */
+            margin-bottom: 8px; /* 底部外边距 */
+            color: #333; /* 设置文字颜色 */
         }
-        /* 设置资源信息标题下边距、颜色和字体大小 */
         
-        /* 资源信息描述样式：颜色、字体大小、间距、行高 */
         .resource-info p {
-            color: #7f8c8d;
-            font-size: 14px;
-            margin-bottom: 8px;
-            line-height: 1.4;
+            font-size: 13px; /* 设置字体大小 */
+            color: #666; /* 设置文字颜色 */
+            margin-bottom: 10px; /* 底部外边距 */
         }
-        /* 设置资源信息描述颜色、字体大小、下边距和行高 */
         
-        /* 资源信息版本样式：字体大小、颜色 */
-        .resource-info .version {
-            font-size: 12px;
-            color: #95a5a6;
+        .btn {
+            display: inline-block; /* 设置为行内块级元素 */
+            padding: 6px 14px; /* 内边距 */
+            background-color: #1890ff; /* 设置背景颜色 */
+            color: white; /* 设置文字颜色 */
+            text-decoration: none; /* 移除下划线 */
+            border-radius: 4px; /* 设置圆角 */
+            transition: background-color 0.3s; /* 添加背景色过渡动画 */
+            font-size: 13px; /* 设置字体大小 */
+            border: none; /* 移除边框 */
+            cursor: pointer; /* 设置鼠标指针样式 */
         }
-        /* 设置资源信息版本字体大小和颜色 */
         
-        /* 查看按钮样式：背景色、颜色、边框、内边距、圆角、光标、字体大小、过渡效果、间距、显示方式、文本居中、行高 */
-        .view-btn {
-            background-color: #5dade2;
-            color: white;
-            border: 1px solid #5dade2;
-            padding: 5px 15px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: all 0.3s;
-            margin-left: 15px;
-            display: inline-block;
-            text-align: center;
-            line-height: 1.5;
+        .btn:hover {
+            background-color: #0c7cd5; /* 鼠标悬停时的背景颜色 */
         }
-        /* 设置查看按钮背景色、文字颜色、边框、内边距、圆角、光标样式、字体大小、过渡效果、左边距、显示方式、文本居中和行高 */
         
-        /* 查看按钮悬停效果：背景色、边框色、位移、阴影 */
-        .view-btn:hover {
-            background-color: #3498db;
-            border-color: #3498db;
-            transform: translateY(-1px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        /* 鼠标悬停时查看按钮背景色、边框色变化，上移并添加阴影 */
-        
-        /* 页脚样式：背景色、文字颜色、文本居中、内边距、边距 */
+        /* 页脚样式 */
         footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
+            background-color: #1a2a3a; /* 设置背景颜色 */
+            color: #fff; /* 设置文字颜色 */
+            padding: 30px 0; /* 上下内边距 */
         }
-        /* 设置页脚背景色、文字颜色、文本居中、内边距和上边距 */
         
-        /* 页脚段落样式：间距 */
-        footer p {
-            margin-bottom: 15px;
+        .footer-content {
+            display: grid; /* 使用网格布局 */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 设置列布局 */
+            gap: 30px; /* 设置网格间隙 */
         }
-        /* 设置页脚段落下边距 */
         
-        /* 页脚链接样式：颜色、无下划线 */
-        footer a {
-            color: #3498db;
-            text-decoration: none;
+        .footer-section h3 {
+            font-size: 18px; /* 设置字体大小 */
+            margin-bottom: 15px; /* 底部外边距 */
+            position: relative; /* 设置相对定位 */
         }
-        /* 设置页脚链接颜色和无下划线 */
         
-        /* 页脚链接悬停效果：下划线 */
-        footer a:hover {
-            text-decoration: underline;
+        .footer-section h3::after {
+            content: ""; /* 空内容 */
+            position: absolute; /* 绝对定位 */
+            bottom: -8px; /* 距离标题底部的距离 */
+            left: 0; /* 靠左对齐 */
+            width: 40px; /* 线条宽度 */
+            height: 2px; /* 线条高度 */
+            background-color: #1890ff; /* 线条颜色 */
         }
-        /* 鼠标悬停时页脚链接显示下划线 */
         
-        /* 标签样式：内联块、背景色、颜色、内边距、圆角、字体大小、间距 */
-        .tag {
-            display: inline-block;
-            background-color: #e74c3c;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 12px;
-            margin-right: 5px;
+        .footer-section p,
+        .footer-section li {
+            font-size: 14px; /* 设置字体大小 */
+            color: #a0b5c8; /* 设置文字颜色 */
+            margin-bottom: 10px; /* 底部外边距 */
         }
-        /* 设置标签为内联块元素，背景色、文字颜色、内边距、圆角、字体大小和右边距 */
+        
+        .footer-section ul {
+            list-style: none; /* 移除列表样式 */
+        }
+        
+        .footer-section a {
+            color: #a0b5c8; /* 设置文字颜色 */
+            text-decoration: none; /* 移除下划线 */
+            transition: color 0.3s; /* 添加颜色过渡动画 */
+        }
+        
+        .footer-section a:hover {
+            color: #1890ff; /* 鼠标悬停时的颜色 */
+        }
+        
+        .social-icons {
+            display: flex; /* 使用弹性布局 */
+            gap: 15px; /* 设置元素间距 */
+            margin-top: 15px; /* 顶部外边距 */
+        }
+        
+        .social-icons a {
+            color: #a0b5c8; /* 设置文字颜色 */
+            font-size: 18px; /* 设置字体大小 */
+            transition: color 0.3s; /* 添加颜色过渡动画 */
+        }
+        
+        .social-icons a:hover {
+            color: #1890ff; /* 鼠标悬停时的颜色 */
+        }
+        
+        .copyright {
+            text-align: center; /* 文本居中 */
+            margin-top: 30px; /* 顶部外边距 */
+            padding-top: 15px; /* 顶部内边距 */
+            border-top: 1px solid #2a3b4d; /* 设置顶部边框 */
+            color: #657786; /* 设置文字颜色 */
+            font-size: 14px; /* 设置字体大小 */
+        }
+        
+        /* 响应式设计 - 平板 */
+        @media (max-width: 992px) {
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 调整网格布局 */
+            }
+            
+            .category {
+                width: 160px; /* 调整宽度 */
+            }
+            
+            .category-details {
+                width: 250px; /* 调整宽度 */
+            }
+        }
+        
+        /* 响应式设计 - 手机 */
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 调整网格布局 */
+            }
+            
+            .category {
+                width: 140px; /* 调整宽度 */
+                padding: 15px 20px; /* 调整内边距 */
+            }
+            
+            .category-image i {
+                font-size: 30px; /* 调整图标大小 */
+            }
+            
+            .category h3 {
+                font-size: 16px; /* 调整字体大小 */
+            }
+            
+            .category p {
+                font-size: 12px; /* 调整字体大小 */
+            }
+            
+            .category-details {
+                width: 200px; /* 调整宽度 */
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr; /* 设置为单列布局 */
+            }
+        }
     </style>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8d5l8fzk5b87iudi/css.css">
 </head>
 <body>
     <header>
-        <!-- 页面头部开始 -->
         <div class="container">
-            <!-- 容器开始 -->
-            <div class="logo">蓝天资源网</div>
-            <!-- 网站logo -->
-            <nav>
-                <!-- 导航栏开始 -->
-                <ul>
-                    <!-- 无序列表开始 -->
-                    <li><a href="/">首页</a></li>
-                    <!-- 首页导航项 -->
-                    <li><a href="/xtrj">系统软件</a></li>
-                    <!-- 系统软件导航项 -->
-                    <li><a href="/xtgj">系统工具</a></li>
-                    <!-- 系统工具导航项 -->
-                    <li><a href="/qdcx/">驱动程序</a></li>
-                    <!-- 驱动程序导航项 -->
-                    <li><a href="/xtaq/">系统安全</a></li>
-                    <!-- 系统安全导航项 -->
-                </ul>
-            </nav>
+            <div class="logo">
+                <h1>蓝天资源网</h1> <!-- 网站名称 -->
+                <p>优质资源，一键获取</p> <!-- 网站标语 -->
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="搜索资源..." id="search-input"> <!-- 搜索框 -->
+                <button id="search-button"><i class="icon icon-search"></i></button> <!-- 搜索按钮 -->
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <!-- 主要内容区域开始 -->
-        <section class="categories">
-            <!-- 分类区域开始 -->
-            <div class="category">
-                <!-- 单个分类开始 -->
-                <img src="/PNG/2.png" alt="Windows">
-                <!-- 分类图片 -->
-                <h3>Windows</h3>
-                <!-- 分类标题 -->
-                <p>Windows系统资源</p>
-                <!-- 分类描述 -->
-            </div>
-            <div class="category">
-                <!-- 单个分类开始 -->
-                <img src="/PNG/3.png" alt="Mac">
-                <!-- 分类图片 -->
-                <h3>Mac</h3>
-                <!-- 分类标题 -->
-                <p>Mac系统资源</p>
-                <!-- 分类描述 -->
-            </div>
-            <div class="category">
-                <!-- 单个分类开始 -->
-                <img src="/PNG/4.png" alt="Linux">
-                <!-- 分类图片 -->
-                <h3>Linux</h3>
-                <!-- 分类标题 -->
-                <p>Linux系统资源</p>
-                <!-- 分类描述 -->
-            </div>
-            <div class="category">
-                <!-- 单个分类开始 -->
-                <img src="/PNG/5.png" alt="工具软件">
-                <!-- 分类图片 -->
-                <h3>工具软件</h3>
-                <!-- 分类标题 -->
-                <p>系统工具资源</p>
-                <!-- 分类描述 -->
-            </div>
-        </section>
-
-        <section class="resource-list">
-            <!-- 资源列表区域开始 -->
-            <h2>热门资源</h2>
-            <!-- 资源列表标题 -->
-            <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/2.png" alt="Windows"></div>
-                <!-- 资源图标 -->
-                <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>Windows </h3>
-                    <!-- 资源标题 -->
-                    <p><span class="tag">最新</span>最新Windows系统镜像，稳定高效，支持多种安装方式。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:  | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+    <main class="main-content">
+        <h2 class="section-title">资源分类</h2> <!-- 资源分类标题 -->
+        <div class="container">
+            <div class="categories">
+                <!-- 分类1 -->
+                <div class="category" onclick="toggleCategoryDetails(this, 'windows')">
+                    <div class="category-image">
+                        <i class="icon icon-windows"></i> <!-- 分类图标 -->
+                    </div>
+                    <h3>Windows系统</h3> <!-- 分类标题 -->
+                    <p>各类Windows系统镜像资源</p> <!-- 分类描述 -->
+                    <div class="category-details">
+                        <h4>Windows系统资源</h4>
+                        <p>提供各类Windows系统镜像，包括不同版本和架构。</p>
+                        <p>最新更新：2023-10-15</p>
+                        <a href="#" class="btn">查看更多</a>
+                    </div>
                 </div>
-                <a href="/windows" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
-            </div>
-            <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/3.png" alt="MacOS"></div>
-                <!-- 资源图标 -->
-                <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>MacOS </h3>
-                    <!-- 资源标题 -->
-                    <p><span class="tag">热门</span>苹果MacOS最新版本，支持Intel和M芯片，全新功能体验。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                <!-- 分类2 -->
+                <div class="category" onclick="toggleCategoryDetails(this, 'mac')">
+                    <div class="category-image">
+                        <i class="icon icon-apple"></i> <!-- 分类图标 -->
+                    </div>
+                    <h3>Mac OS系统</h3> <!-- 分类标题 -->
+                    <p>官方原版macOS系统镜像</p> <!-- 分类描述 -->
+                    <div class="category-details">
+                        <h4>Mac OS系统资源</h4>
+                        <p>提供官方原版macOS系统镜像，适用于Mac电脑。</p>
+                        <p>最新更新：2023-10-10</p>
+                        <a href="#" class="btn">查看更多</a>
+                    </div>
                 </div>
-                <a href="/macos" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
-            </div>
-            <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/4.png" alt="Linux"></div>
-                <!-- 资源图标 -->
-                <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>Linux </h3>
-                    <!-- 资源标题 -->
-                    <p><span class="tag">推荐</span>流行的Linux发行版，长期支持版本，适合服务器和桌面使用。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                <!-- 分类3 -->
+                <div class="category" onclick="toggleCategoryDetails(this, 'linux')">
+                    <div class="category-image">
+                        <i class="icon icon-linux"></i> <!-- 分类图标 -->
+                    </div>
+                    <h3>Linux系统</h3> <!-- 分类标题 -->
+                    <p>多种Linux发行版系统镜像</p> <!-- 分类描述 -->
+                    <div class="category-details">
+                        <h4>Linux系统资源</h4>
+                        <p>提供多种Linux发行版系统镜像，适用于服务器和桌面环境。</p>
+                        <p>最新更新：2023-09-20</p>
+                        <a href="#" class="btn">查看更多</a>
+                    </div>
                 </div>
-                <a href="/linux" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
-            </div>
-        </section>
-
-        <section class="resource-list">
-            <!-- 资源列表区域开始 -->
-            <h2>最新资源</h2>
-            <!-- 资源列表标题 -->
-            <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/6.png" alt="NVIDIA"></div>
-                <!-- 资源图标 -->
-                <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>NVIDIA显卡驱动</h3>
-                    <!-- 资源标题 -->
-                    <p>最新NVIDIA显卡驱动程序，支持多款显卡型号，提升性能和稳定性。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                <!-- 分类4 -->
+                <div class="category" onclick="toggleCategoryDetails(this, 'office')">
+                    <div class="category-image">
+                        <i class="icon icon-office"></i> <!-- 分类图标 -->
+                    </div>
+                    <h3>Office软件</h3> <!-- 分类标题 -->
+                    <p>Microsoft Office及WPS等办公软件</p> <!-- 分类描述 -->
+                    <div class="category-details">
+                        <h4>Office软件资源</h4>
+                        <p>提供Microsoft Office、WPS等办公软件，满足您的办公需求。</p>
+                        <p>最新更新：2023-09-15</p>
+                        <a href="#" class="btn">查看更多</a>
+                    </div>
                 </div>
-                <a href="/nvidia" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
-            </div>
-            <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/7.png" alt="AMD"></div>
-                <!-- 资源图标 -->
-                <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>AMD显卡驱动</h3>
-                    <!-- 资源标题 -->
-                    <p>最新AMD显卡驱动程序，支持多款显卡型号，提升性能和稳定性。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                <!-- 分类5 -->
+                <div class="category" onclick="toggleCategoryDetails(this, 'android')">
+                    <div class="category-image">
+                        <i class="icon icon-android"></i> <!-- 分类图标 -->
+                    </div>
+                    <h3>安卓应用</h3> <!-- 分类标题 -->
+                    <p>各类安卓应用软件资源</p> <!-- 分类描述 -->
+                    <div class="category-details">
+                        <h4>安卓应用资源</h4>
+                        <p>提供各类安卓应用软件，涵盖生活、工作、娱乐等多个领域。</p>
+                        <p>最新更新：2023-08-15</p>
+                        <a href="#" class="btn">查看更多</a>
+                    </div>
                 </div>
-                <a href="/amd" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
-            </div>
-            <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/5.png" alt="优化工具"></div>
-                <!-- 资源图标 -->
-                <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>系统优化工具</h3>
-                    <!-- 资源标题 -->
-                    <p>高效系统优化软件，一键清理垃圾文件，提升系统运行速度。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                <!-- 分类6 -->
+                <div class="category" onclick="toggleCategoryDetails(this, 'tools')">
+                    <div class="category-image">
+                        <i class="icon icon-tools"></i> <!-- 分类图标 -->
+                    </div>
+                    <h3>编程工具</h3> <!-- 分类标题 -->
+                    <p>开发工具、IDE、插件等资源</p> <!-- 分类描述 -->
+                    <div class="category-details">
+                        <h4>编程工具资源</h4>
+                        <p>提供开发工具、IDE、插件等资源，助力开发者高效编程。</p>
+                        <p>最新更新：2023-08-10</p>
+                        <a href="#" class="btn">查看更多</a>
+                    </div>
                 </div>
-                <a href="/xtyh" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
-            </div>
-            <div class="resource-item">
-                <!-- 资源项开始 -->
-                <div class="resource-icon"><img src="/PNG/8.png" alt="杀毒软件"></div>
-                <!-- 资源图标 -->
-                <div class="resource-info">
-                    <!-- 资源信息开始 -->
-                    <h3>杀毒软件</h3>
-                    <!-- 资源标题 -->
-                    <p>强大的杀毒安全软件，实时监控系统，有效防止病毒和恶意软件。</p>
-                    <!-- 资源描述 -->
-                    <p class="version">版本:   | 更新时间:  </p>
-                    <!-- 资源版本和更新时间 -->
+                <!-- 分类7 -->
+                <div class="category" onclick="toggleCategoryDetails(this, 'design')">
+                    <div class="category-image">
+                        <i class="icon icon-design"></i> <!-- 分类图标 -->
+                    </div>
+                    <h3>设计软件</h3> <!-- 分类标题 -->
+                    <p>图像、UI、视频设计软件</p> <!-- 分类描述 -->
+                    <div class="category-details">
+                        <h4>设计软件资源</h4>
+                        <p>提供图像、UI、视频设计软件，满足设计师的各种需求。</p>
+                        <p>最新更新：2023-07-20</p>
+                        <a href="#" class="btn">查看更多</a>
+                    </div>
                 </div>
-                <a href="/sdrj" class="view-btn">查看</a>
-                <!-- 查看按钮 -->
+                <!-- 分类8 -->
+                <div class="category" onclick="toggleCategoryDetails(this, 'game')">
+                    <div class="category-image">
+                        <i class="icon icon-game"></i> <!-- 分类图标 -->
+                    </div>
+                    <h3>游戏资源</h3> <!-- 分类标题 -->
+                    <p>各类游戏及辅助工具资源</p> <!-- 分类描述 -->
+                    <div class="category-details">
+                        <h4>游戏资源</h4>
+                        <p>提供各类游戏及辅助工具资源，丰富您的娱乐生活。</p>
+                        <p>最新更新：2023-07-10</p>
+                        <a href="#" class="btn">查看更多</a>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+        
+        <h2 class="popular-title">热门资源</h2> <!-- 热门资源标题 -->
+        <div class="container">
+            <div class="resources-grid">
+                <!-- 资源卡片1 -->
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h3>Windows 10 64位</h3> <!-- 资源名称 -->
+                        <p>最新专业版系统镜像，包含所有重要更新和补丁</p> <!-- 资源描述 -->
+                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                    </div>
+                </div>
+                <!-- 资源卡片2 -->
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h3>macOS Big Sur</h3> <!-- 资源名称 -->
+                        <p>官方原版系统镜像，适用于Mac电脑</p> <!-- 资源描述 -->
+                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                    </div>
+                </div>
+                <!-- 资源卡片3 -->
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h3>Ubuntu 20.04 LTS</h3> <!-- 资源名称 -->
+                        <p>长期支持版本，稳定可靠</p> <!-- 资源描述 -->
+                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                    </div>
+                </div>
+                <!-- 资源卡片4 -->
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h3>Microsoft Office 2019</h3> <!-- 资源名称 -->
+                        <p>专业增强版，包含全套办公软件</p> <!-- 资源描述 -->
+                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                    </div>
+                </div>
+                <!-- 资源卡片5 -->
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h3>WPS Office</h3> <!-- 资源名称 -->
+                        <p>专业版办公软件套装</p> <!-- 资源描述 -->
+                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <!-- 页脚开始 -->
         <div class="container">
-            <!-- 容器开始 -->
-            <p>&copy; 2018-2025 蓝天资源网. 保留所有权利.</p>
-            <!-- 版权信息 -->
-            <p>QQ咨询: 1302784641 | <a href="https://qm.qq.com/q/PMQ88JvhGQ">点击链接加我为QQ好友</a></p>
-            <!-- QQ咨询链接 -->
-            <p>联系我们: <a href="mailto:zh-gf.129@ltzy.top">zh-gf.129@ltzy.top</a></p>
-            <!-- 邮箱联系链接 -->
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3> <!-- 关于我们标题 -->
+                    <p>蓝天资源网创建于2018年，致力于为广大用户提供优质、安全、免费的系统镜像和软件资源下载服务。</p> <!-- 关于我们描述 -->
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3> <!-- 快速链接标题 -->
+                    <ul>
+                        <li><a href="#system">系统镜像</a></li> <!-- 快速链接 - 系统镜像 -->
+                        <li><a href="#software">软件资源</a></li> <!-- 快速链接 - 软件资源 -->
+                        <li><a href="#tools">工具插件</a></li> <!-- 快速链接 - 工具插件 -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系我们</h3> <!-- 联系我们标题 -->
+                    <p>邮箱：contact@blue sky.com</p> <!-- 联系邮箱 -->
+                    <div class="social-icons">
+                        <a href="#"><i class="icon icon-github"></i></a> <!-- GitHub链接 -->
+                        <a href="#"><i class="icon icon-weibo"></i></a> <!-- 微博链接 -->
+                        <a href="#"><i class="icon icon-qq"></i></a> <!-- QQ链接 -->
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>本站创建于2018年，内容更新至2025年</p> <!-- 网站创建和更新时间 -->
+            </div>
         </div>
     </footer>
 
     <script>
-        // 导航栏固定在顶部的滚动事件监听
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header'); // 获取header元素
-            if (window.scrollY > 50) { // 如果滚动距离超过50像素
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)'; // 设置较大的阴影
-            } else {
-                header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)'; // 设置较小的阴影
-            }
+        // 搜索功能
+        document.getElementById('search-button').addEventListener('click', function() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            resourceCards.forEach(card => {
+                const resourceTitle = card.querySelector('h3').textContent.toLowerCase();
+                const resourceDesc = card.querySelector('p').textContent.toLowerCase();
+                
+                if (resourceTitle.includes(searchInput) || resourceDesc.includes(searchInput)) {
+                    card.style.display = 'block'; // 显示匹配的资源
+                } else {
+                    card.style.display = 'none'; // 隐藏不匹配的资源
+                }
+            });
         });
+        
+        // 分类详情切换功能
+        function toggleCategoryDetails(categoryElement, categoryType) {
+            const details = categoryElement.querySelector('.category-details');
+            const isActive = details.classList.contains('active');
+            
+            // 关闭所有分类详情
+            const allCategories = document.querySelectorAll('.category');
+            allCategories.forEach(cat => {
+                cat.querySelector('.category-details').classList.remove('active');
+            });
+            
+            // 如果点击的分类之前没有激活，则打开其详情
+            if (!isActive) {
+                details.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>
