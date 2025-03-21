@@ -59,20 +59,10 @@
         .search-box input {
             padding: 10px 15px; /* 内边距 */
             border: 1px solid #ddd; /* 设置边框 */
-            border-radius: 4px 0 0 4px; /* 设置圆角 */
+            border-radius: 4px; /* 设置圆角 */
             outline: none; /* 移除轮廓线 */
             flex: 1; /* 设置弹性布局比例 */
             font-size: 14px; /* 设置字体大小 */
-        }
-        
-        .search-box button {
-            background-color: #1890ff; /* 设置背景颜色 */
-            color: white; /* 设置文字颜色 */
-            border: none; /* 移除边框 */
-            padding: 10px 15px; /* 内边距 */
-            border-radius: 0 4px 4px 0; /* 设置圆角 */
-            cursor: pointer; /* 设置鼠标指针样式 */
-            font-size: 16px; /* 设置字体大小 */
         }
         
         /* 主要内容区样式 */
@@ -86,17 +76,6 @@
             font-size: 28px; /* 设置字体大小 */
             color: #333; /* 设置文字颜色 */
             position: relative; /* 设置相对定位 */
-        }
-        
-        .section-title::after {
-            content: ""; /* 空内容 */
-            position: absolute; /* 绝对定位 */
-            bottom: -10px; /* 距离标题底部的距离 */
-            left: 50%; /* 水平居中 */
-            transform: translateX(-50%); /* 水平居中调整 */
-            width: 60px; /* 线条宽度 */
-            height: 3px; /* 线条高度 */
-            background-color: #1890ff; /* 线条颜色 */
         }
         
         /* 资源分类样式 */
@@ -117,7 +96,6 @@
             text-align: center; /* 文本居中 */
             width: 180px; /* 设置宽度 */
             cursor: pointer; /* 设置鼠标指针样式 */
-            position: relative; /* 设置相对定位 */
         }
         
         .category:hover {
@@ -126,18 +104,19 @@
         }
         
         .category-image {
-            height: 80px; /* 设置图片高度 */
+            height: 120px; /* 设置图片高度 */
             background-color: #f0f0f0; /* 设置背景颜色 */
             display: flex; /* 使用弹性布局 */
             align-items: center; /* 垂直居中对齐 */
             justify-content: center; /* 水平居中对齐 */
             border-radius: 8px; /* 设置圆角 */
             margin-bottom: 15px; /* 底部外边距 */
+            position: relative; /* 设置相对定位 */
         }
         
-        .category-image i {
-            font-size: 36px; /* 设置图标大小 */
-            color: #1890ff; /* 设置图标颜色 */
+        .category-image img {
+            max-width: 100%; /* 设置最大宽度 */
+            max-height: 100%; /* 设置最大高度 */
         }
         
         .category h3 {
@@ -330,8 +309,8 @@
                 padding: 15px 20px; /* 调整内边距 */
             }
             
-            .category-image i {
-                font-size: 30px; /* 调整图标大小 */
+            .category-image {
+                height: 100px; /* 调整图片高度 */
             }
             
             .category h3 {
@@ -347,7 +326,6 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8d5l8fzk5b87iudi/css.css">
 </head>
 <body>
     <header>
@@ -358,7 +336,7 @@
             </div>
             <div class="search-box">
                 <input type="text" placeholder="搜索资源..." id="search-input"> <!-- 搜索框 -->
-                <button id="search-button"><i class="icon icon-search"></i></button> <!-- 搜索按钮 -->
+                <button id="search-button">搜索</button> <!-- 搜索按钮 -->
             </div>
         </div>
     </header>
@@ -370,7 +348,7 @@
                 <!-- 分类1 -->
                 <div class="category" onclick="window.location.href='#windows-resources'">
                     <div class="category-image">
-                        <i class="icon icon-windows"></i> <!-- 分类图标 -->
+                        <!-- 在这里添加您自己的图片，例如：<img src="windows.jpg" alt="Windows系统"> -->
                     </div>
                     <h3>Windows系统</h3> <!-- 分类标题 -->
                     <p>各类Windows系统镜像资源</p> <!-- 分类描述 -->
@@ -379,7 +357,7 @@
                 <!-- 分类2 -->
                 <div class="category" onclick="window.location.href='#mac-resources'">
                     <div class="category-image">
-                        <i class="icon icon-apple"></i> <!-- 分类图标 -->
+                        <!-- 在这里添加您自己的图片，例如：<img src="mac.jpg" alt="Mac OS系统"> -->
                     </div>
                     <h3>Mac OS系统</h3> <!-- 分类标题 -->
                     <p>官方原版macOS系统镜像</p> <!-- 分类描述 -->
@@ -388,7 +366,7 @@
                 <!-- 分类3 -->
                 <div class="category" onclick="window.location.href='#linux-resources'">
                     <div class="category-image">
-                        <i class="icon icon-linux"></i> <!-- 分类图标 -->
+                        <!-- 在这里添加您自己的图片，例如：<img src="linux.jpg" alt="Linux系统"> -->
                     </div>
                     <h3>Linux系统</h3> <!-- 分类标题 -->
                     <p>多种Linux发行版系统镜像</p> <!-- 分类描述 -->
@@ -397,7 +375,7 @@
                 <!-- 分类4 -->
                 <div class="category" onclick="window.location.href='#office-resources'">
                     <div class="category-image">
-                        <i class="icon icon-office"></i> <!-- 分类图标 -->
+                        <!-- 在这里添加您自己的图片，例如：<img src="office.jpg" alt="Office软件"> -->
                     </div>
                     <h3>Office软件</h3> <!-- 分类标题 -->
                     <p>Microsoft Office及WPS等办公软件</p> <!-- 分类描述 -->
@@ -406,7 +384,7 @@
                 <!-- 分类5 -->
                 <div class="category" onclick="window.location.href='#android-resources'">
                     <div class="category-image">
-                        <i class="icon icon-android"></i> <!-- 分类图标 -->
+                        <!-- 在这里添加您自己的图片，例如：<img src="android.jpg" alt="安卓应用"> -->
                     </div>
                     <h3>安卓应用</h3> <!-- 分类标题 -->
                     <p>各类安卓应用软件资源</p> <!-- 分类描述 -->
@@ -415,7 +393,7 @@
                 <!-- 分类6 -->
                 <div class="category" onclick="window.location.href='#tools-resources'">
                     <div class="category-image">
-                        <i class="icon icon-tools"></i> <!-- 分类图标 -->
+                        <!-- 在这里添加您自己的图片，例如：<img src="tools.jpg" alt="编程工具"> -->
                     </div>
                     <h3>编程工具</h3> <!-- 分类标题 -->
                     <p>开发工具、IDE、插件等资源</p> <!-- 分类描述 -->
@@ -424,7 +402,7 @@
                 <!-- 分类7 -->
                 <div class="category" onclick="window.location.href='#design-resources'">
                     <div class="category-image">
-                        <i class="icon icon-design"></i> <!-- 分类图标 -->
+                        <!-- 在这里添加您自己的图片，例如：<img src="design.jpg" alt="设计软件"> -->
                     </div>
                     <h3>设计软件</h3> <!-- 分类标题 -->
                     <p>图像、UI、视频设计软件</p> <!-- 分类描述 -->
@@ -433,7 +411,7 @@
                 <!-- 分类8 -->
                 <div class="category" onclick="window.location.href='#game-resources'">
                     <div class="category-image">
-                        <i class="icon icon-game"></i> <!-- 分类图标 -->
+                        <!-- 在这里添加您自己的图片，例如：<img src="game.jpg" alt="游戏资源"> -->
                     </div>
                     <h3>游戏资源</h3> <!-- 分类标题 -->
                     <p>各类游戏及辅助工具资源</p> <!-- 分类描述 -->
@@ -490,9 +468,9 @@
     </main>
 
     <footer>
-        <div class="container"> <!-- 页脚容器 -->
-            <div class="footer-content"> <!-- 页脚内容 -->
-                <div class="footer-section"> <!-- 关于我们 -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
                     <h3>关于我们</h3> <!-- 关于我们标题 -->
                     <p>蓝天资源网创建于2018年，致力于为广大用户提供优质、安全、免费的系统镜像和软件资源下载服务。</p> <!-- 关于我们描述 -->
                 </div>
@@ -508,23 +486,33 @@
                     <h3>联系我们</h3> <!-- 联系我们标题 -->
                     <p>邮箱：contact@blue sky.com</p> <!-- 联系邮箱 -->
                     <div class="social-icons">
-                        <a href="#"><i class="icon icon-github"></i></a> <!-- GitHub链接 -->
-                        <a href="#"><i class="icon icon-weibo"></i></a> <!-- 微博链接 -->
-                        <a href="#"><i class="icon icon-qq"></i></a> <!-- QQ链接 -->
+                        <a href="#"><span>GitHub</span></a> <!-- GitHub链接 -->
+                        <a href="#"><span>微博</span></a> <!-- 微博链接 -->
+                        <a href="#"><span>QQ</span></a> <!-- QQ链接 -->
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2018-2025 蓝天资源网</p> <!-- 网站创建和更新时间 -->
+                <p>本站创建于2018年，内容更新至2025年</p> <!-- 网站创建和更新时间 -->
             </div>
         </div>
     </footer>
 
     <script>
         // 搜索功能
-        document.getElementById('search-button').addEventListener('click', function() {
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        document.getElementById('search-button').addEventListener('click', performSearch);
+
+        function performSearch() {
             const searchInput = document.getElementById('search-input').value.toLowerCase();
             const resourceCards = document.querySelectorAll('.resource-card');
+            
+            let foundResources = false;
             
             resourceCards.forEach(card => {
                 const resourceTitle = card.querySelector('h3').textContent.toLowerCase();
@@ -532,11 +520,20 @@
                 
                 if (resourceTitle.includes(searchInput) || resourceDesc.includes(searchInput)) {
                     card.style.display = 'block'; // 显示匹配的资源
+                    foundResources = true;
                 } else {
                     card.style.display = 'none'; // 隐藏不匹配的资源
                 }
             });
-        });
+            
+            // 如果有匹配的资源，滚动到热门资源部分
+            if (foundResources) {
+                const popularResourcesSection = document.querySelector('.popular-resources');
+                if (popularResourcesSection) {
+                    popularResourcesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
     </script>
 </body>
 </html>
