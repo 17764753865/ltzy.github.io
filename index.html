@@ -1,328 +1,350 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8"> <!-- 设置字符编码为UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，确保响应式设计 -->
-    <title>蓝天资源网</title> <!-- 网页标题 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓝天资源网 - 优质资源下载平台</title>
     <style>
-        /* 基础样式重置 */
+        :root {
+            --primary-color: #1890ff;
+            --secondary-color: #0c7cd5;
+            --text-color: #333;
+            --light-text: #666;
+            --lighter-text: #888;
+            --bg-color: #f5f5f5;
+            --card-bg: #fff;
+            --footer-bg: #1a2a3a;
+            --border-color: #ddd;
+            --transition: all 0.3s ease;
+        }
+
         * {
-            margin: 0; /* 清除所有元素的外边距 */
-            padding: 0; /* 清除所有元素的内边距 */
-            box-sizing: border-box; /* 包含内边距和边框在元素的总宽度和高度内 */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Microsoft YaHei', sans-serif; /* 设置字体系列，使用微软雅黑提高中文显示效果 */
-            line-height: 1.6; /* 设置行高，提高可读性 */
-            color: #333; /* 设置文字颜色 */
-            background-color: #f5f5f5; /* 设置背景颜色，浅灰色提高视觉层次 */
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
         }
-        
+
         .container {
-            max-width: 1200px; /* 设置最大宽度 */
-            margin: 0 auto; /* 水平居中 */
-            padding: 0 15px; /* 内边距 */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
-        
-        /* 头部导航样式 */
+
+        /* 头部导航 */
         header {
-            background-color: #fff; /* 设置背景颜色 */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 添加阴影，增强层次感 */
-            position: sticky; /* 设置定位方式 */
-            top: 0; /* 固定在顶部 */
-            z-index: 100; /* 确保导航栏在其他内容之上 */
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
+
         header .container {
-            display: flex; /* 使用弹性布局 */
-            justify-content: space-between; /* 子元素两端对齐 */
-            align-items: center; /* 垂直居中对齐 */
-            padding: 15px; /* 内边距 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
         }
-        
+
         .logo h1 {
-            color: #1890ff; /* 设置标题颜色，使用蓝色主题 */
-            font-size: 24px; /* 设置字体大小 */
-            margin-bottom: 5px; /* 底部外边距 */
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 5px;
         }
-        
+
         .logo p {
-            font-size: 14px; /* 设置字体大小 */
-            color: #888; /* 设置文字颜色，浅灰色副标题 */
+            font-size: 14px;
+            color: var(--lighter-text);
         }
-        
+
         .search-box {
-            display: flex; /* 使用弹性布局 */
+            display: flex;
+            align-items: center;
         }
-        
+
         .search-box input {
-            padding: 10px 15px; /* 内边距 */
-            border: 1px solid #ddd; /* 设置边框 */
-            border-radius: 4px; /* 设置圆角 */
-            outline: none; /* 移除轮廓线 */
-            flex: 1; /* 设置弹性布局比例 */
-            font-size: 14px; /* 设置字体大小 */
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+            width: 300px;
+            font-size: 14px;
         }
-        
-        /* 主要内容区样式 */
+
+        .search-box button {
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-box button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 主要内容区 */
         .main-content {
-            padding: 30px 0; /* 上下内边距 */
+            padding: 30px 0;
         }
-        
+
         .section-title {
-            text-align: center; /* 文本居中 */
-            margin-bottom: 40px; /* 底部外边距 */
-            font-size: 28px; /* 设置字体大小 */
-            color: #333; /* 设置文字颜色 */
-            position: relative; /* 设置相对定位 */
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+            position: relative;
         }
-        
-        /* 资源分类样式 */
+
+        /* 资源分类 */
         .categories {
-            display: flex; /* 使用弹性布局 */
-            justify-content: center; /* 水平居中 */
-            flex-wrap: wrap; /* 允许换行 */
-            margin-bottom: 40px; /* 底部外边距 */
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            gap: 20px;
         }
-        
+
         .category {
-            background-color: #fff; /* 设置背景颜色 */
-            border-radius: 12px; /* 设置圆角 */
-            padding: 20px 30px; /* 内边距 */
-            margin: 0 20px 25px; /* 外边距 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-            transition: transform 0.3s, box-shadow 0.3s; /* 添加过渡动画 */
-            text-align: center; /* 文本居中 */
-            width: 180px; /* 设置宽度 */
-            cursor: pointer; /* 设置鼠标指针样式 */
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            text-align: center;
+            width: 180px;
+            cursor: pointer;
         }
-        
+
         .category:hover {
-            transform: translateY(-8px); /* 鼠标悬停时向上移动 */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* 改变阴影效果 */
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         .category-image {
-            height: 120px; /* 设置图片高度 */
-            background-color: #f0f0f0; /* 设置背景颜色 */
-            display: flex; /* 使用弹性布局 */
-            align-items: center; /* 垂直居中对齐 */
-            justify-content: center; /* 水平居中对齐 */
-            border-radius: 8px; /* 设置圆角 */
-            margin-bottom: 15px; /* 底部外边距 */
-            position: relative; /* 设置相对定位 */
+            height: 120px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            position: relative;
         }
-        
+
         .category-image img {
-            max-width: 100%; /* 设置最大宽度 */
-            max-height: 100%; /* 设置最大高度 */
+            max-width: 100%;
+            max-height: 100%;
         }
-        
+
         .category h3 {
-            font-size: 18px; /* 设置字体大小 */
-            margin-bottom: 8px; /* 底部外边距 */
-            color: #333; /* 设置文字颜色 */
+            font-size: 18px;
+            margin-bottom: 8px;
         }
-        
+
         .category p {
-            font-size: 14px; /* 设置字体大小 */
-            color: #666; /* 设置文字颜色 */
+            font-size: 14px;
+            color: var(--light-text);
         }
-        
+
         .category-btn {
-            display: inline-block; /* 设置为行内块级元素 */
-            padding: 6px 14px; /* 内边距 */
-            background-color: #1890ff; /* 设置背景颜色 */
-            color: white; /* 设置文字颜色 */
-            text-decoration: none; /* 移除下划线 */
-            border-radius: 4px; /* 设置圆角 */
-            transition: background-color 0.3s; /* 添加背景色过渡动画 */
-            font-size: 13px; /* 设置字体大小 */
-            border: none; /* 移除边框 */
-            cursor: pointer; /* 设置鼠标指针样式 */
-            margin-top: 10px; /* 顶部外边距 */
+            display: inline-block;
+            padding: 6px 14px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
         }
-        
+
         .category-btn:hover {
-            background-color: #0c7cd5; /* 鼠标悬停时的背景颜色 */
+            background-color: var(--secondary-color);
         }
-        
-        /* 热门资源样式 */
+
+        /* 热门资源 */
         .popular-resources {
-            padding: 20px 0; /* 上下内边距 */
+            padding: 20px 0;
         }
-        
+
         .popular-title {
-            text-align: center; /* 文本居中 */
-            margin-bottom: 30px; /* 底部外边距 */
-            font-size: 24px; /* 设置字体大小 */
-            color: #333; /* 设置文字颜色 */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
         }
-        
+
         .resources-grid {
-            display: grid; /* 使用网格布局 */
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 设置列布局 */
-            gap: 25px; /* 设置网格间隙 */
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
         }
-        
+
         .resource-card {
-            background-color: #fff; /* 设置背景颜色 */
-            border-radius: 8px; /* 设置圆角 */
-            overflow: hidden; /* 隐藏溢出内容 */
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-            transition: transform 0.3s, box-shadow 0.3s; /* 添加过渡动画 */
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
         }
-        
+
         .resource-card:hover {
-            transform: translateY(-5px); /* 鼠标悬停时向上移动 */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 改变阴影效果 */
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .resource-info {
-            padding: 15px; /* 内边距 */
+            padding: 15px;
         }
-        
+
         .resource-info h3 {
-            font-size: 16px; /* 设置字体大小 */
-            margin-bottom: 8px; /* 底部外边距 */
-            color: #333; /* 设置文字颜色 */
+            font-size: 16px;
+            margin-bottom: 8px;
         }
-        
+
         .resource-info p {
-            font-size: 13px; /* 设置字体大小 */
-            color: #666; /* 设置文字颜色 */
-            margin-bottom: 10px; /* 底部外边距 */
+            font-size: 13px;
+            color: var(--light-text);
+            margin-bottom: 10px;
         }
-        
+
         .btn {
-            display: inline-block; /* 设置为行内块级元素 */
-            padding: 6px 14px; /* 内边距 */
-            background-color: #1890ff; /* 设置背景颜色 */
-            color: white; /* 设置文字颜色 */
-            text-decoration: none; /* 移除下划线 */
-            border-radius: 4px; /* 设置圆角 */
-            transition: background-color 0.3s; /* 添加背景色过渡动画 */
-            font-size: 13px; /* 设置字体大小 */
-            border: none; /* 移除边框 */
-            cursor: pointer; /* 设置鼠标指针样式 */
+            display: inline-block;
+            padding: 6px 14px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
         }
-        
+
         .btn:hover {
-            background-color: #0c7cd5; /* 鼠标悬停时的背景颜色 */
+            background-color: var(--secondary-color);
         }
-        
-        /* 页脚样式 */
+
+        /* 页脚 */
         footer {
-            background-color: #1a2a3a; /* 设置背景颜色 */
-            color: #fff; /* 设置文字颜色 */
-            padding: 30px 0; /* 上下内边距 */
+            background-color: var(--footer-bg);
+            color: #fff;
+            padding: 30px 0;
         }
-        
+
         .footer-content {
-            display: grid; /* 使用网格布局 */
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 设置列布局 */
-            gap: 30px; /* 设置网格间隙 */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
         }
-        
+
         .footer-section h3 {
-            font-size: 18px; /* 设置字体大小 */
-            margin-bottom: 15px; /* 底部外边距 */
-            position: relative; /* 设置相对定位 */
+            font-size: 18px;
+            margin-bottom: 15px;
+            position: relative;
         }
-        
+
         .footer-section h3::after {
-            content: ""; /* 空内容 */
-            position: absolute; /* 绝对定位 */
-            bottom: -8px; /* 距离标题底部的距离 */
-            left: 0; /* 靠左对齐 */
-            width: 40px; /* 线条宽度 */
-            height: 2px; /* 线条高度 */
-            background-color: #1890ff; /* 线条颜色 */
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
         }
-        
+
         .footer-section p,
         .footer-section li {
-            font-size: 14px; /* 设置字体大小 */
-            color: #a0b5c8; /* 设置文字颜色 */
-            margin-bottom: 10px; /* 底部外边距 */
+            font-size: 14px;
+            color: #a0b5c8;
+            margin-bottom: 10px;
         }
-        
+
         .footer-section ul {
-            list-style: none; /* 移除列表样式 */
+            list-style: none;
         }
-        
+
         .footer-section a {
-            color: #a0b5c8; /* 设置文字颜色 */
-            text-decoration: none; /* 移除下划线 */
-            transition: color 0.3s; /* 添加颜色过渡动画 */
+            color: #a0b5c8;
+            text-decoration: none;
+            transition: var(--transition);
         }
-        
+
         .footer-section a:hover {
-            color: #1890ff; /* 鼠标悬停时的颜色 */
+            color: var(--primary-color);
         }
-        
+
         .social-icons {
-            display: flex; /* 使用弹性布局 */
-            gap: 15px; /* 设置元素间距 */
-            margin-top: 15px; /* 顶部外边距 */
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
         }
-        
+
         .social-icons a {
-            color: #a0b5c8; /* 设置文字颜色 */
-            font-size: 18px; /* 设置字体大小 */
-            transition: color 0.3s; /* 添加颜色过渡动画 */
+            color: #a0b5c8;
+            font-size: 18px;
+            transition: var(--transition);
         }
-        
+
         .social-icons a:hover {
-            color: #1890ff; /* 鼠标悬停时的颜色 */
+            color: var(--primary-color);
         }
-        
+
         .copyright {
-            text-align: center; /* 文本居中 */
-            margin-top: 30px; /* 顶部外边距 */
-            padding-top: 15px; /* 顶部内边距 */
-            border-top: 1px solid #2a3b4d; /* 设置顶部边框 */
-            color: #657786; /* 设置文字颜色 */
-            font-size: 14px; /* 设置字体大小 */
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #2a3b4d;
+            color: #657786;
+            font-size: 14px;
         }
-        
-        /* 响应式设计 - 平板 */
+
+        /* 响应式设计 */
         @media (max-width: 992px) {
             .resources-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 调整网格布局 */
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
-            
+
             .category {
-                width: 160px; /* 调整宽度 */
+                width: 160px;
             }
         }
-        
-        /* 响应式设计 - 手机 */
+
         @media (max-width: 768px) {
             .resources-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 调整网格布局 */
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
-            
+
             .category {
-                width: 140px; /* 调整宽度 */
-                padding: 15px 20px; /* 调整内边距 */
+                width: 140px;
+                padding: 15px 20px;
             }
-            
+
             .category-image {
-                height: 100px; /* 调整图片高度 */
+                height: 100px;
             }
-            
+
             .category h3 {
-                font-size: 16px; /* 调整字体大小 */
+                font-size: 16px;
             }
-            
+
             .category p {
-                font-size: 12px; /* 调整字体大小 */
+                font-size: 12px;
             }
-            
+
             .footer-content {
-                grid-template-columns: 1fr; /* 设置为单列布局 */
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -331,136 +353,134 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1>蓝天资源网</h1> <!-- 网站名称 -->
-                <p>优质资源，一键获取</p> <!-- 网站标语 -->
+                <h1>蓝天资源网</h1>
+                <p>优质资源，一键获取</p>
             </div>
             <div class="search-box">
-                <input type="text" placeholder="搜索资源..." id="search-input"> <!-- 搜索框 -->
-                <button id="search-button">搜索</button> <!-- 搜索按钮 -->
+                <input type="text" placeholder="搜索资源..." id="search-input">
+                <button id="search-button">搜索</button>
             </div>
         </div>
     </header>
 
     <main class="main-content">
-        <h2 class="section-title">资源分类</h2> <!-- 资源分类标题 -->
+        <h2 class="section-title">资源分类</h2>
         <div class="container">
             <div class="categories">
-                <!-- 分类1 -->
                 <div class="category" onclick="window.location.href='#windows-resources'">
                     <div class="category-image">
-                        <!-- 在这里添加您自己的图片，例如：<img src="windows.jpg" alt="Windows系统"> -->
+                        <img src="/png/windows.png" alt="Windows系统">
                     </div>
-                    <h3>Windows系统</h3> <!-- 分类标题 -->
-                    <p>各类Windows系统镜像资源</p> <!-- 分类描述 -->
+                    <h3>Windows系统</h3>
+                    <p>各类Windows系统镜像资源</p>
                     <button class="category-btn">查看更多</button>
                 </div>
-                <!-- 分类2 -->
+
                 <div class="category" onclick="window.location.href='#mac-resources'">
                     <div class="category-image">
-                        <!-- 在这里添加您自己的图片，例如：<img src="mac.jpg" alt="Mac OS系统"> -->
+                        <img src="/png/mac.png" alt="Mac OS系统">
                     </div>
-                    <h3>Mac OS系统</h3> <!-- 分类标题 -->
-                    <p>官方原版macOS系统镜像</p> <!-- 分类描述 -->
+                    <h3>Mac OS系统</h3>
+                    <p>官方原版macOS系统镜像</p>
                     <button class="category-btn">查看更多</button>
                 </div>
-                <!-- 分类3 -->
+
                 <div class="category" onclick="window.location.href='#linux-resources'">
                     <div class="category-image">
-                        <!-- 在这里添加您自己的图片，例如：<img src="linux.jpg" alt="Linux系统"> -->
+                        <img src="/png/linux.png" alt="Linux系统">
                     </div>
-                    <h3>Linux系统</h3> <!-- 分类标题 -->
-                    <p>多种Linux发行版系统镜像</p> <!-- 分类描述 -->
+                    <h3>Linux系统</h3>
+                    <p>多种Linux发行版系统镜像</p>
                     <button class="category-btn">查看更多</button>
                 </div>
-                <!-- 分类4 -->
+
                 <div class="category" onclick="window.location.href='#office-resources'">
                     <div class="category-image">
-                        <!-- 在这里添加您自己的图片，例如：<img src="office.jpg" alt="Office软件"> -->
+                        <img src="/png/office.png" alt="Office软件">
                     </div>
-                    <h3>Office软件</h3> <!-- 分类标题 -->
-                    <p>Microsoft Office及WPS等办公软件</p> <!-- 分类描述 -->
+                    <h3>Office软件</h3>
+                    <p>Microsoft Office及WPS等办公软件</p>
                     <button class="category-btn">查看更多</button>
                 </div>
-                <!-- 分类5 -->
+
                 <div class="category" onclick="window.location.href='#android-resources'">
                     <div class="category-image">
-                        <!-- 在这里添加您自己的图片，例如：<img src="android.jpg" alt="安卓应用"> -->
+                        <img src="/png/android.png" alt="安卓应用">
                     </div>
-                    <h3>安卓应用</h3> <!-- 分类标题 -->
-                    <p>各类安卓应用软件资源</p> <!-- 分类描述 -->
+                    <h3>安卓应用</h3>
+                    <p>各类安卓应用软件资源</p>
                     <button class="category-btn">查看更多</button>
                 </div>
-                <!-- 分类6 -->
+
                 <div class="category" onclick="window.location.href='#tools-resources'">
                     <div class="category-image">
-                        <!-- 在这里添加您自己的图片，例如：<img src="tools.jpg" alt="编程工具"> -->
+                        <img src="/png/tools.png" alt="编程工具">
                     </div>
-                    <h3>编程工具</h3> <!-- 分类标题 -->
-                    <p>开发工具、IDE、插件等资源</p> <!-- 分类描述 -->
+                    <h3>编程工具</h3>
+                    <p>开发工具、IDE、插件等资源</p>
                     <button class="category-btn">查看更多</button>
                 </div>
-                <!-- 分类7 -->
+
                 <div class="category" onclick="window.location.href='#design-resources'">
                     <div class="category-image">
-                        <!-- 在这里添加您自己的图片，例如：<img src="design.jpg" alt="设计软件"> -->
+                        <img src="/png/design.png" alt="设计软件">
                     </div>
-                    <h3>设计软件</h3> <!-- 分类标题 -->
-                    <p>图像、UI、视频设计软件</p> <!-- 分类描述 -->
+                    <h3>设计软件</h3>
+                    <p>图像、UI、视频设计软件</p>
                     <button class="category-btn">查看更多</button>
                 </div>
-                <!-- 分类8 -->
+
                 <div class="category" onclick="window.location.href='#game-resources'">
                     <div class="category-image">
-                        <!-- 在这里添加您自己的图片，例如：<img src="game.jpg" alt="游戏资源"> -->
+                        <img src="/png/game.png" alt="游戏资源">
                     </div>
-                    <h3>游戏资源</h3> <!-- 分类标题 -->
-                    <p>各类游戏及辅助工具资源</p> <!-- 分类描述 -->
+                    <h3>游戏资源</h3>
+                    <p>各类游戏及辅助工具资源</p>
                     <button class="category-btn">查看更多</button>
                 </div>
             </div>
         </div>
-        
-        <h2 class="popular-title">热门资源</h2> <!-- 热门资源标题 -->
+
+        <h2 class="popular-title">热门资源</h2>
         <div class="container">
             <div class="resources-grid">
-                <!-- 资源卡片1 -->
                 <div class="resource-card">
                     <div class="resource-info">
-                        <h3>Windows 10 64位</h3> <!-- 资源名称 -->
-                        <p>最新专业版系统镜像，包含所有重要更新和补丁</p> <!-- 资源描述 -->
-                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                        <h3>Windows 10 64位</h3>
+                        <p>最新专业版系统镜像，包含所有重要更新和补丁</p>
+                        <button class="btn">查看详情</button>
                     </div>
                 </div>
-                <!-- 资源卡片2 -->
+
                 <div class="resource-card">
                     <div class="resource-info">
-                        <h3>macOS Big Sur</h3> <!-- 资源名称 -->
-                        <p>官方原版系统镜像，适用于Mac电脑</p> <!-- 资源描述 -->
-                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                        <h3>macOS Big Sur</h3>
+                        <p>官方原版系统镜像，适用于Mac电脑</p>
+                        <button class="btn">查看详情</button>
                     </div>
                 </div>
-                <!-- 资源卡片3 -->
+
                 <div class="resource-card">
                     <div class="resource-info">
-                        <h3>Ubuntu 20.04 LTS</h3> <!-- 资源名称 -->
-                        <p>长期支持版本，稳定可靠</p> <!-- 资源描述 -->
-                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                        <h3>Ubuntu 20.04 LTS</h3>
+                        <p>长期支持版本，稳定可靠</p>
+                        <button class="btn">查看详情</button>
                     </div>
                 </div>
-                <!-- 资源卡片4 -->
+
                 <div class="resource-card">
                     <div class="resource-info">
-                        <h3>Microsoft Office 2019</h3> <!-- 资源名称 -->
-                        <p>专业增强版，包含全套办公软件</p> <!-- 资源描述 -->
-                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                        <h3>Microsoft Office 2019</h3>
+                        <p>专业增强版，包含全套办公软件</p>
+                        <button class="btn">查看详情</button>
                     </div>
                 </div>
-                <!-- 资源卡片5 -->
+
                 <div class="resource-card">
                     <div class="resource-info">
-                        <h3>WPS Office</h3> <!-- 资源名称 -->
-                        <p>专业版办公软件套装</p> <!-- 资源描述 -->
-                        <button class="btn">查看详情</button> <!-- 查看详情按钮 -->
+                        <h3>WPS Office</h3>
+                        <p>专业版办公软件套装</p>
+                        <button class="btn">查看详情</button>
                     </div>
                 </div>
             </div>
@@ -471,35 +491,36 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>关于我们</h3> <!-- 关于我们标题 -->
-                    <p>蓝天资源网创建于2018年，致力于为广大用户提供优质、安全、免费的系统镜像和软件资源下载服务。</p> <!-- 关于我们描述 -->
+                    <h3>关于我们</h3>
+                    <p>蓝天资源网创建于2018年，致力于为广大用户提供优质、安全、免费的系统镜像和软件资源下载服务。</p>
                 </div>
+
                 <div class="footer-section">
-                    <h3>快速链接</h3> <!-- 快速链接标题 -->
+                    <h3>快速链接</h3>
                     <ul>
-                        <li><a href="#system">系统镜像</a></li> <!-- 快速链接 - 系统镜像 -->
-                        <li><a href="#software">软件资源</a></li> <!-- 快速链接 - 软件资源 -->
-                        <li><a href="#tools">工具插件</a></li> <!-- 快速链接 - 工具插件 -->
+                        <li><a href="#system">系统镜像</a></li>
+                        <li><a href="#software">软件资源</a></li>
+                        <li><a href="#tools">工具插件</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-section">
-                    <h3>联系我们</h3> <!-- 联系我们标题 -->
-                    <p>邮箱：contact@blue sky.com</p> <!-- 联系邮箱 -->
+                    <h3>联系我们</h3>
+                    <p>邮箱：contact@blue sky.com</p>
                     <div class="social-icons">
-                        <a href="#"><span>GitHub</span></a> <!-- GitHub链接 -->
-                        <a href="#"><span>微博</span></a> <!-- 微博链接 -->
-                        <a href="#"><span>QQ</span></a> <!-- QQ链接 -->
+                        <a href="#"><span>GitHub</span></a>
+                        <a href="#"><span>QQ</span></a>
                     </div>
                 </div>
             </div>
+
             <div class="copyright">
-                <p>本站创建于2018年，内容更新至2025年</p> <!-- 网站创建和更新时间 -->
+                <p>&copy; 2018-2025 蓝天资源网</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // 搜索功能
         document.getElementById('search-input').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 performSearch();
@@ -519,14 +540,13 @@
                 const resourceDesc = card.querySelector('p').textContent.toLowerCase();
                 
                 if (resourceTitle.includes(searchInput) || resourceDesc.includes(searchInput)) {
-                    card.style.display = 'block'; // 显示匹配的资源
+                    card.style.display = 'block';
                     foundResources = true;
                 } else {
-                    card.style.display = 'none'; // 隐藏不匹配的资源
+                    card.style.display = 'none';
                 }
             });
             
-            // 如果有匹配的资源，滚动到热门资源部分
             if (foundResources) {
                 const popularResourcesSection = document.querySelector('.popular-resources');
                 if (popularResourcesSection) {
