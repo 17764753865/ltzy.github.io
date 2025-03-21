@@ -151,36 +151,7 @@
             color: #666; /* 设置文字颜色 */
         }
         
-        .category-details {
-            display: none; /* 默认隐藏详情 */
-            position: absolute; /* 绝对定位 */
-            top: 100%; /* 从分类板块底部开始 */
-            left: 0; /* 靠左对齐 */
-            background-color: #fff; /* 设置背景颜色 */
-            border-radius: 8px; /* 设置圆角 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-            width: 300px; /* 设置宽度 */
-            padding: 15px; /* 内边距 */
-            z-index: 10; /* 确保在上层 */
-        }
-        
-        .category-details.active {
-            display: block; /* 显示详情 */
-        }
-        
-        .category-details h4 {
-            font-size: 16px; /* 设置字体大小 */
-            margin-bottom: 10px; /* 底部外边距 */
-            color: #1890ff; /* 设置文字颜色 */
-        }
-        
-        .category-details p {
-            font-size: 13px; /* 设置字体大小 */
-            color: #666; /* 设置文字颜色 */
-            margin-bottom: 15px; /* 底部外边距 */
-        }
-        
-        .category-details .btn {
+        .category-btn {
             display: inline-block; /* 设置为行内块级元素 */
             padding: 6px 14px; /* 内边距 */
             background-color: #1890ff; /* 设置背景颜色 */
@@ -191,11 +162,10 @@
             font-size: 13px; /* 设置字体大小 */
             border: none; /* 移除边框 */
             cursor: pointer; /* 设置鼠标指针样式 */
-            width: 100%; /* 设置宽度 */
-            text-align: center; /* 文本居中 */
+            margin-top: 10px; /* 顶部外边距 */
         }
         
-        .category-details .btn:hover {
+        .category-btn:hover {
             background-color: #0c7cd5; /* 鼠标悬停时的背景颜色 */
         }
         
@@ -347,10 +317,6 @@
             .category {
                 width: 160px; /* 调整宽度 */
             }
-            
-            .category-details {
-                width: 250px; /* 调整宽度 */
-            }
         }
         
         /* 响应式设计 - 手机 */
@@ -374,10 +340,6 @@
             
             .category p {
                 font-size: 12px; /* 调整字体大小 */
-            }
-            
-            .category-details {
-                width: 200px; /* 调整宽度 */
             }
             
             .footer-content {
@@ -406,116 +368,76 @@
         <div class="container">
             <div class="categories">
                 <!-- 分类1 -->
-                <div class="category" onclick="toggleCategoryDetails(this, 'windows')">
+                <div class="category" onclick="window.location.href='#windows-resources'">
                     <div class="category-image">
                         <i class="icon icon-windows"></i> <!-- 分类图标 -->
                     </div>
                     <h3>Windows系统</h3> <!-- 分类标题 -->
                     <p>各类Windows系统镜像资源</p> <!-- 分类描述 -->
-                    <div class="category-details">
-                        <h4>Windows系统资源</h4>
-                        <p>提供各类Windows系统镜像，包括不同版本和架构。</p>
-                        <p>最新更新：2023-10-15</p>
-                        <a href="#" class="btn">查看更多</a>
-                    </div>
+                    <button class="category-btn">查看更多</button>
                 </div>
                 <!-- 分类2 -->
-                <div class="category" onclick="toggleCategoryDetails(this, 'mac')">
+                <div class="category" onclick="window.location.href='#mac-resources'">
                     <div class="category-image">
                         <i class="icon icon-apple"></i> <!-- 分类图标 -->
                     </div>
                     <h3>Mac OS系统</h3> <!-- 分类标题 -->
                     <p>官方原版macOS系统镜像</p> <!-- 分类描述 -->
-                    <div class="category-details">
-                        <h4>Mac OS系统资源</h4>
-                        <p>提供官方原版macOS系统镜像，适用于Mac电脑。</p>
-                        <p>最新更新：2023-10-10</p>
-                        <a href="#" class="btn">查看更多</a>
-                    </div>
+                    <button class="category-btn">查看更多</button>
                 </div>
                 <!-- 分类3 -->
-                <div class="category" onclick="toggleCategoryDetails(this, 'linux')">
+                <div class="category" onclick="window.location.href='#linux-resources'">
                     <div class="category-image">
                         <i class="icon icon-linux"></i> <!-- 分类图标 -->
                     </div>
                     <h3>Linux系统</h3> <!-- 分类标题 -->
                     <p>多种Linux发行版系统镜像</p> <!-- 分类描述 -->
-                    <div class="category-details">
-                        <h4>Linux系统资源</h4>
-                        <p>提供多种Linux发行版系统镜像，适用于服务器和桌面环境。</p>
-                        <p>最新更新：2023-09-20</p>
-                        <a href="#" class="btn">查看更多</a>
-                    </div>
+                    <button class="category-btn">查看更多</button>
                 </div>
                 <!-- 分类4 -->
-                <div class="category" onclick="toggleCategoryDetails(this, 'office')">
+                <div class="category" onclick="window.location.href='#office-resources'">
                     <div class="category-image">
                         <i class="icon icon-office"></i> <!-- 分类图标 -->
                     </div>
                     <h3>Office软件</h3> <!-- 分类标题 -->
                     <p>Microsoft Office及WPS等办公软件</p> <!-- 分类描述 -->
-                    <div class="category-details">
-                        <h4>Office软件资源</h4>
-                        <p>提供Microsoft Office、WPS等办公软件，满足您的办公需求。</p>
-                        <p>最新更新：2023-09-15</p>
-                        <a href="#" class="btn">查看更多</a>
-                    </div>
+                    <button class="category-btn">查看更多</button>
                 </div>
                 <!-- 分类5 -->
-                <div class="category" onclick="toggleCategoryDetails(this, 'android')">
+                <div class="category" onclick="window.location.href='#android-resources'">
                     <div class="category-image">
                         <i class="icon icon-android"></i> <!-- 分类图标 -->
                     </div>
                     <h3>安卓应用</h3> <!-- 分类标题 -->
                     <p>各类安卓应用软件资源</p> <!-- 分类描述 -->
-                    <div class="category-details">
-                        <h4>安卓应用资源</h4>
-                        <p>提供各类安卓应用软件，涵盖生活、工作、娱乐等多个领域。</p>
-                        <p>最新更新：2023-08-15</p>
-                        <a href="#" class="btn">查看更多</a>
-                    </div>
+                    <button class="category-btn">查看更多</button>
                 </div>
                 <!-- 分类6 -->
-                <div class="category" onclick="toggleCategoryDetails(this, 'tools')">
+                <div class="category" onclick="window.location.href='#tools-resources'">
                     <div class="category-image">
                         <i class="icon icon-tools"></i> <!-- 分类图标 -->
                     </div>
                     <h3>编程工具</h3> <!-- 分类标题 -->
                     <p>开发工具、IDE、插件等资源</p> <!-- 分类描述 -->
-                    <div class="category-details">
-                        <h4>编程工具资源</h4>
-                        <p>提供开发工具、IDE、插件等资源，助力开发者高效编程。</p>
-                        <p>最新更新：2023-08-10</p>
-                        <a href="#" class="btn">查看更多</a>
-                    </div>
+                    <button class="category-btn">查看更多</button>
                 </div>
                 <!-- 分类7 -->
-                <div class="category" onclick="toggleCategoryDetails(this, 'design')">
+                <div class="category" onclick="window.location.href='#design-resources'">
                     <div class="category-image">
                         <i class="icon icon-design"></i> <!-- 分类图标 -->
                     </div>
                     <h3>设计软件</h3> <!-- 分类标题 -->
                     <p>图像、UI、视频设计软件</p> <!-- 分类描述 -->
-                    <div class="category-details">
-                        <h4>设计软件资源</h4>
-                        <p>提供图像、UI、视频设计软件，满足设计师的各种需求。</p>
-                        <p>最新更新：2023-07-20</p>
-                        <a href="#" class="btn">查看更多</a>
-                    </div>
+                    <button class="category-btn">查看更多</button>
                 </div>
                 <!-- 分类8 -->
-                <div class="category" onclick="toggleCategoryDetails(this, 'game')">
+                <div class="category" onclick="window.location.href='#game-resources'">
                     <div class="category-image">
                         <i class="icon icon-game"></i> <!-- 分类图标 -->
                     </div>
                     <h3>游戏资源</h3> <!-- 分类标题 -->
                     <p>各类游戏及辅助工具资源</p> <!-- 分类描述 -->
-                    <div class="category-details">
-                        <h4>游戏资源</h4>
-                        <p>提供各类游戏及辅助工具资源，丰富您的娱乐生活。</p>
-                        <p>最新更新：2023-07-10</p>
-                        <a href="#" class="btn">查看更多</a>
-                    </div>
+                    <button class="category-btn">查看更多</button>
                 </div>
             </div>
         </div>
@@ -615,23 +537,6 @@
                 }
             });
         });
-        
-        // 分类详情切换功能
-        function toggleCategoryDetails(categoryElement, categoryType) {
-            const details = categoryElement.querySelector('.category-details');
-            const isActive = details.classList.contains('active');
-            
-            // 关闭所有分类详情
-            const allCategories = document.querySelectorAll('.category');
-            allCategories.forEach(cat => {
-                cat.querySelector('.category-details').classList.remove('active');
-            });
-            
-            // 如果点击的分类之前没有激活，则打开其详情
-            if (!isActive) {
-                details.classList.add('active');
-            }
-        }
     </script>
 </body>
 </html>
