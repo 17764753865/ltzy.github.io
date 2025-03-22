@@ -106,6 +106,13 @@
             position: relative;
         }
 
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: var(--light-text);
+        }
+
         /* Windows资源 */
         .windows-resources {
             padding: 20px 0;
@@ -159,6 +166,12 @@
             margin-bottom: 10px;
         }
 
+        .resource-info .version-info {
+            font-size: 12px;
+            color: var(--lighter-text);
+            margin-bottom: 10px;
+        }
+
         .btn {
             display: inline-block;
             padding: 6px 14px;
@@ -176,6 +189,17 @@
 
         .btn:hover {
             background-color: var(--secondary-color);
+        }
+
+        /* Windows服务器资源 */
+        .windows-server-resources {
+            padding: 40px 0;
+        }
+
+        .server-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
         }
 
         /* 页脚 */
@@ -287,16 +311,18 @@
 
     <main class="main-content">
         <h2 class="section-title">Windows资源</h2>
+        <p class="section-subtitle">Windows系统镜像</p>
         <div class="container">
             <div class="windows-resources">
                 <div class="resources-grid">
                     <div class="resource-card">
                         <div class="resource-image">
-                            <img src="/png/windows10_21H2.png" alt="Windows 10 21H2 64位">
+                            <img src="/png/windows1.0.png" alt="Windows 1.0">
                         </div>
                         <div class="resource-info">
-                            <h3>Windows 10 21H2 64位</h3>
-                            <p>最新专业版系统镜像，包含所有重要更新和补丁</p>
+                            <h3>Windows 1.0</h3>
+                            <p>微软发布的首个Windows版本</p>
+                            <div class="version-info">版本: 1.01 | 位数: 16位</div>
                             <button class="btn">点我下载</button>
                             <button class="btn">百度网盘</button>
                             <button class="btn">阿里云盘</button>
@@ -306,11 +332,274 @@
 
                     <div class="resource-card">
                         <div class="resource-image">
-                            <img src="/png/windows11_22H2.png" alt="Windows 11 22H2">
+                            <img src="/png/windows2.0.png" alt="Windows 2.0">
                         </div>
                         <div class="resource-info">
-                            <h3>Windows 11 22H2</h3>
-                            <p>官方原版系统镜像，适用于兼容电脑</p>
+                            <h3>Windows 2.0</h3>
+                            <p>微软发布的第二个主要Windows版本</p>
+                            <div class="version-info">版本: 2.03 | 位数: 16位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows3.1.png" alt="Windows 3.1">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 3.1</h3>
+                            <p>首个广受欢迎的Windows版本</p>
+                            <div class="version-info">版本: 3.1 | 位数: 16位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows95.png" alt="Windows 95">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 95</h3>
+                            <p>革命性的用户界面和32位架构</p>
+                            <div class="version-info">版本: 4.0 | 位数: 32位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows98.png" alt="Windows 98">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 98</h3>
+                            <p>整合了Internet Explorer的版本</p>
+                            <div class="version-info">版本: 4.10 | 位数: 32位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows2000.png" alt="Windows 2000">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 2000</h3>
+                            <p>首个基于NT内核的消费级Windows版本</p>
+                            <div class="version-info">版本: 5.0 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windowsxp.png" alt="Windows XP">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows XP</h3>
+                            <p>历史上最成功的Windows版本之一</p>
+                            <div class="version-info">版本: 5.1 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windowsvista.png" alt="Windows Vista">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows Vista</h3>
+                            <p>引入Aero界面和用户账户控制</p>
+                            <div class="version-info">版本: 6.0 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows7.png" alt="Windows 7">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 7</h3>
+                            <p>广受好评的用户界面和性能优化</p>
+                            <div class="version-info">版本: 6.1 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows8.png" alt="Windows 8">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 8</h3>
+                            <p>引入现代UI和触控优化</p>
+                            <div class="version-info">版本: 6.2 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows8.1.png" alt="Windows 8.1">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 8.1</h3>
+                            <p>对Windows 8的改进版本</p>
+                            <div class="version-info">版本: 6.3 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows10.png" alt="Windows 10">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 10</h3>
+                            <p>微软目前主流的消费级操作系统</p>
+                            <div class="version-info">版本: 10.0 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows11.png" alt="Windows 11">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 11</h3>
+                            <p>最新的Windows消费级操作系统</p>
+                            <div class="version-info">版本: 11.0 | 位数: 64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="server-title">Windows服务器系统镜像</h2>
+            <div class="windows-server-resources">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/server2000.png" alt="Windows Server 2000">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows Server 2000</h3>
+                            <p>微软早期的服务器操作系统</p>
+                            <div class="version-info">版本: 5.0 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/server2003.png" alt="Windows Server 2003">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows Server 2003</h3>
+                            <p>广泛应用于企业环境的服务器系统</p>
+                            <div class="version-info">版本: 5.2 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/server2008.png" alt="Windows Server 2008">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows Server 2008</h3>
+                            <p>引入了Hyper-V虚拟化技术</p>
+                            <div class="version-info">版本: 6.0 | 位数: 32位/64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/server2012.png" alt="Windows Server 2012">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows Server 2012</h3>
+                            <p>大幅改进的服务器管理和虚拟化功能</p>
+                            <div class="version-info">版本: 6.2 | 位数: 64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/server2016.png" alt="Windows Server 2016">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows Server 2016</h3>
+                            <p>云计算和容器技术的支持</p>
+                            <div class="version-info">版本: 10.0 | 位数: 64位</div>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/server2019.png" alt="Windows Server 2019">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows Server 2019</h3>
+                            <p>混合云和超融合基础架构优化</p>
+                            <div class="version-info">版本: 10.0 | 位数: 64位</div>
                             <button class="btn">点我下载</button>
                             <button class="btn">百度网盘</button>
                             <button class="btn">阿里云盘</button>
@@ -324,35 +613,8 @@
                         </div>
                         <div class="resource-info">
                             <h3>Windows Server 2022</h3>
-                            <p>企业级服务器操作系统</p>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
-                        </div>
-                    </div>
-
-                    <div class="resource-card">
-                        <div class="resource-image">
-                            <img src="/png/drivers.png" alt="Windows 10 驱动合集">
-                        </div>
-                        <div class="resource-info">
-                            <h3>Windows 10 驱动合集</h3>
-                            <p>整合主流硬件厂商驱动，支持多版本系统</p>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
-                        </div>
-                    </div>
-
-                    <div class="resource-card">
-                        <div class="resource-image">
-                            <img src="/png/optimization.png" alt="系统优化工具">
-                        </div>
-                        <div class="resource-info">
-                            <h3>系统优化工具</h3>
-                            <p>一键清理、加速、优化系统性能</p>
+                            <p>最新的企业级服务器操作系统</p>
+                            <div class="version-info">版本: 10.0 | 位数: 64位</div>
                             <button class="btn">点我下载</button>
                             <button class="btn">百度网盘</button>
                             <button class="btn">阿里云盘</button>
@@ -415,8 +677,9 @@
             resourceCards.forEach(card => {
                 const resourceTitle = card.querySelector('h3').textContent.toLowerCase();
                 const resourceDesc = card.querySelector('p').textContent.toLowerCase();
+                const resourceVersion = card.querySelector('.version-info').textContent.toLowerCase();
                 
-                if (resourceTitle.includes(searchInput) || resourceDesc.includes(searchInput)) {
+                if (resourceTitle.includes(searchInput) || resourceDesc.includes(searchInput) || resourceVersion.includes(searchInput)) {
                     card.style.display = 'block';
                     foundResources = true;
                 } else {
