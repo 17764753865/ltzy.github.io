@@ -106,83 +106,9 @@
             position: relative;
         }
 
-        /* Windows资源分类 */
-        .windows-categories {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            gap: 20px;
-        }
-
-        .category {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            text-align: center;
-            width: 180px;
-            cursor: pointer;
-        }
-
-        .category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .category-image {
-            height: 120px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .category-image img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
-        .category h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .category p {
-            font-size: 14px;
-            color: var(--light-text);
-        }
-
-        .category-btn {
-            display: inline-block;
-            padding: 6px 14px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: var(--transition);
-            font-size: 13px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .category-btn:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* 热门Windows资源 */
-        .popular-resources {
+        /* Windows资源 */
+        .windows-resources {
             padding: 20px 0;
-        }
-
-        .popular-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
         }
 
         .resources-grid {
@@ -202,6 +128,20 @@
         .resource-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-image {
+            height: 160px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .resource-image img {
+            max-width: 100%;
+            max-height: 100%;
         }
 
         .resource-info {
@@ -318,32 +258,11 @@
             .resources-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
-
-            .category {
-                width: 160px;
-            }
         }
 
         @media (max-width: 768px) {
             .resources-grid {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-
-            .category {
-                width: 140px;
-                padding: 15px 20px;
-            }
-
-            .category-image {
-                height: 100px;
-            }
-
-            .category h3 {
-                font-size: 16px;
-            }
-
-            .category p {
-                font-size: 12px;
             }
 
             .footer-content {
@@ -369,136 +288,76 @@
     <main class="main-content">
         <h2 class="section-title">Windows资源</h2>
         <div class="container">
-            <div class="windows-categories">
-                <div class="category">
-                    <div class="category-image">
-                        <img src="/png/windows10.png" alt="Windows 10">
+            <div class="windows-resources">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows10_21H2.png" alt="Windows 10 21H2 64位">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 10 21H2 64位</h3>
+                            <p>最新专业版系统镜像，包含所有重要更新和补丁</p>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
                     </div>
-                    <h3>Windows 10</h3>
-                    <p>各类Windows 10系统镜像资源</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
 
-                <div class="category">
-                    <div class="category-image">
-                        <img src="/png/windows11.png" alt="Windows 11">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/windows11_22H2.png" alt="Windows 11 22H2">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 11 22H2</h3>
+                            <p>官方原版系统镜像，适用于兼容电脑</p>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
                     </div>
-                    <h3>Windows 11</h3>
-                    <p>最新Windows 11系统镜像</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
 
-                <div class="category">
-                    <div class="category-image">
-                        <img src="/png/server.png" alt="Windows Server">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/server2022.png" alt="Windows Server 2022">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows Server 2022</h3>
+                            <p>企业级服务器操作系统</p>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
                     </div>
-                    <h3>Windows Server</h3>
-                    <p>服务器版Windows系统镜像</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
 
-                <div class="category">
-                    <div class="category-image">
-                        <img src="/png/drivers.png" alt="驱动程序">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/drivers.png" alt="Windows 10 驱动合集">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Windows 10 驱动合集</h3>
+                            <p>整合主流硬件厂商驱动，支持多版本系统</p>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
                     </div>
-                    <h3>驱动程序</h3>
-                    <p>各类硬件设备的Windows驱动</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
 
-                <div class="category">
-                    <div class="category-image">
-                        <img src="/png/tools.png" alt="系统工具">
-                    </div>
-                    <h3>系统工具</h3>
-                    <p>系统优化、备份、修复工具</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category">
-                    <div class="category-image">
-                        <img src="/png/iso.png" alt="ISO镜像">
-                    </div>
-                    <h3>ISO镜像</h3>
-                    <p>官方原版ISO镜像文件</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category">
-                    <div class="category-image">
-                        <img src="/png/pe.png" alt="PE系统">
-                    </div>
-                    <h3>PE系统</h3>
-                    <p>Windows PE急救系统</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category">
-                    <div class="category-image">
-                        <img src="/png/themes.png" alt="主题资源">
-                    </div>
-                    <h3>主题资源</h3>
-                    <p>个性化Windows主题、皮肤</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="popular-title">热门Windows资源</h2>
-        <div class="container">
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <div class="resource-info">
-                        <h3>Windows 10 21H2 64位</h3>
-                        <p>最新专业版系统镜像，包含所有重要更新和补丁</p>
-                        <button class="btn">点我下载</button>
-                        <button class="btn">百度网盘</button>
-                        <button class="btn">阿里云盘</button>
-                        <button class="btn">腾讯微云</button>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-info">
-                        <h3>Windows 11 22H2</h3>
-                        <p>官方原版系统镜像，适用于兼容电脑</p>
-                        <button class="btn">点我下载</button>
-                        <button class="btn">百度网盘</button>
-                        <button class="btn">阿里云盘</button>
-                        <button class="btn">腾讯微云</button>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-info">
-                        <h3>Windows Server 2022</h3>
-                        <p>企业级服务器操作系统</p>
-                        <button class="btn">点我下载</button>
-                        <button class="btn">百度网盘</button>
-                        <button class="btn">阿里云盘</button>
-                        <button class="btn">腾讯微云</button>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-info">
-                        <h3>Windows 10 驱动合集</h3>
-                        <p>整合主流硬件厂商驱动，支持多版本系统</p>
-                        <button class="btn">点我下载</button>
-                        <button class="btn">百度网盘</button>
-                        <button class="btn">阿里云盘</button>
-                        <button class="btn">腾讯微云</button>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-info">
-                        <h3>系统优化工具</h3>
-                        <p>一键清理、加速、优化系统性能</p>
-                        <button class="btn">点我下载</button>
-                        <button class="btn">百度网盘</button>
-                        <button class="btn">阿里云盘</button>
-                        <button class="btn">腾讯微云</button>
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/optimization.png" alt="系统优化工具">
+                        </div>
+                        <div class="resource-info">
+                            <h3>系统优化工具</h3>
+                            <p>一键清理、加速、优化系统性能</p>
+                            <button class="btn">点我下载</button>
+                            <button class="btn">百度网盘</button>
+                            <button class="btn">阿里云盘</button>
+                            <button class="btn">腾讯微云</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -566,7 +425,7 @@
             });
             
             if (foundResources) {
-                const popularResourcesSection = document.querySelector('.popular-resources');
+                const popularResourcesSection = document.querySelector('.windows-resources');
                 if (popularResourcesSection) {
                     popularResourcesSection.scrollIntoView({ behavior: 'smooth' });
                 }
