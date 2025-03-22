@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/png/tx.png" rel="icon">
+    <title>Linux资源 - 蓝天资源网</title>
+    <style>
+        :root {
+            --primary-color: #1890ff;
+            --secondary-color: #0c7cd5;
+            --text-color: #333;
+            --light-text: #666;
+            --lighter-text: #888;
+            --bg-color: #f5f5f5;
+            --card-bg: #fff;
+            --footer-bg: #1a2a3a;
+            --border-color: #ddd;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 14px;
+            color: var(--lighter-text);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+            width: 300px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-box button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 主要内容区 */
+        .main-content {
+            padding: 30px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: var(--light-text);
+        }
+
+        /* Linux资源 */
+        .linux-resources {
+            padding: 20px 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-image {
+            height: 160px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .resource-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .resource-info {
+            padding: 15px;
+        }
+
+        .resource-info h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .resource-info p {
+            font-size: 13px;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+
+        .resource-info .version-info {
+            font-size: 12px;
+            color: var(--lighter-text);
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 14px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--footer-bg);
+            color: #fff;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            font-size: 14px;
+            color: #a0b5c8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #a0b5c8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: #a0b5c8;
+            font-size: 18px;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #2a3b4d;
+            color: #657786;
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>蓝天资源网</h1>
+                <p>优质资源，一键获取</p>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="搜索资源..." id="search-input">
+                <button id="search-button">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2 class="section-title">Linux资源</h2>
+        <p class="section-subtitle">Linux系统镜像</p>
+        <div class="container">
+            <div class="linux-resources">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/ubuntu.png" alt="Ubuntu">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Ubuntu</h3>
+                            <p>基于Debian的发行版，用户友好，适合初学者</p>
+                            <div class="version-info">最新版本: 24.04 LTS | 位数: 64位</div>
+                            <a href="https://ubuntu.com/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/debian.png" alt="Debian">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Debian</h3>
+                            <p>稳定可靠的发行版，许多其他发行版的基础</p>
+                            <div class="version-info">最新版本: 12.4 | 位数: 64位</div>
+                            <a href="https://www.debian.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/fedora.png" alt="Fedora">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Fedora</h3>
+                            <p>基于Red Hat的发行版，注重最新技术和创新</p>
+                            <div class="version-info">最新版本: 38 | 位数: 64位</div>
+                            <a href="https://getfedora.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/centos.png" alt="CentOS">
+                        </div>
+                        <div class="resource-info">
+                            <h3>CentOS</h3>
+                            <p>基于Red Hat Enterprise Linux的免费发行版</p>
+                            <div class="version-info">最新版本: 8.4 | 位数: 64位</div>
+                            <a href="https://www.centos.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/arch.png" alt="Arch Linux">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Arch Linux</h3>
+                            <p>基于滚动发布的发行版，高度可定制</p>
+                            <div class="version-info">最新版本: 2024.08.01 | 位数: 64位</div>
+                            <a href="https://archlinux.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/manjaro.png" alt="Manjaro">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Manjaro</h3>
+                            <p>基于Arch Linux的发行版，用户友好，适合初学者</p>
+                            <div class="version-info">最新版本: 24.0.4 | 位数: 64位</div>
+                            <a href="https://manjaro.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/linuxmint.png" alt="Linux Mint">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Linux Mint</h3>
+                            <p>基于Ubuntu的发行版，提供经典的桌面体验</p>
+                            <div class="version-info">最新版本: 21.2 | 位数: 64位</div>
+                            <a href="https://linuxmint.com/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/elementary.png" alt="Elementary OS">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Elementary OS</h3>
+                            <p>基于Ubuntu的发行版，注重美观和用户体验</p>
+                            <div class="version-info">最新版本: 7.0 | 位数: 64位</div>
+                            <a href="https://elementary.io/zh-cn/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/kali.png" alt="Kali Linux">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Kali Linux</h3>
+                            <p>基于Debian的发行版，专注于安全和渗透测试</p>
+                            <div class="version-info">最新版本: 2024.3 | 位数: 64位</div>
+                            <a href="https://www.kali.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/opensuse.png" alt="openSUSE">
+                        </div>
+                        <div class="resource-info">
+                            <h3>openSUSE</h3>
+                            <p>基于SUSE的发行版，提供稳定和创新的版本</p>
+                            <div class="version-info">最新版本: 15.5 | 位数: 64位</div>
+                            <a href="https://www.opensuse.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/pop_os.png" alt="Pop!_OS">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Pop!_OS</h3>
+                            <p>基于Ubuntu的发行版，专注于游戏和创作者</p>
+                            <div class="version-info">最新版本: 24.04 LTS | 位数: 64位</div>
+                            <a href="https://pop.system76.com/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/zorin.png" alt="Zorin OS">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Zorin OS</h3>
+                            <p>基于Ubuntu的发行版，提供类似Windows的界面</p>
+                            <div class="version-info">最新版本: 16.04 LTS | 位数: 64位</div>
+                            <a href="https://zorinos.com/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/linuxlite.png" alt="Linux Lite">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Linux Lite</h3>
+                            <p>基于Ubuntu的发行版，适合Windows用户过渡</p>
+                            <div class="version-info">最新版本: 6.0 | 位数: 64位</div>
+                            <a href="https://www.linuxliteos.com/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/peppermint.png" alt="Peppermint OS">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Peppermint OS</h3>
+                            <p>基于Ubuntu的发行版，轻量级，适合旧硬件</p>
+                            <div class="version-info">最新版本: 11 | 位数: 64位</div>
+                            <a href="https://peppermintos.com/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/void.png" alt="Void Linux">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Void Linux</h3>
+                            <p>独立开发的发行版，使用runit作为初始化系统</p>
+                            <div class="version-info">最新版本: 2024.01.02 | 位数: 64位</div>
+                            <a href="https://voidlinux.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/gentoo.png" alt="Gentoo">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Gentoo</h3>
+                            <p>源代码级别的发行版，高度可定制</p>
+                            <div class="version-info">最新版本: 2024.01.01 | 位数: 64位</div>
+                            <a href="https://www.gentoo.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>蓝天资源网创建于2018年，致力于为广大用户提供优质、安全、免费的系统镜像和软件资源下载服务。</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#system">系统镜像</a></li>
+                        <li><a href="#software">软件资源</a></li>
+                        <li><a href="#tools">工具插件</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <p>邮箱：ltzy@ltzy.top</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/17764753865/ltzy.github.io.git"><span>GitHub</span></a>
+                        <a href="#"><span>QQ</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2018-2025 蓝天资源网</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        document.getElementById('search-button').addEventListener('click', performSearch);
+
+        function performSearch() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            let foundResources = false;
+            
+            resourceCards.forEach(card => {
+                const resourceTitle = card.querySelector('h3').textContent.toLowerCase();
+                const resourceDesc = card.querySelector('p').textContent.toLowerCase();
+                const resourceVersion = card.querySelector('.version-info').textContent.toLowerCase();
+                
+                if (resourceTitle.includes(searchInput) || resourceDesc.includes(searchInput) || resourceVersion.includes(searchInput)) {
+                    card.style.display = 'block';
+                    foundResources = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            if (foundResources) {
+                const popularResourcesSection = document.querySelector('.linux-resources');
+                if (popularResourcesSection) {
+                    popularResourcesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
