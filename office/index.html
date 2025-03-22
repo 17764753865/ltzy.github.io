@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/png/tx.png" rel="icon">
+    <title>Office资源 - 蓝天资源网</title>
+    <style>
+        :root {
+            --primary-color: #1890ff;
+            --secondary-color: #0c7cd5;
+            --text-color: #333;
+            --light-text: #666;
+            --lighter-text: #888;
+            --bg-color: #f5f5f5;
+            --card-bg: #fff;
+            --footer-bg: #1a2a3a;
+            --border-color: #ddd;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 14px;
+            color: var(--lighter-text);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+            width: 300px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-box button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 主要内容区 */
+        .main-content {
+            padding: 30px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: var(--light-text);
+        }
+
+        /* Office资源 */
+        .office-resources {
+            padding: 20px 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-image {
+            height: 160px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .resource-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .resource-info {
+            padding: 15px;
+        }
+
+        .resource-info h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .resource-info p {
+            font-size: 13px;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+
+        .resource-info .version-info {
+            font-size: 12px;
+            color: var(--lighter-text);
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 14px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--footer-bg);
+            color: #fff;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            font-size: 14px;
+            color: #a0b5c8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #a0b5c8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: #a0b5c8;
+            font-size: 18px;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #2a3b4d;
+            color: #657786;
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>蓝天资源网</h1>
+                <p>优质资源，一键获取</p>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="搜索资源..." id="search-input">
+                <button id="search-button">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2 class="section-title">Office资源</h2>
+        <p class="section-subtitle">Office软件下载</p>
+        <div class="container">
+            <div class="office-resources">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/office2000.png" alt="Microsoft Office 2000">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Microsoft Office 2000</h3>
+                            <p>微软的办公软件套件，包含Word、Excel、PowerPoint等</p>
+                            <div class="version-info">版本: 9.0 | 发布时间: 1999年</div>
+                            <a href="https://www.microsoft.com/zh-cn/office" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/office2003.png" alt="Microsoft Office 2003">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Microsoft Office 2003</h3>
+                            <p>微软的办公软件套件，包含Word、Excel、PowerPoint等</p>
+                            <div class="version-info">版本: 11.0 | 发布时间: 2003年</div>
+                            <a href="https://www.microsoft.com/zh-cn/office" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/office2007.png" alt="Microsoft Office 2007">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Microsoft Office 2007</h3>
+                            <p>微软的办公软件套件，包含Word、Excel、PowerPoint等</p>
+                            <div class="version-info">版本: 12.0 | 发布时间: 2007年</div>
+                            <a href="https://www.microsoft.com/zh-cn/office" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/office2010.png" alt="Microsoft Office 2010">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Microsoft Office 2010</h3>
+                            <p>微软的办公软件套件，包含Word、Excel、PowerPoint等</p>
+                            <div class="version-info">版本: 14.0 | 发布时间: 2010年</div>
+                            <a href="https://www.microsoft.com/zh-cn/office" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/office2013.png" alt="Microsoft Office 2013">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Microsoft Office 2013</h3>
+                            <p>微软的办公软件套件，包含Word、Excel、PowerPoint等</p>
+                            <div class="version-info">版本: 15.0 | 发布时间: 2013年</div>
+                            <a href="https://www.microsoft.com/zh-cn/office" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/office2016.png" alt="Microsoft Office 2016">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Microsoft Office 2016</h3>
+                            <p>微软的办公软件套件，包含Word、Excel、PowerPoint等</p>
+                            <div class="version-info">版本: 16.0 | 发布时间: 2016年</div>
+                            <a href="https://www.microsoft.com/zh-cn/office" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/office2019.png" alt="Microsoft Office 2019">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Microsoft Office 2019</h3>
+                            <p>微软的办公软件套件，包含Word、Excel、PowerPoint等</p>
+                            <div class="version-info">版本: 16.0 | 发布时间: 2019年</div>
+                            <a href="https://www.microsoft.com/zh-cn/office" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/office2021.png" alt="Microsoft Office 2021">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Microsoft Office 2021</h3>
+                            <p>微软的办公软件套件，包含Word、Excel、PowerPoint等</p>
+                            <div class="version-info">版本: 16.0 | 发布时间: 2021年</div>
+                            <a href="https://www.microsoft.com/zh-cn/office" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/wps.png" alt="WPS Office">
+                        </div>
+                        <div class="resource-info">
+                            <h3>WPS Office</h3>
+                            <p>金山办公软件套件，包含文字、表格、演示等</p>
+                            <div class="version-info">最新版本: 11.8.2 | 位数: 32位/64位</div>
+                            <a href="https://www.wps.com/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/libreoffice.png" alt="LibreOffice">
+                        </div>
+                        <div class="resource-info">
+                            <h3>LibreOffice</h3>
+                            <p>免费开源的办公软件套件，包含Writer、Calc、Impress等</p>
+                            <div class="version-info">最新版本: 7.4.3 | 位数: 32位/64位</div>
+                            <a href="https://www.libreoffice.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/openoffice.png" alt="Apache OpenOffice">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Apache OpenOffice</h3>
+                            <p>免费开源的办公软件套件，包含Writer、Calc、Impress等</p>
+                            <div class="version-info">最新版本: 4.1.11 | 位数: 32位/64位</div>
+                            <a href="https://www.openoffice.org/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/png/google_workspace.png" alt="Google Workspace">
+                        </div>
+                        <div class="resource-info">
+                            <h3>Google Workspace</h3>
+                            <p>谷歌的云端办公软件套件，包含Docs、Sheets、Slides等</p>
+                            <div class="version-info">最新版本: 2023 | 位数: 64位</div>
+                            <a href="https://workspace.google.com/" class="btn" target="_blank">前往官网</a>
+                            <button class="btn">点击下载</button>
+                            <button class="btn">迅雷下载</button>
+                            <button class="btn">BT下载</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>蓝天资源网创建于2018年，致力于为广大用户提供优质、安全、免费的系统镜像和软件资源下载服务。</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#system">系统镜像</a></li>
+                        <li><a href="#software">软件资源</a></li>
+                        <li><a href="#tools">工具插件</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <p>邮箱：ltzy@ltzy.top</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/17764753865/ltzy.github.io.git"><span>GitHub</span></a>
+                        <a href="#"><span>QQ</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2018-2025 蓝天资源网</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        document.getElementById('search-button').addEventListener('click', performSearch);
+
+        function performSearch() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            let foundResources = false;
+            
+            resourceCards.forEach(card => {
+                const resourceTitle = card.querySelector('h3').textContent.toLowerCase();
+                const resourceDesc = card.querySelector('p').textContent.toLowerCase();
+                const resourceVersion = card.querySelector('.version-info').textContent.toLowerCase();
+                
+                if (resourceTitle.includes(searchInput) || resourceDesc.includes(searchInput) || resourceVersion.includes(searchInput)) {
+                    card.style.display = 'block';
+                    foundResources = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            if (foundResources) {
+                const popularResourcesSection = document.querySelector('.office-resources');
+                if (popularResourcesSection) {
+                    popularResourcesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
