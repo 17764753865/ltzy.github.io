@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/png/tx.png" rel="icon">
-    <title>蓝天资源网 - 优质资源下载平台</title>
+    <title>Android应用区 - 蓝天资源网</title>
     <style>
         :root {
             --primary-color: #1890ff;
@@ -106,83 +106,16 @@
             position: relative;
         }
 
-        /* 资源分类 */
-        .categories {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            gap: 20px;
-        }
-
-        .category {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+        .section-subtitle {
             text-align: center;
-            width: 180px;
-            cursor: pointer;
-        }
-
-        .category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .category-image {
-            height: 120px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .category-image img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
-        .category h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .category p {
-            font-size: 14px;
+            margin-bottom: 30px;
+            font-size: 16px;
             color: var(--light-text);
         }
 
-        .category-btn {
-            display: inline-block;
-            padding: 6px 14px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: var(--transition);
-            font-size: 13px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .category-btn:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* 热门资源 */
+        /* Android应用下载 */
         .popular-resources {
             padding: 20px 0;
-        }
-
-        .popular-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
         }
 
         .resources-grid {
@@ -202,6 +135,20 @@
         .resource-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-image {
+            height: 160px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .resource-image img {
+            max-width: 100%;
+            max-height: 100%;
         }
 
         .resource-info {
@@ -230,6 +177,8 @@
             font-size: 13px;
             border: none;
             cursor: pointer;
+            margin-right: 5px;
+            margin-bottom: 5px;
         }
 
         .btn:hover {
@@ -316,34 +265,12 @@
             .resources-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
-
-            .category {
-                width: 160px;
-            }
         }
 
         @media (max-width: 768px) {
             .resources-grid {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
-
-            .category {
-                width: 140px;
-                padding: 15px 20px;
-            }
-
-            .category-image {
-                height: 100px;
-            }
-
-            .category h3 {
-                font-size: 16px;
-            }
-
-            .category p {
-                font-size: 12px;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -358,130 +285,157 @@
                 <p>优质资源，一键获取</p>
             </div>
             <div class="search-box">
-                <input type="text" placeholder="搜索资源..." id="search-input">
+                <input type="text" placeholder="输入应用名称搜索" id="search-input">
                 <button id="search-button">搜索</button>
             </div>
         </div>
     </header>
 
     <main class="main-content">
-        <h2 class="section-title">资源分类</h2>
+        <h2 class="section-title">Android应用区</h2>
+        <p class="section-subtitle">Android应用下载</p>
+        
+        <!-- Android应用下载 -->
         <div class="container">
-            <div class="categories">
-                <div class="category" onclick="window.location.href='/windows'">
-                    <div class="category-image">
-                        <img src="/png/windows.png" alt="Windows系统">
-                    </div>
-                    <h3>Windows</h3>
-                    <p>各类Windows系统镜像资源</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category" onclick="window.location.href='/mac'">
-                    <div class="category-image">
-                        <img src="/png/mac.png" alt="Mac OS系统">
-                    </div>
-                    <h3>Mac OS</h3>
-                    <p>官方原版macOS系统镜像</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category" onclick="window.location.href='/linux'">
-                    <div class="category-image">
-                        <img src="/png/linux.png" alt="Linux系统">
-                    </div>
-                    <h3>Linux</h3>
-                    <p>多种Linux发行版系统镜像</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category" onclick="window.location.href='/office'">
-                    <div class="category-image">
-                        <img src="/png/office.png" alt="Office软件">
-                    </div>
-                    <h3>Office</h3>
-                    <p>Microsoft Office及WPS等办公软件</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category" onclick="window.location.href='/android'">
-                    <div class="category-image">
-                        <img src="/png/android.png" alt="安卓应用">
-                    </div>
-                    <h3>Android应用</h3>
-                    <p>各类安卓应用软件资源</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category" onclick="window.location.href='#tools-resources'">
-                    <div class="category-image">
-                        <img src="/png/tools.png" alt="编程工具">
-                    </div>
-                    <h3>编程工具</h3>
-                    <p>开发工具、IDE、插件等资源</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category" onclick="window.location.href='#design-resources'">
-                    <div class="category-image">
-                        <img src="/png/design.png" alt="设计软件">
-                    </div>
-                    <h3>设计软件</h3>
-                    <p>图像、UI、视频设计软件</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-
-                <div class="category" onclick="window.location.href='#game-resources'">
-                    <div class="category-image">
-                        <img src="/png/game.png" alt="游戏资源">
-                    </div>
-                    <h3>游戏资源</h3>
-                    <p>各类游戏及辅助工具资源</p>
-                    <button class="category-btn">查看更多</button>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="popular-title">热门资源</h2>
-        <div class="container">
+            <h2 class="popular-title">Android应用下载</h2>
             <div class="resources-grid">
                 <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/wechat.png" alt="微信">
+                    </div>
                     <div class="resource-info">
-                        <h3>Windows 10 64位</h3>
-                        <p>最新专业版系统镜像，包含所有重要更新和补丁</p>
-                        <button class="btn">查看详情</button>
+                        <h3>微信</h3>
+                        <p>流行的社交网络应用</p>
+                        <a href="https://weixin.qq.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
                     </div>
                 </div>
 
                 <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/alipay.png" alt="支付宝">
+                    </div>
                     <div class="resource-info">
-                        <h3>macOS Big Sur</h3>
-                        <p>官方原版系统镜像，适用于Mac电脑</p>
-                        <button class="btn">查看详情</button>
+                        <h3>支付宝</h3>
+                        <p>便捷的移动支付和财务管理应用</p>
+                        <a href="https://www.alipay.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
                     </div>
                 </div>
 
                 <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/douyin.png" alt="抖音">
+                    </div>
                     <div class="resource-info">
-                        <h3>Ubuntu 20.04 LTS</h3>
-                        <p>长期支持版本，稳定可靠</p>
-                        <button class="btn">查看详情</button>
+                        <h3>抖音</h3>
+                        <p>流行的短视频创作和分享平台</p>
+                        <a href="https://www.douyin.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
                     </div>
                 </div>
 
                 <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/baidu_map.png" alt="百度地图">
+                    </div>
                     <div class="resource-info">
-                        <h3>Microsoft Office 2019</h3>
-                        <p>专业增强版，包含全套办公软件</p>
-                        <button class="btn">查看详情</button>
+                        <h3>百度地图</h3>
+                        <p>精准的导航和定位服务应用</p>
+                        <a href="https://map.baidu.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
                     </div>
                 </div>
 
                 <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/wps.png" alt="WPS Office">
+                    </div>
                     <div class="resource-info">
                         <h3>WPS Office</h3>
-                        <p>专业版办公软件套装</p>
-                        <button class="btn">查看详情</button>
+                        <p>专业的办公软件套装</p>
+                        <a href="https://www.wps.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/taobao.png" alt="淘宝">
+                    </div>
+                    <div class="resource-info">
+                        <h3>淘宝</h3>
+                        <p>流行的网上购物平台</p>
+                        <a href="https://www.taobao.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/jd.png" alt="京东">
+                    </div>
+                    <div class="resource-info">
+                        <h3>京东</h3>
+                        <p>可靠的网上购物平台</p>
+                        <a href="https://www.jd.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/qq.png" alt="QQ">
+                    </div>
+                    <div class="resource-info">
+                        <h3>QQ</h3>
+                        <p>流行的即时通讯软件</p>
+                        <a href="https://im.qq.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/xunlei.png" alt="迅雷">
+                    </div>
+                    <div class="resource-info">
+                        <h3>迅雷</h3>
+                        <p>强大的下载工具</p>
+                        <a href="https://www.xunlei.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="/png/bilibili.png" alt="哔哩哔哩">
+                    </div>
+                    <div class="resource-info">
+                        <h3>哔哩哔哩</h3>
+                        <p>流行的视频分享平台</p>
+                        <a href="https://www.bilibili.com/" class="btn" target="_blank">前往官网</a>
+                        <button class="btn">点击下载</button>
+                        <button class="btn">迅雷下载</button>
+                        <button class="btn">BT下载</button>
                     </div>
                 </div>
             </div>
@@ -557,4 +511,4 @@
         }
     </script>
 </body>
-</html>
+</html>聊起
