@@ -27,9 +27,10 @@
 
         body {
             font-family: 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             color: var(--text-color);
             background-color: var(--bg-color);
+            padding: 20px;
         }
 
         .container {
@@ -38,7 +39,6 @@
             padding: 0 15px;
         }
 
-        /* 头部导航 */
         header {
             background-color: var(--card-bg);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -94,16 +94,14 @@
             background-color: var(--secondary-color);
         }
 
-        /* 主要内容区 */
         .main-content {
             padding: 30px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 28px;
-            position: relative;
+            margin-bottom: 50px;
+            font-size: 30px;
         }
 
         .section-subtitle {
@@ -113,7 +111,24 @@
             color: var(--light-text);
         }
 
-        /* Windows资源 */
+        .official-link {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .official-link:hover {
+            background-color: var(--secondary-color);
+        }
+
         .windows-resources {
             padding: 20px 0;
         }
@@ -126,15 +141,15 @@
 
         .resource-card {
             background-color: var(--card-bg);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: var(--transition), transform 0.3s ease;
         }
 
         .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
         }
 
         .resource-image {
@@ -152,46 +167,45 @@
         }
 
         .resource-info {
-            padding: 15px;
+            padding: 20px;
         }
 
         .resource-info h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
+            font-size: 18px;
+            margin-bottom: 12px;
         }
 
         .resource-info p {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--light-text);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .resource-info .version-info {
             font-size: 12px;
             color: var(--lighter-text);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .btn {
             display: inline-block;
-            padding: 6px 14px;
+            padding: 8px 16px;
             background-color: var(--primary-color);
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: var(--transition);
-            font-size: 13px;
+            font-size: 14px;
+            margin-right: 8px;
+            margin-bottom: 8px;
             border: none;
             cursor: pointer;
-            margin-right: 5px;
-            margin-bottom: 5px;
         }
 
         .btn:hover {
             background-color: var(--secondary-color);
         }
 
-        /* Windows服务器资源 */
         .windows-server-resources {
             padding: 40px 0;
         }
@@ -202,7 +216,6 @@
             font-size: 24px;
         }
 
-        /* 页脚 */
         footer {
             background-color: var(--footer-bg);
             color: #fff;
@@ -277,7 +290,6 @@
             font-size: 14px;
         }
 
-        /* 响应式设计 */
         @media (max-width: 992px) {
             .resources-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -312,6 +324,7 @@
     <main class="main-content">
         <h2 class="section-title">Windows资源</h2>
         <p class="section-subtitle">Windows系统镜像</p>
+        <a href="https://www.microsoft.com/zh-cn/software-download/windows" class="official-link">Windows系统官网</a>
         <div class="container">
             <div class="windows-resources">
                 <div class="resources-grid">
@@ -323,10 +336,10 @@
                             <h3>Windows 1.0</h3>
                             <p>微软发布的首个Windows版本</p>
                             <div class="version-info">最新版本: 1.01 | 位数: 16位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -338,10 +351,10 @@
                             <h3>Windows 2.0</h3>
                             <p>微软发布的第二个主要Windows版本</p>
                             <div class="version-info">最新版本: 2.03 | 位数: 16位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -353,10 +366,10 @@
                             <h3>Windows 3.1</h3>
                             <p>首个广受欢迎的Windows版本</p>
                             <div class="version-info">最新版本: 3.1 | 位数: 16位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -368,10 +381,10 @@
                             <h3>Windows 95</h3>
                             <p>革命性的用户界面和32位架构</p>
                             <div class="version-info">最新版本: 4.0 | 位数: 32位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -383,10 +396,10 @@
                             <h3>Windows 98</h3>
                             <p>整合了Internet Explorer的版本</p>
                             <div class="version-info">最新版本: 4.10 | 位数: 32位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -398,10 +411,10 @@
                             <h3>Windows 2000</h3>
                             <p>首个基于NT内核的消费级Windows版本</p>
                             <div class="version-info">最新版本: 5.0 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -413,10 +426,10 @@
                             <h3>Windows XP</h3>
                             <p>历史上最成功的Windows版本之一</p>
                             <div class="version-info">最新版本: 5.1 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -428,10 +441,10 @@
                             <h3>Windows Vista</h3>
                             <p>引入Aero界面和用户账户控制</p>
                             <div class="version-info">最新版本: 6.0 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -443,10 +456,10 @@
                             <h3>Windows 7</h3>
                             <p>广受好评的用户界面和性能优化</p>
                             <div class="version-info">最新版本: 6.1 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -458,10 +471,10 @@
                             <h3>Windows 8</h3>
                             <p>引入现代UI和触控优化</p>
                             <div class="version-info">最新版本: 6.2 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -473,10 +486,10 @@
                             <h3>Windows 8.1</h3>
                             <p>对Windows 8的改进版本</p>
                             <div class="version-info">最新版本: 6.3 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -488,10 +501,10 @@
                             <h3>Windows 10</h3>
                             <p>微软目前主流的消费级操作系统</p>
                             <div class="version-info">最新版本: 22H2 Build 19045.5674 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -503,10 +516,10 @@
                             <h3>Windows 11</h3>
                             <p>最新的Windows消费级操作系统</p>
                             <div class="version-info">最新版本: 24H2 Build 26120.3281 | 位数: 64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
                 </div>
@@ -525,10 +538,10 @@
                             <h3>Windows Server 2000</h3>
                             <p>微软早期的服务器操作系统</p>
                             <div class="version-info">最新版本: 5.0 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -540,10 +553,10 @@
                             <h3>Windows Server 2003</h3>
                             <p>广泛应用于企业环境的服务器系统</p>
                             <div class="version-info">最新版本: 5.2 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -555,10 +568,10 @@
                             <h3>Windows Server 2008</h3>
                             <p>引入了Hyper-V虚拟化技术</p>
                             <div class="version-info">最新版本: 6.0 | 位数: 32位/64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -570,10 +583,10 @@
                             <h3>Windows Server 2012</h3>
                             <p>大幅改进的服务器管理和虚拟化功能</p>
                             <div class="version-info">最新版本: 6.2 | 位数: 64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -585,10 +598,10 @@
                             <h3>Windows Server 2016</h3>
                             <p>云计算和容器技术的支持</p>
                             <div class="version-info">最新版本: 14393.7876 | 位数: 64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -600,10 +613,10 @@
                             <h3>Windows Server 2019</h3>
                             <p>混合云和超融合基础架构优化</p>
                             <div class="version-info">最新版本: 17763.7009 | 位数: 64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -615,10 +628,10 @@
                             <h3>Windows Server 2022</h3>
                             <p>最新的企业级服务器操作系统</p>
                             <div class="version-info">最新版本: 20348.3328 | 位数: 64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
 
@@ -630,10 +643,10 @@
                             <h3>Windows Server 2025</h3>
                             <p>最新的服务器操作系统，引入了高级多层安全性、OpenSSH默认安装、Hyper-V可伸缩性改进等新功能</p>
                             <div class="version-info">最新版本: 26100.3476 | 位数: 64位</div>
-                            <button class="btn">点我下载</button>
-                            <button class="btn">百度网盘</button>
-                            <button class="btn">阿里云盘</button>
-                            <button class="btn">腾讯微云</button>
+                            <a href="#" class="btn">直链下载</a>
+                            <a href="#" class="btn">迅雷下载</a>
+                            <a href="#" class="btn">迅雷ED2K</a>
+                            <a href="#" class="btn">BT种子</a>
                         </div>
                     </div>
                 </div>
